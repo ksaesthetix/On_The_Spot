@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Network - On The Spot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>On The Spot</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="network.html" class="active">Network</a>
+            <a href="map.html">Map</a>
+            <div class="profile-dropdown">
+                <button class="profile-icon-btn" aria-label="Profile Menu">
+                    <img src="avatar.png" alt="Profile" class="profile-icon" />
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile.html">My Profile</a>
+                    <a href="login.html">Sign In</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="network-section">
+            <h2>Network</h2>
+            <ul class="user-list">
+                <li>
+                    <img src="avatar1.png" alt="Alice Vendor" class="user-avatar" />
+                    <span class="user-name">Alice Vendor</span>
+                    <span class="user-tag vendor">Vendor</span>
+                    <div class="user-actions">
+                        <a href="profile.html?user=alice" class="user-btn view-profile" title="View Profile">Profile</a>
+                        <button class="user-btn chat-btn" title="Chat">Chat</button>
+                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="avatar2.png" alt="Bob Attendee" class="user-avatar" />
+                    <span class="user-name">Bob Attendee</span>
+                    <span class="user-tag attendee">Attendee</span>
+                    <div class="user-actions">
+                        <a href="profile.html?user=bob" class="user-btn view-profile" title="View Profile">Profile</a>
+                        <button class="user-btn chat-btn" title="Chat">Chat</button>
+                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="avatar3.png" alt="Carol Vendor" class="user-avatar" />
+                    <span class="user-name">Carol Vendor</span>
+                    <span class="user-tag vendor">Vendor</span>
+                    <div class="user-actions">
+                        <a href="profile.html?user=carol" class="user-btn view-profile" title="View Profile">Profile</a>
+                        <button class="user-btn chat-btn" title="Chat">Chat</button>
+                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="avatar4.png" alt="David Attendee" class="user-avatar" />
+                    <span class="user-name">David Attendee</span>
+                    <span class="user-tag attendee">Attendee</span>
+                    <div class="user-actions">
+                        <a href="profile.html?user=david" class="user-btn view-profile" title="View Profile">Profile</a>
+                        <button class="user-btn chat-btn" title="Chat">Chat</button>
+                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
+                    </div>
+                </li>
+                <!-- Add more users as needed -->
+            </ul>
+        </section>
+                <!-- Chat Popup -->
+        <div id="chat-popup" class="chat-popup">
+            <div class="chat-header">
+                <span id="chat-user">Chat</span>
+                <button id="close-chat" title="Close">&times;</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-message other"></div>
+            </div>
+            <form id="chat-form" class="chat-form" enctype="multipart/form-data">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required />
+                <label for="chat-image" class="chat-image-label" title="Send a picture">
+                    <input type="file" id="chat-image" accept="image/*" style="display:none;" />
+                    <span class="chat-image-btn">📷</span>
+                </label>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <button id="open-chat" class="open-chat-btn">💬 Chat</button>
+    </main>
+    <footer>
+        <p>&copy; 2025 On The Spot. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

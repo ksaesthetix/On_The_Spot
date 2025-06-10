@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My Profile - On The Spot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>On The Spot</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="network.html">Network</a>
+            <a href="map.html">Map</a>
+            <div class="profile-dropdown">
+                <button class="profile-icon-btn" aria-label="Profile Menu">
+                    <img src="avatar.png" alt="Profile" class="profile-icon" />
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile.html"class="active">My Profile</a>
+                    <a href="login.html">Sign In</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="profile-section">
+            <div class="profile-header">
+                <img src="avatar.png" alt="Profile Picture" class="profile-avatar" />
+                <div>
+                    <h2>Your Name</h2>
+                    <p>@yourusername</p>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button>Edit Profile</button>
+            </div>
+        </section>
+
+        <section class="connections-section">
+            <h3>Connections</h3>
+            <ul class="connections-list">
+                <li>
+                    <img src="avatar1.png" alt="User 1" class="connection-avatar" />
+                    <span>User 1</span>
+                </li>
+                <li>
+                    <img src="avatar2.png" alt="User 2" class="connection-avatar" />
+                    <span>User 2</span>
+                </li>
+                <!-- More connections -->
+            </ul>
+        </section>
+
+        <section class="posts-section">
+            <h3>Your Posts</h3>
+            <form class="post-form">
+                <textarea placeholder="Share an update, photo, or video..." rows="3"></textarea>
+                <div class="post-form-actions">
+                    <input type="file" id="media-upload" />
+                    <button type="submit">Post</button>
+                </div>
+            </form>
+            <div class="user-posts">
+                <div class="post">
+                    <p>Excited for the keynote session!</p>
+                    <span class="post-time">2 hours ago</span>
+                </div>
+                <!-- More posts -->
+            </div>
+        </section>
+
+        <section class="itinerary-section">
+            <h3>My Itinerary</h3>
+            <form class="itinerary-form">
+                <label for="vendor-select">Add Vendor/Event:</label>
+                <select id="vendor-select">
+                    <option>Vendor A</option>
+                    <option>Vendor B</option>
+                    <option>Event X</option>
+                    <!-- More vendors/events -->
+                </select>
+                <button type="submit">Add to Itinerary</button>
+            </form>
+            <ul class="itinerary-list">
+                <li>Vendor A - 10:00 AM</li>
+                <li>Event X - 1:00 PM</li>
+                <!-- More itinerary items -->
+            </ul>
+        </section>
+                <!-- Chat Popup -->
+        <div id="chat-popup" class="chat-popup">
+            <div class="chat-header">
+                <span id="chat-user">Chat</span>
+                <button id="close-chat" title="Close">&times;</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-message other"></div>
+            </div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required />
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <button id="open-chat" class="open-chat-btn">💬 Chat</button>
+    </main>
+    <footer>
+        <p>&copy; 2025 On The Spot. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
