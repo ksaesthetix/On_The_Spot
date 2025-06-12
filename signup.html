@@ -5,17 +5,18 @@
     <title>Sign Up - On The Spot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>On The Spot</h1>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index.html" >Home</a>
             <a href="network.html">Network</a>
             <a href="map.html">Map</a>
             <div class="profile-dropdown">
                 <button class="profile-icon-btn" aria-label="Profile Menu">
-                    <img src="avatar.png" alt="Profile" class="profile-icon" />
+                    <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
                 </button>
                 <div class="dropdown-content">
                     <a href="profile.html">My Profile</a>
@@ -61,11 +62,12 @@
                 <button type="submit">Send</button>
             </form>
         </div>
-        <button id="open-chat" class="open-chat-btn">💬 Chat</button>
+        <button id="open-chat" class="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
     </main>
     <footer>
         <p>&copy; 2025 On The Spot. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>    
+    <script src="dropdown.js"></script>
+    <script src="chat.js"></script>
 </body>
 </html>

@@ -16,16 +16,16 @@
             <a href="index.html" class="active">Home</a>
             <a href="network.html">Network</a>
             <a href="map.html">Map</a>
-            <div class="profile-dropdown">
-                <button class="profile-icon-btn" aria-label="Profile Menu">
-                    <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="profile.html">My Profile</a>
-                    <a href="login.html">Sign In</a>
-                    <a href="signup.html">Sign Up</a>
-                </div>
+        <div class="profile-dropdown">
+            <button class="profile-icon-btn" aria-label="Profile Menu">
+                <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="profile.html">My Profile</a>
+                <a href="login.html">Sign In</a>
+                <a href="signup.html">Sign Up</a>
             </div>
+        </div>
         </nav>
     </header>
     <main>
@@ -35,13 +35,6 @@
                 Discover vendors, events, and fellow attendees on the interactive map.<br>
                 Share your experience with posts, photos, and videos.
             </p>
-        </section>
-        <section id="map-section">
-            <h3>Live Conference Map</h3>
-            <div id="map" style="height: 400px; width: 100%; background: #eee;">
-                <!-- Map integration goes here -->
-                <p>Loading map...</p>
-            </div>
         </section>
         <section id="feed-section">
             <h3>Event Feed</h3>
@@ -69,6 +62,7 @@
     <footer>
         <p>&copy; 2025 On The Spot. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script src="dropdown.js"></script>
+    <script src="chat.js"></script>
 </body>
 </html>

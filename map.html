@@ -5,18 +5,9 @@
     <title>Conference Map - On The Spot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 900px;
-            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -24,10 +15,10 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="network.html">Network</a>
-            <a href="map.html" class="active">Map</a>
+            <a href="map.html"class="active">Map</a>
             <div class="profile-dropdown">
                 <button class="profile-icon-btn" aria-label="Profile Menu">
-                    <img src="avatar.png" alt="Profile" class="profile-icon" />
+                    <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
                 </button>
                 <div class="dropdown-content">
                     <a href="profile.html">My Profile</a>
@@ -38,8 +29,12 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h2 style="text-align:center;">Conference Map</h2>
+        <section id="map-section">
+        </br>
+            <div id="vendor-search-container" style="text-align:center; margin-bottom:1rem;">
+                <input type="text" id="vendor-search" placeholder="Search for a vendor or event..." style="width: 60%; padding: 0.5rem; border-radius: 8px; border: 1.5px solid #b3c6e0;">
+                <button id="vendor-search-btn" style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: #2d3e50; color: #fff; margin-left: 0.5rem;">Search</button>
+            </div>
             <div id="map"></div>
         </section>
                 <!-- Chat Popup -->
@@ -56,13 +51,15 @@
                 <button type="submit">Send</button>
             </form>
         </div>
-        <button id="open-chat" class="open-chat-btn">💬 Chat</button>
+        <button id="open-chat" class="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
     </main>
     <footer>
         <p>&copy; 2025 On The Spot. All rights reserved.</p>
     </footer>
     <!-- Leaflet JS -->
+    <script src="dropdown.js"></script>
+    <script src="map.js"></script>
+    <script src="chat.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="scripts.js"></script>
 </body>
 </html>
