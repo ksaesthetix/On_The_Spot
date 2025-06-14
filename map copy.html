@@ -33,13 +33,24 @@
         <div id="trial-timer" style="margin:1rem 0; color:var(--color-primary); font-weight:bold;"></div>
     </header>
     <main>
-        <section id="map-section">
+         <section id="map-section">
         </br>
             <div id="vendor-search-container" style="text-align:center; margin-bottom:1rem;">
                 <input type="text" id="vendor-search" placeholder="Search for a vendor or event..." style="width: 60%; padding: 0.5rem; border-radius: 8px; border: 1.5px solid #b3c6e0;">
                 <button id="vendor-search-btn" style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: #2d3e50; color: #fff; margin-left: 0.5rem;">Search</button>
             </div>
-            <div id="map"></div>
+            <div id="map-container" style="width:100%;max-width:1200px;margin:0 auto;">
+                <iframe
+                    id="google-map"
+                    width="100%"
+                    height="500"
+                    style="border:0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAb-Oe6BeLB9r3-mCPVfYaDc6mH4zclzB4&q=Las+Vegas,NV">
+                </iframe>
+            </div>
         </section>
                 <!-- Chat Popup -->
         <div id="chat-popup" class="chat-popup">

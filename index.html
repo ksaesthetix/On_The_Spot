@@ -11,22 +11,25 @@
 </head>
 <body>
     <header>
-        <h1>On The Spot</h1>
+        <div class="header-brand">
+            <img src="./images/On_The_Spot_logo2.png" alt="On The Spot Logo" class="header-logo" />
+        </div>
         <nav>
             <a href="index.html" class="active">Home</a>
             <a href="network.html">Network</a>
             <a href="map.html">Map</a>
-        <div class="profile-dropdown">
-            <button class="profile-icon-btn" aria-label="Profile Menu">
-                <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="profile.html">My Profile</a>
-                <a href="login.html">Sign In</a>
-                <a href="signup.html">Sign Up</a>
+            <div class="profile-dropdown">
+                <button class="profile-icon-btn" aria-label="Profile Menu">
+                    <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile.html">My Profile</a>
+                    <a href="login.html">Sign In</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
             </div>
-        </div>
         </nav>
+        <div id="trial-timer" style="margin:1rem 0; color:var(--color-primary); font-weight:bold;"></div>
     </header>
     <main>
         <section id="hero">

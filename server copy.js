@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 const allowedOrigins = [
-  'https://ksaesthetix.github.io',
-  'https://ideal-adventure-gpx467pq6v6f94p6-5500.app.github.dev'
+  'https://ksaesthetix.github.io'
+  //'https://ideal-adventure-gpx467pq6v6f94p6-5500.app.github.dev'
 ];
 
 app.use(cors({
@@ -112,7 +112,6 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
         if (!user) return res.status(404).json({ message: "User not found." });
-        user.hasPaid = true;
         res.json(user);
     } catch (err) {
         res.status(500).json({ message: "Server error." });

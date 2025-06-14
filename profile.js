@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(profile => {
                 user = profile;
                 renderProfile(user, users, false);
+                updateTrialTimer(user.trialEndsAt);
             });
         }
         if (user) {
@@ -75,5 +76,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).join('') || '<li>No connections yet.</li>';
             }
         }
+    }
+
+    function updateTrialTimer(trialEndsAt) {
+        const timerDiv = document.getElementById('trial-timer');
+        if (!trialEndsAt || !timerDiv) return;
+
+        function render() {
+            const now = new Date();
+            const end = new Date(trialEndsAt);
+            const diff = end - now;
+            if (diff <= 0) {
+                timerDiv.textContent = "Your free trial has ended.";
+                clearInterval(interval);
+                return;
+            }
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            timerDiv.textContent = `Trial time left: ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        render();
+        const interval = setInterval(render, 1000);
     }
 });
