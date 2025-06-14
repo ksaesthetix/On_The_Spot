@@ -2,7 +2,7 @@
 let posts = [];
 
 function fetchPosts() {
-    fetch('/api/posts')
+    fetch('https://on-the-spot.onrender.com/api/posts')
         .then(res => res.json())
         .then(data => {
             posts = data;
@@ -29,7 +29,7 @@ document.getElementById('post-form').addEventListener('submit', function(e) {
         formData.append('media', mediaInput.files[0]);
     }
 
-    fetch('/api/posts', {
+    fetch('https://on-the-spot.onrender.com/api/posts', {
         method: 'POST',
         body: formData
     })
