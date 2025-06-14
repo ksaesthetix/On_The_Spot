@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Conference Map - On The Spot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="./images/On_The_Spot_logo2.png" alt="On The Spot Logo" class="header-logo" />
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="network.html">Network</a>
+            <a href="map.html"class="active">Map</a>
+            <div class="profile-dropdown">
+                <button class="profile-icon-btn" aria-label="Profile Menu">
+                    <i class="fa-solid fa-user-circle profile-icon" style="font-size: 32px; color: #2d3e50;"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile.html">My Profile</a>
+                    <a href="login.html">Sign In</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+        <div id="trial-timer" style="margin:1rem 0; color:var(--color-primary); font-weight:bold;"></div>
+    </header>
+    <main>
+         <section id="map-section">
+        </br>
+            <div id="vendor-search-container" style="text-align:center; margin-bottom:1rem;">
+                <input type="text" id="vendor-search" placeholder="Search for a vendor or event..." style="width: 60%; padding: 0.5rem; border-radius: 8px; border: 1.5px solid #b3c6e0;">
+                <button id="vendor-search-btn" style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: #2d3e50; color: #fff; margin-left: 0.5rem;">Search</button>
+            </div>
+            <div id="map-container" style="width:100%;max-width:1200px;margin:0 auto;">
+                <iframe
+                    id="google-map"
+                    width="100%"
+                    height="500"
+                    style="border:0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAb-Oe6BeLB9r3-mCPVfYaDc6mH4zclzB4&q=Las+Vegas,NV">
+                </iframe>
+            </div>
+        </section>
+                <!-- Chat Popup -->
+        <div id="chat-popup" class="chat-popup">
+            <div class="chat-header">
+                <span id="chat-user">Chat</span>
+                <button id="close-chat" title="Close">&times;</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-message other"></div>
+            </div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" required />
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <button id="open-chat" class="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
+    </main>
+    <footer>
+        <p>&copy; 2025 On The Spot. All rights reserved.</p>
+    </footer>
+    <!-- Leaflet JS -->
+    <script src="dropdown.js"></script>
+    <script src="map.js"></script>
+    <script src="chat.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+</body>
+</html>

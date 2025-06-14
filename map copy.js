@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(user => {
         const now = new Date();
         const trialEndsAt = user.trialEndsAt ? new Date(user.trialEndsAt) : null;
-        if (!user.hasPaid && (!trialEndsAt || trialEndsAt < now)) {
-            window.location.href = 'paywall.html';
-        } else {
-            updateTrialTimer(user.trialEndsAt);
-            // Place any additional page logic here if needed
-        }
+        //if (!user.hasPaid && (!trialEndsAt || trialEndsAt < now)) {
+        //    window.location.href = 'paywall.html';
+        //} else {
+          //  updateTrialTimer(user.trialEndsAt);
+            // ...rest of your page logic here...
+        //}
     })
     .catch(() => {
         window.location.href = 'login.html';
