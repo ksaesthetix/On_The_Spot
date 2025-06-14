@@ -1034,134 +1034,169 @@ main, #map-section {
     transform: scale(1.07);
 }
 
-@media (max-width: 600px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-    .profile-dropdown {
-        margin-top: 0.5rem;
-    }
-    .user-actions {
-        flex-direction: column;
-        gap: 0.3rem;
-        margin-left: 0;
-        margin-top: 0.5rem;
-    }
-    .user-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .chat-popup {
-        right: 5px;
-        bottom: 70px;
-        width: 98vw;
-        border-radius: 12px;
-    }
-    .open-chat-btn {
-        right: 5px;
-        bottom: 15px;
-    }
-    .chat-header {
-        font-size: 1rem;
-        padding: 0.7rem 0.7rem;
-    }
-    .chat-messages {
-        padding: 0.7rem 0.5rem 0.7rem 0.5rem;
-        height: 160px;
-    }
-    .chat-form {
-        padding: 0.5rem 0.3rem 0.5rem 0.3rem;
-    }
-}
-
-@media (max-width: 700px) {
+/* Responsive adjustments for map, forms, and feed */
+@media (max-width: 900px) {
     #map {
         height: 320px;
         max-width: 98vw;
         margin: 1rem auto;
     }
+    #feed-section,
+    .posts-section,
+    .connections-section,
+    .network-section,
+    .profile-section,
+    .itinerary-section {
+        max-width: 98vw;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 700px) {
+    #map {
+        height: 220px;
+        min-width: 0;
+    }
+    #feed-section,
+    .posts-section,
+    .connections-section,
+    .network-section,
+    .profile-section,
+    .itinerary-section {
+        max-width: 100vw;
+        padding: 0.5rem;
+    }
+    #vendor-search {
+        width: 90%;
+        min-width: 0;
+        max-width: 100vw;
+    }
+    #vendor-search-container {
+        width: 100vw;
+    }
+    #journey-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+        width: 100%;
+    }
+    #journey-controls label,
+    #journey-controls select,
+    #journey-controls input,
+    #journey-controls button {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    #journey-controls-outer {
+        width: 100vw;
+    }
 }
 
 @media (max-width: 500px) {
-    .chat-form {
-        flex-direction: column;
-        align-items: stretch;
+    header h1 {
+        font-size: 1.3rem;
+    }
+    #feed-section h3,
+    #map-section h3,
+    .posts-section h3,
+    .connections-section h3,
+    .network-section h2 {
+        font-size: 1.1rem;
+    }
+    #feed-section,
+    .posts-section,
+    .connections-section,
+    .network-section,
+    .profile-section,
+    .itinerary-section {
+        padding: 0.2rem;
+    }
+    #post-content,
+    #vendor-search,
+    #location-a,
+    #location-b {
+        font-size: 0.98rem;
+        padding: 0.4rem;
+    }
+    .feed-post {
+        padding: 0.7rem;
+    }
+    #journey-controls {
         gap: 0.5rem;
-        padding: 0.5rem 0.3rem 0.5rem 0.3rem;
     }
-    #chat-input {
-        margin-right: 0;
+    #journey-controls label span {
+        font-size: 0.97rem;
     }
-    .chat-form button[type="submit"] {
-        margin-left: 0;
+    #journey-go-btn {
+        font-size: 1rem;
+        padding: 0.4rem 1rem;
+    }
+    #vendor-search-btn {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .feed-media,
+    .feed-media video {
+        max-width: 98vw;
     }
 }
 
-#vendor-search-container {
-    text-align: center;
-    margin-bottom: 1rem;
-    width: 100vw;
-}
-
-#vendor-search {
-    width: 60%;
-    padding: 0.5rem;
+/* Make sure images and videos in posts are always responsive */
+.feed-media,
+.feed-media video {
+    width: 100%;
+    height: auto;
+    max-width: 100vw;
     border-radius: 8px;
-    border: 1.5px solid var(--border-light);
-    font-size: 1rem;
-    box-sizing: border-box;
-    max-width: 500px;
+    display: block;
+    margin: 0.5rem 0 0 0;
 }
 
+/* Ensure forms and buttons are touch-friendly */
+#post-form button,
+#journey-go-btn,
 #vendor-search-btn {
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: none;
-    background: var(--color-dark);
-    color: var(--color-light);
-    margin-left: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
     font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
 }
 
-#vendor-search-btn:hover, #vendor-search-btn:focus {
-    background: var(--color-muted);
-    color: var(--color-dark);
+/* Make popups and dropdowns fit small screens */
+.leaflet-popup-content-wrapper {
+    font-size: 0.98rem;
+    max-width: 90vw;
+    word-break: break-word;
+}
+.dropdown-content {
+    min-width: 120px;
+    font-size: 0.98rem;
 }
 
-/* Enhance file input label/button */
-.media-upload-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4em;
-    background: var(--color-light);
-    color: var(--color-dark);
-    border-radius: 6px;
-    padding: 0.4rem 1rem;
-    border: 1.5px solid var(--border-light);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: border 0.2s, background 0.2s;
-    font-weight: 500;
+/* Ensure nav and header are scrollable and not clipped */
+@media (max-width: 500px) {
+    nav {
+        overflow-x: auto;
+        font-size: 0.98rem;
+    }
+    header {
+        padding: 1rem 0 0.7rem 0;
+    }
 }
 
-.media-upload-label:hover {
-    border-color: var(--color-muted);
-    background: var(--color-light)be6;
-    color: var(--color-dark);
-}
-
-.media-upload {
-    display: none;
-}
-
-/* Optional: Add a little spacing between posts */
-.user-posts .post + .post {
-    margin-top: 1rem;
+/* Optional: Hide non-essential elements or shrink padding on very small screens */
+@media (max-width: 400px) {
+    #feed-section,
+    .posts-section,
+    .connections-section,
+    .network-section,
+    .profile-section,
+    .itinerary-section {
+        padding: 0.1rem;
+    }
+    .feed-post {
+        padding: 0.4rem;
+    }
 }
 
 /* Paywall Section */
