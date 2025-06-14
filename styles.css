@@ -1,4 +1,27 @@
-/* Reset some defaults */
+/* Color Palette */
+:root {
+  --color-primary: #FF5E5B;
+  --color-dark: #2E2E2E;
+  --color-light: #FAF9F8;
+  --color-muted: #FCA5A5;
+  --color-accent: #4BC6B9;
+
+  --text-primary: #1A1A1A;
+  --text-secondary: #4F4F4F;
+  --text-disabled: #999999;
+
+  --button-hover: #FCA5A5;
+  --button-active: #E24A48;
+  --button-disabled: #FFD1D1;
+
+  --border-light: #EDEDED;
+  --border-dark: #B3B3B3;
+
+  --shadow-soft: 0 2px 8px rgba(255, 94, 91, 0.05);
+  --shadow-medium: 0 4px 16px rgba(46, 46, 46, 0.10);
+}
+
+/* Reset */
 body, html, h1, h2, h3, p, nav, section, footer {
     margin: 0;
     padding: 0;
@@ -7,14 +30,13 @@ body, html, h1, h2, h3, p, nav, section, footer {
 
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+    background: var(--color-light);
 }
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f7f8fa;
-    color: #222;
+    background: var(--color-light);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,49 +44,56 @@ body {
 
 main {
     flex: 1 0 auto;
-    min-height: 300px; /* or whatever fits your design */
-    padding-bottom: 1rem; /* reduce if needed */
+    min-height: 300px;
+    padding-bottom: 1rem;
+    background: var(--color-light);
 }
 
 footer {
     margin-top: auto;
+    background: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-soft);
 }
 
 header {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     padding: 1.5rem 0 1rem 0;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-soft);
 }
 
 header h1 {
     margin-bottom: 0.5rem;
     font-size: 2.2rem;
     letter-spacing: 2px;
+    color: var(--color-primary);
 }
 
 nav {
     margin-top: 0.5rem;
+    background: var(--color-dark);
+    box-shadow: var(--shadow-soft);
 }
 
 nav a {
-    color: #fff;
+    color: var(--color-light);
     text-decoration: none;
     margin: 0 1.2rem;
     font-weight: 500;
     transition: color 0.2s;
 }
-
 nav a:hover {
-    color: #ffd700;
+    color: var(--color-primary);
 }
-
 nav a.active {
-    color: #ffd700;
-    border-bottom: 2.5px solid #ffd700;
-    padding-bottom: 2px;
-    font-weight: 700;
+    color: var(--color-primary);
+    border-bottom: 2.5px solid var(--color-primary);
 }
 
 main, #map-section {
@@ -76,21 +105,22 @@ main, #map-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: var(--color-light);
 }
 
 #hero {
-    background: #eaf6ff;
+    background: var(--color-light);
     border-radius: 10px;
     padding: 2rem 1.5rem;
     margin-bottom: 2rem;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: var(--shadow-soft);
 }
 
 #hero h2 {
     font-size: 1.8rem;
     margin-bottom: 0.7rem;
-    color: #2d3e50;
+    color: var(--color-dark);
 }
 
 #map {
@@ -100,15 +130,14 @@ main, #map-section {
     height: 500px;
     border-radius: 10px;
     margin: 2rem 0;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-    border: 2px solid #b3c6e0;
-    background: #eaf6ff;
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--border-light);
+    background: var(--color-light);
 }
 
-/* Optional: Style for map section heading */
 .map-section h2,
 .map-section h3 {
-    color: #2d3e50;
+    color: var(--color-dark);
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -117,184 +146,123 @@ main, #map-section {
 #feed-section h3 {
     font-size: 1.3rem;
     margin-bottom: 0.7rem;
-    color: #2d3e50;
+    color: var(--color-dark);
 }
 
 .leaflet-popup-content-wrapper {
     border-radius: 8px;
-    background: #fff;
-    color: #2d3e50;
+    background: var(--color-light);
+    color: var(--color-dark);
     font-size: 1rem;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+    box-shadow: var(--shadow-soft);
 }
 
 .leaflet-popup-tip {
-    background: #fff;
+    background: var(--color-light);
 }
 
 #feed {
-    background: #fff;
+    background: var(--color-light);
     border-radius: 8px;
     min-height: 120px;
     padding: 1.2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    color: #444;
+    box-shadow: var(--shadow-soft);
+    color: var(--text-secondary);
 }
 
-footer {
-    background: #2d3e50;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 1rem;
-    margin-top: 2rem;
-    letter-spacing: 1px;
-}
-
-/* Signup Section */
-.signup-section {
-    background: #fff;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: 2.5rem auto;
-    padding: 2rem 2rem 1.5rem 2rem;
-    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
-    text-align: center;
-}
-
-.signup-section h2 {
-    color: #2d3e50;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.signup-form label {
-    text-align: left;
-    font-weight: 500;
-    color: #2d3e50;
-    margin-bottom: 0.2rem;
-}
-
-.signup-form input {
-    padding: 0.7rem;
-    border: 1.5px solid #b3c6e0;
-    border-radius: 6px;
-    font-size: 1rem;
-    background: #f7f8fa;
-    transition: border 0.2s;
-}
-
-.signup-form input:focus {
-    border-color: #2d3e50;
-    outline: none;
-    background: #eaf6ff;
-}
-
-.signup-form button {
-    margin-top: 0.5rem;
-    padding: 0.8rem;
-    background: #2d3e50;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.signup-form button:hover {
-    background: #1a2533;
-}
-
-.form-footer {
-    margin-top: 1.2rem;
-    font-size: 1rem;
-    color: #444;
-}
-
-.form-footer a {
-    color: #2d3e50;
-    text-decoration: underline;
-    font-weight: 500;
-}
-
-/* Login Section */
+/* Signup & Login Section */
+.signup-section,
 .login-section {
-    background: #fff;
+    background: var(--color-light);
     border-radius: 10px;
     max-width: 400px;
     margin: 2.5rem auto;
     padding: 2rem 2rem 1.5rem 2rem;
-    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+    box-shadow: var(--shadow-medium);
     text-align: center;
 }
 
+.signup-section h2,
 .login-section h2 {
-    color: #2d3e50;
+    color: var(--color-dark);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
 
+.signup-form,
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
+.signup-form label,
 .login-form label {
     text-align: left;
     font-weight: 500;
-    color: #2d3e50;
+    color: var(--color-dark);
     margin-bottom: 0.2rem;
 }
 
+.signup-form input,
 .login-form input {
     padding: 0.7rem;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
     border-radius: 6px;
     font-size: 1rem;
-    background: #f7f8fa;
+    background: var(--color-light);
     transition: border 0.2s;
+    color: var(--text-primary);
 }
 
+.signup-form input:focus,
 .login-form input:focus {
-    border-color: #2d3e50;
+    border-color: var(--color-primary);
     outline: none;
-    background: #eaf6ff;
+    background: var(--color-light);
 }
 
+.signup-form button,
 .login-form button {
     margin-top: 0.5rem;
     padding: 0.8rem;
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-light);
     border: none;
     border-radius: 6px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
+    box-shadow: var(--shadow-soft);
 }
 
+.signup-form button:hover,
 .login-form button:hover {
-    background: #1a2533;
+    background: var(--button-hover);
+    color: var(--color-dark);
+}
+
+.form-footer {
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.form-footer a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
 }
 
 /* Profile Section */
 .profile-section {
     max-width: 480px;
     margin: 2.5rem auto 2rem auto;
-    background: #fff;
+    background: var(--color-light);
     border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(44,62,80,0.10);
-    border: 1.5px solid #eaf6ff;
+    box-shadow: var(--shadow-medium);
+    border: 1.5px solid var(--border-light);
     padding: 2.2rem 2rem 2rem 2rem;
 }
 
@@ -309,20 +277,20 @@ footer {
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffd700;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-    background: #f8fafc;
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--shadow-soft);
+    background: var(--color-light);
 }
 
 #profile-name {
     margin-bottom: 0.2rem;
     font-size: 2rem;
     font-weight: 700;
-    color: #2d3e50;
+    color: var(--color-dark);
 }
 
 #profile-username {
-    color: #888;
+    color: var(--text-secondary);
     font-size: 1.08rem;
     margin-bottom: 0.5rem;
 }
@@ -330,8 +298,8 @@ footer {
 .user-tag {
     display: inline-block;
     font-size: 0.92em;
-    color: #fff;
-    background: #ffd700;
+    color: var(--color-light);
+    background: var(--color-primary);
     border-radius: 12px;
     padding: 2px 10px;
     margin-left: 0;
@@ -343,7 +311,7 @@ footer {
 
 .profile-section hr {
     border: none;
-    border-top: 1.5px solid #eaf6ff;
+    border-top: 1.5px solid var(--border-light);
     margin: 1.5rem 0;
 }
 
@@ -353,35 +321,36 @@ footer {
 }
 
 .profile-actions button {
-    background: linear-gradient(90deg, #ffd700 0%, #ffe066 100%);
-    color: #2d3e50;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-muted) 100%);
+    color: var(--color-dark);
     border: none;
     border-radius: 8px;
     padding: 0.7rem 1.7rem;
     font-size: 1.08rem;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    box-shadow: var(--shadow-soft);
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
 }
 
 .profile-actions button:hover {
-    background: linear-gradient(90deg, #ffe066 0%, #ffd700 100%);
-    color: #111;
+    background: linear-gradient(90deg, var(--color-muted) 0%, var(--color-primary) 100%);
+    color: var(--color-dark);
 }
 
 /* Connections Section */
 .connections-section {
-    background: #eaf6ff;
+    background: var(--color-light);
+    box-shadow: var(--shadow-soft);
+    border: 1.5px solid var(--border-light);
     border-radius: 10px;
     max-width: 700px;
     margin: 0 auto 1.5rem auto;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .connections-section h3 {
-    color: #2d3e50;
+    color: var(--color-dark);
     margin-bottom: 1rem;
 }
 
@@ -398,10 +367,10 @@ footer {
 .connection-card {
     display: flex;
     align-items: center;
-    background: #fff;
+    background: var(--color-light);
     border-radius: 12px;
     padding: 0.8rem 1.2rem;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+    box-shadow: var(--shadow-soft);
     transition: box-shadow 0.18s, transform 0.18s;
     min-width: 220px;
     max-width: 320px;
@@ -411,7 +380,7 @@ footer {
 }
 
 .connection-card:hover {
-    box-shadow: 0 6px 18px rgba(44,62,80,0.13);
+    box-shadow: var(--shadow-medium);
     transform: translateY(-2px) scale(1.02);
 }
 
@@ -420,8 +389,8 @@ footer {
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ffd700;
-    background: #f8fafc;
+    border: 2px solid var(--color-primary);
+    background: var(--color-light);
     margin-right: 0.7rem;
 }
 
@@ -433,15 +402,15 @@ footer {
 
 .connection-name {
     font-weight: 600;
-    color: #2d3e50;
+    color: var(--color-dark);
     font-size: 1.08rem;
     margin-bottom: 0.2rem;
 }
 
 .connection-role {
     font-size: 0.98rem;
-    color: #888;
-    background: #eaf6ff;
+    color: var(--text-secondary);
+    background: var(--color-light);
     border-radius: 8px;
     padding: 2px 10px;
     display: inline-block;
@@ -450,8 +419,8 @@ footer {
 }
 
 .disconnect-btn {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-primary);
+    color: var(--color-light);
     border: none;
     border-radius: 50%;
     width: 36px;
@@ -463,26 +432,27 @@ footer {
     cursor: pointer;
     transition: background 0.18s, color 0.18s;
     margin-left: 0.5rem;
-    box-shadow: 0 1px 4px rgba(44,62,80,0.08);
+    box-shadow: var(--shadow-soft);
 }
 
 .disconnect-btn:hover {
-    background: #2d3e50;
-    color: #ffd700;
+    background: var(--color-dark);
+    color: var(--color-primary);
 }
 
 /* Posts Section */
 .posts-section {
-    background: #fff;
+    background: var(--color-light);
+    box-shadow: var(--shadow-soft);
+    border: 1.5px solid var(--border-light);
     border-radius: 10px;
     max-width: 700px;
     margin: 0 auto 1.5rem auto;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .posts-section h3 {
-    color: #2d3e50;
+    color: var(--color-dark);
     margin-bottom: 1rem;
     font-size: 1.3rem;
     font-weight: 700;
@@ -499,18 +469,18 @@ footer {
 .post-form textarea {
     resize: vertical;
     border-radius: 8px;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-dark);
     padding: 0.9rem 1rem;
     font-size: 1.08rem;
-    background: #f7f8fa;
+    background: var(--color-light);
+    color: var(--text-primary);
     transition: border 0.2s, background 0.2s;
     min-height: 70px;
 }
 
 .post-form textarea:focus {
-    border-color: #2d3e50;
-    outline: none;
-    background: #eaf6ff;
+    border-color: var(--color-primary);
+    background: var(--color-light);
 }
 
 .post-form-actions {
@@ -519,25 +489,34 @@ footer {
     gap: 1rem;
 }
 
-.media-upload[type="file"] {
-    font-size: 1rem;
-    background: #eaf6ff;
+.media-upload-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    background: var(--color-light);
+    color: var(--color-dark);
     border-radius: 6px;
-    padding: 0.3rem 0.5rem;
-    border: 1.5px solid #b3c6e0;
-    color: #2d3e50;
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--border-light);
+    font-size: 1rem;
     cursor: pointer;
     transition: border 0.2s, background 0.2s;
+    font-weight: 500;
 }
 
-.media-upload[type="file"]:hover {
-    border-color: #ffd700;
-    background: #fffbe6;
+.media-upload-label:hover {
+    border-color: var(--color-muted);
+    background: var(--button-hover);
+    color: var(--color-dark);
+}
+
+.media-upload {
+    display: none;
 }
 
 .post-form button {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     border: none;
     border-radius: 8px;
     padding: 0.6rem 1.4rem;
@@ -545,12 +524,12 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
-    box-shadow: 0 1px 4px rgba(44,62,80,0.08);
+    box-shadow: var(--shadow-soft);
 }
 
 .post-form button:hover {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-primary);
+    color: var(--color-light);
 }
 
 .user-posts {
@@ -558,24 +537,24 @@ footer {
 }
 
 .user-posts .post {
-    background: #eaf6ff;
+    background: var(--color-light);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-soft);
     border-radius: 10px;
     padding: 1.1rem 1.2rem;
     margin-bottom: 0.9rem;
-    box-shadow: 0 1px 4px rgba(44,62,80,0.04);
-    color: #2d3e50;
     font-size: 1.08rem;
     position: relative;
     transition: box-shadow 0.18s;
 }
 
 .user-posts .post:hover {
-    box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+    box-shadow: var(--shadow-medium);
 }
 
 .post-time {
     display: block;
-    color: #888;
+    color: var(--text-secondary);
     font-size: 0.97rem;
     margin-top: 0.6rem;
     font-style: italic;
@@ -584,7 +563,7 @@ footer {
 
 /* Itinerary Section */
 .itinerary-section {
-    background: #fff;
+    background: var(--color-light);
     border-radius: 10px;
     max-width: 700px;
     margin: 0 auto 2rem auto;
@@ -593,7 +572,7 @@ footer {
 }
 
 .itinerary-section h3 {
-    color: #2d3e50;
+    color: var(--color-dark);
     margin-bottom: 1rem;
 }
 
@@ -607,27 +586,27 @@ footer {
 
 .itinerary-form label {
     font-weight: 500;
-    color: #2d3e50;
+    color: var(--color-dark);
 }
 
 .itinerary-form select {
     padding: 0.5rem;
     border-radius: 6px;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
     font-size: 1rem;
-    background: #f7f8fa;
+    background: var(--color-light);
     transition: border 0.2s;
 }
 
 .itinerary-form select:focus {
-    border-color: #2d3e50;
+    border-color: var(--color-dark);
     outline: none;
-    background: #eaf6ff;
+    background: var(--color-light);
 }
 
 .itinerary-form button {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     border: none;
     border-radius: 6px;
     padding: 0.5rem 1.2rem;
@@ -638,7 +617,7 @@ footer {
 }
 
 .itinerary-form button:hover {
-    background: #1a2533;
+    background: var(--color-dark);
 }
 
 .itinerary-list {
@@ -647,11 +626,11 @@ footer {
 }
 
 .itinerary-list li {
-    background: #eaf6ff;
+    background: var(--color-light);
     border-radius: 6px;
     padding: 0.7rem 1rem;
     margin-bottom: 0.5rem;
-    color: #2d3e50;
+    color: var(--color-dark);
     box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
 }
 
@@ -676,22 +655,22 @@ footer {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 2px solid #ffd700;
+    border: 2px solid var(--color-primary);
     object-fit: cover;
-    background: #fff;
+    background: var(--color-light);
     transition: box-shadow 0.2s;
 }
 
 .profile-icon-btn:focus .profile-icon,
 .profile-icon-btn:hover .profile-icon {
-    box-shadow: 0 0 0 2px #ffd700;
+    box-shadow: 0 0 0 2px var(--color-muted);
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background: #fff;
+    background: var(--color-light);
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(44,62,80,0.18);
     border-radius: 10px;
@@ -702,8 +681,8 @@ footer {
 
 .dropdown-content a {
     display: block;
-    color: #fff;
-    background: #2d3e50;
+    color: var(--color-light);
+    background: var(--color-dark);
     padding: 0.7rem 1.2rem;
     text-decoration: none;
     font-weight: 500;
@@ -711,8 +690,8 @@ footer {
 }
 
 .dropdown-content a:hover {
-    background: #eaf6ff;
-    color: #ffd700;
+    background: var(--color-light);
+    color: var(--color-muted);
 }
 
 .dropdown-content.show {
@@ -721,7 +700,7 @@ footer {
 
 /* Network Section */
 .network-section {
-    background: #fff;
+    background: var(--color-light);
     border-radius: 10px;
     max-width: 700px;
     margin: 2rem auto;
@@ -730,7 +709,7 @@ footer {
 }
 
 .network-section h2 {
-    color: #2d3e50;
+    color: var(--color-dark);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
 }
@@ -748,7 +727,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: #eaf6ff;
+    background: var(--color-light);
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
@@ -759,12 +738,12 @@ footer {
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #b3c6e0;
+    border: 2px solid var(--border-light);
 }
 
 .user-name {
     font-weight: 600;
-    color: #2d3e50;
+    color: var(--color-dark);
     font-size: 1.1rem;
     flex: 1;
 }
@@ -772,8 +751,8 @@ footer {
 .user-tag {
     display: inline-block;
     font-size: 0.92em;
-    color: #222;
-    background: #ffd700;
+    color: var(--color-dark);
+    background: var(--color-muted);
     border-radius: 12px;
     padding: 2px 10px;
     margin-left: 8px;
@@ -784,12 +763,12 @@ footer {
 }
 
 .user-tag.vendor {
-    background: #2d3e50;
+    background: var(--color-dark);
 }
 
 .user-tag.attendee {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-muted);
+    color: var(--color-dark);
 }
 
 /* User Actions Section */
@@ -807,42 +786,42 @@ footer {
     font-weight: 500;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
-    background: #eaf6ff;
-    color: #2d3e50;
+    background: var(--color-light);
+    color: var(--color-dark);
     text-decoration: none;
     outline: none;
 }
 
 .user-btn.view-profile {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
 }
 
 .user-btn.view-profile:hover {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-muted);
+    color: var(--color-dark);
 }
 
 .user-btn.chat-btn {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-muted);
+    color: var(--color-dark);
 }
 
 .user-btn.chat-btn:hover {
-    background: #2d3e50;
-    color: #ffd700;
+    background: var(--color-dark);
+    color: var(--color-muted);
 }
 
 .user-btn.connect-btn {
-    background: #fff;
-    color: #2d3e50;
-    border: 1.5px solid #2d3e50;
+    background: var(--color-light);
+    color: var(--color-dark);
+    border: 1.5px solid var(--color-dark);
 }
 
 .user-btn.connect-btn:hover {
-    background: #eaf6ff;
-    border-color: #ffd700;
-    color: #ffd700;
+    background: var(--color-light);
+    border-color: var(--color-muted);
+    color: var(--color-muted);
 }
 
 /* Chat Popup Styles */
@@ -853,7 +832,7 @@ footer {
     right: 32px;
     width: 360px;
     max-width: 95vw;
-    background: #fffbe6;
+    background: var(--color-light)be6;
     box-shadow: 0 4px 24px rgba(44,62,80,0.18);
     border-radius: 20px;
     z-index: 9999;
@@ -870,8 +849,8 @@ footer {
 }
 
 .chat-header {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     padding: 1rem 1.2rem;
     display: flex;
     justify-content: space-between;
@@ -879,7 +858,7 @@ footer {
     font-weight: 700;
     font-size: 1.15rem;
     letter-spacing: 0.5px;
-    border-bottom: 1.5px solid #eaf6ff;
+    border-bottom: 1.5px solid var(--color-light);
     border-radius: 18px 18px 0 0;
     box-shadow: 0 2px 8px rgba(44,62,80,0.06);
 }
@@ -887,7 +866,7 @@ footer {
 #close-chat {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--color-light);
     font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.2s;
@@ -899,7 +878,7 @@ footer {
     text-align: center;
 }
 #close-chat:hover {
-    color: #ffd700;
+    color: var(--color-muted);
     background: rgba(255,215,0,0.08);
 }
 
@@ -907,19 +886,19 @@ footer {
     padding: 1.1rem 1rem 1rem 1rem;
     height: 240px;
     overflow-y: auto;
-    background: #f7f8fa;
+    background: var(--color-light);
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
     scrollbar-width: thin;
-    scrollbar-color: #b3c6e0 #f7f8fa;
+    scrollbar-color: var(--border-light) var(--color-light);
 }
 
 .chat-messages::-webkit-scrollbar {
     width: 7px;
 }
 .chat-messages::-webkit-scrollbar-thumb {
-    background: #b3c6e0;
+    background: var(--border-light);
     border-radius: 6px;
 }
 
@@ -936,16 +915,16 @@ footer {
 }
 
 .chat-message.me {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     border-radius: 16px 16px 4px 16px;
     align-self: flex-end;
     border-bottom-right-radius: 6px;
 }
 
 .chat-message.other {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-primary);
+    color: var(--color-dark);
     border-radius: 16px 16px 16px 4px;
     align-self: flex-start;
     border-bottom-left-radius: 6px;
@@ -958,14 +937,14 @@ footer {
     margin-top: 0.3rem;
     display: block;
     box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
 }
 
 .chat-form {
     display: flex;
     align-items: center;
-    border-top: 1.5px solid #ffd700;
-    background: #fffbe6;
+    border-top: 1.5px solid var(--color-primary);
+    background: var(--color-light);
     gap: 0.3rem;
     padding: 0.7rem 0.7rem 0.7rem 1rem;
     flex-wrap: wrap;
@@ -975,19 +954,19 @@ footer {
 #chat-input {
     flex: 1 1 120px;
     min-width: 0;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
     padding: 0.7rem 0.9rem;
     font-size: 1rem;
     border-radius: 8px;
     outline: none;
-    background: #f7f8fa;
+    background: var(--color-light);
     transition: border 0.2s, background 0.2s;
     margin-right: 0.3rem;
 }
 
 .chat-form button[type="submit"] {
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     border: none;
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
@@ -999,8 +978,8 @@ footer {
     flex-shrink: 0;
 }
 .chat-form button[type="submit"]:hover {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-muted);
+    color: var(--color-dark);
 }
 
 .chat-image-label {
@@ -1015,24 +994,24 @@ footer {
     font-size: 1.3rem;
     padding: 0.2rem 0.4rem;
     border-radius: 6px;
-    background: #eaf6ff;
-    color: #2d3e50;
+    background: var(--color-light);
+    color: var(--color-dark);
     transition: background 0.2s;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
     margin-left: 0.1rem;
 }
 .chat-image-label:hover .chat-image-btn {
-    background: #ffd700;
-    color: #2d3e50;
-    border-color: #ffd700;
+    background: var(--color-muted);
+    color: var(--color-dark);
+    border-color: var(--color-muted);
 }
 
 .open-chat-btn {
     position: fixed;
     bottom: 32px;
     right: 32px;
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-primary);
+    color: var(--color-dark);
     border: none;
     border-radius: 50%;
     width: 60px;
@@ -1049,8 +1028,8 @@ footer {
 }
 
 .open-chat-btn:hover, .open-chat-btn:focus {
-    background: #2d3e50;
-    color: #ffd700;
+    background: var(--color-dark);
+    color: var(--color-muted);
     box-shadow: 0 8px 24px rgba(44,62,80,0.22);
     transform: scale(1.07);
 }
@@ -1131,7 +1110,7 @@ footer {
     width: 60%;
     padding: 0.5rem;
     border-radius: 8px;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
     font-size: 1rem;
     box-sizing: border-box;
     max-width: 500px;
@@ -1141,8 +1120,8 @@ footer {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     border: none;
-    background: #2d3e50;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     margin-left: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
@@ -1150,8 +1129,8 @@ footer {
 }
 
 #vendor-search-btn:hover, #vendor-search-btn:focus {
-    background: #ffd700;
-    color: #2d3e50;
+    background: var(--color-muted);
+    color: var(--color-dark);
 }
 
 /* Enhance file input label/button */
@@ -1159,11 +1138,11 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 0.4em;
-    background: #eaf6ff;
-    color: #2d3e50;
+    background: var(--color-light);
+    color: var(--color-dark);
     border-radius: 6px;
     padding: 0.4rem 1rem;
-    border: 1.5px solid #b3c6e0;
+    border: 1.5px solid var(--border-light);
     font-size: 1rem;
     cursor: pointer;
     transition: border 0.2s, background 0.2s;
@@ -1171,9 +1150,9 @@ footer {
 }
 
 .media-upload-label:hover {
-    border-color: #ffd700;
-    background: #fffbe6;
-    color: #2d3e50;
+    border-color: var(--color-muted);
+    background: var(--color-light)be6;
+    color: var(--color-dark);
 }
 
 .media-upload {

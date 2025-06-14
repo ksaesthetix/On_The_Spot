@@ -1,35 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('ots_jwt');
+    if (!token) {
+        window.location.href = 'login.html';
+        return;
+    }
+    fetch('https://on-the-spot.onrender.com/api/profile', {
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.json())
+    .then(user => {
+        if (!user.hasPaid) {
+            window.location.href = 'paywall.html';
+        } else {
+            // ...rest of your page logic here...
+        }
+    })
+    .catch(() => {
+        window.location.href = 'login.html';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     if (typeof L !== 'undefined' && document.getElementById('map')) {
         var map = L.map('map').setView([43.5539, 7.0170], 13); // Cannes
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // Function to create a vendor icon
-        function createVendorIcon(logoUrl, size = 48) {
-            const svg = `
-            <svg width="${size}" height="${size*1.25}" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <clipPath id="logoClip">
-                  <circle cx="24" cy="23" r="13"/>
-                </clipPath>
-              </defs>
-              <g>
-                <path d="M24 0C11 0 0 10.5 0 23.5C0 39.5 24 60 24 60C24 60 48 39.5 48 23.5C48 10.5 37 0 24 0Z" fill="#ffd700" stroke="#2d3e50" stroke-width="2"/>
-                <circle cx="24" cy="23" r="15" fill="#fff" stroke="#2d3e50" stroke-width="2"/>
-                <image href="${logoUrl}" x="11" y="10" width="26" height="26" clip-path="url(#logoClip)" preserveAspectRatio="xMidYMid slice"/>
-              </g>
-            </svg>
-            `;
-            return L.divIcon({
-                className: '',
-                html: svg,
-                iconSize: [size, size*1.25],
-                iconAnchor: [size/2, size*1.25],
-                popupAnchor: [0, -size*1.1]
-            });
-        }
+    // Get CSS variable values from :root
+    function getCSSVar(name) {
+        return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
 
+    // Function to create a vendor icon using color palette
+    function createVendorIcon(logoUrl, size = 48) {
+        // Get palette colors
+        const gold = getCSSVar('--color-primary') || '#FF5E5B';
+        const dark = getCSSVar('--color-dark') || '#2E2E2E';
+        const white = getCSSVar('--color-light') || '#FAF9F8';
+
+        const svg = `
+        <svg width="${size}" height="${size*1.25}" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="logoClip">
+            <circle cx="24" cy="23" r="13"/>
+            </clipPath>
+        </defs>
+        <g>
+            <path d="M24 0C11 0 0 10.5 0 23.5C0 39.5 24 60 24 60C24 60 48 39.5 48 23.5C48 10.5 37 0 24 0Z" fill="${gold}" stroke="${dark}" stroke-width="2"/>
+            <circle cx="24" cy="23" r="15" fill="${white}" stroke="${dark}" stroke-width="2"/>
+            <image href="${logoUrl}" x="11" y="10" width="26" height="26" clip-path="url(#logoClip)" preserveAspectRatio="xMidYMid slice"/>
+        </g>
+        </svg>
+        `;
+        return L.divIcon({
+            className: '',
+            html: svg,
+            iconSize: [size, size*1.25],
+            iconAnchor: [size/2, size*1.25],
+            popupAnchor: [0, -size*1.1]
+        });
+    }
         var vendors = [
             { name: "The House of Amazon at Amazon Port", lat: 43.55110218455641, lng: 7.015049886167262, type: "Event" },
             { name: "MediaLink Beach", lat: 43.55092767110725, lng: 7.018601156770044, type: "Vendor" },

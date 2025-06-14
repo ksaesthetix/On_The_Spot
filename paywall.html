@@ -1,0 +1,16 @@
+<h2>Payment Required</h2>
+<p>You must pay to access this site.</p>
+<button id="pay-btn">Pay Now</button>
+<script>
+const token = localStorage.getItem('ots_jwt');
+document.getElementById('pay-btn').onclick = function() {
+    fetch('https://on-the-spot.onrender.com/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.url) window.location = data.url;
+    });
+};
+</script>

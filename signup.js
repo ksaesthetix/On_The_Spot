@@ -38,24 +38,40 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Simulate saving user (for demo, use localStorage)
-        let users = JSON.parse(localStorage.getItem('ots_users') || '[]');
-        if (users.some(u => u.email === email)) {
-            messageDiv.textContent = "An account with this email already exists.";
-            messageDiv.style.color = "red";
-            return;
-        }
-        users.push({ name, email, password });
-        localStorage.setItem('ots_users', JSON.stringify(users));
-
         fetch('https://on-the-spot.onrender.com/api/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password })
         })
-
-        messageDiv.textContent = "Sign up successful! You can now log in.";
-        messageDiv.style.color = "green";
-        form.reset();
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                // Auto-login after signup to get JWT
+                fetch('https://on-the-spot.onrender.com/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                })
+                .then(res => res.json())
+                .then(loginData => {
+                    if (loginData.success && loginData.token) {
+                        localStorage.setItem('ots_jwt', loginData.token);
+                        localStorage.setItem('ots_user', JSON.stringify({ name: loginData.name, email: loginData.email, type: loginData.type }));
+                        // Redirect to paywall
+                        window.location.href = 'paywall.html';
+                    } else {
+                        messageDiv.textContent = "Signup succeeded, but login failed. Please try logging in.";
+                        messageDiv.style.color = "red";
+                    }
+                });
+            } else {
+                messageDiv.textContent = data.message || "Signup failed.";
+                messageDiv.style.color = "red";
+            }
+        })
+        .catch(() => {
+            messageDiv.textContent = "An error occurred. Please try again.";
+            messageDiv.style.color = "red";
+        });
     });
 });

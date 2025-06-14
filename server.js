@@ -4,14 +4,28 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+const allowedOrigins = [
+  'https://ksaesthetix.github.io'
+  //'https://ideal-adventure-gpx467pq6v6f94p6-5500.app.github.dev'
+];
+
 app.use(cors({
-    origin: 'https://ksaesthetix.github.io',
-    credentials: true
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
 // MongoDB connection
@@ -27,7 +41,8 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    type: { type: String, default: 'Attendee' }
+    type: { type: String, default: 'Attendee' },
+    hasPaid: { type: Boolean, default: false }
 });
 const User = mongoose.model('User', userSchema);
 
@@ -109,6 +124,47 @@ app.get('/api/users', authenticateToken, async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Server error.' });
     }
+});
+
+// Create checkout session (Stripe)
+app.post('/api/create-checkout-session', authenticateToken, async (req, res) => {
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            mode: 'payment',
+            line_items: [
+                {
+                    price: process.env.STRIPE_PRICE_ID,
+                    quantity: 1,
+                },
+            ],
+            customer_email: req.user.email,
+            success_url: 'https://ksaesthetix.github.io/On_The_Spot/paywall-success.html?session_id={CHECKOUT_SESSION_ID}',
+            cancel_url: 'https://ksaesthetix.github.io/On_The_Spot/paywall-cancel.html',
+            metadata: { userId: req.user.id }
+        });
+        res.json({ url: session.url });
+    } catch (err) {
+        res.status(500).json({ message: 'Stripe error.' });
+    }
+});
+
+// Stripe webhook endpoint
+app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+    const sig = req.headers['stripe-signature'];
+    let event;
+    try {
+        event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    } catch (err) {
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+        const email = session.customer_email;
+        await User.findOneAndUpdate({ email }, { hasPaid: true });
+    }
+    res.json({ received: true });
 });
 
 app.get('/', (req, res) => {
