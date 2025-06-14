@@ -101,6 +101,16 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
     }
 });
 
+// Get all users (for networking list)
+app.get('/api/users', authenticateToken, async (req, res) => {
+    try {
+        const users = await User.find().select('-password');
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: 'Server error.' });
+    }
+});
+
 app.get('/', (req, res) => {
     res.send('Backend is running!');
 });
