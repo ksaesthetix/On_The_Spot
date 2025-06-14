@@ -41,9 +41,13 @@
         </section>
         <section id="feed-section">
             <h3>Event Feed</h3>
+            <form id="post-form" enctype="multipart/form-data">
+                <textarea id="post-content" placeholder="Share an update, photo, or video link..." rows="2"></textarea>
+                <input type="file" id="post-media" accept="image/*,video/*">
+                <button type="submit">Post</button>
+            </form>
             <div id="feed">
-                <!-- Social media style posts will appear here -->
-                <p>Sign in to post updates, photos, and videos!</p>
+                <!-- Posts will appear here -->
             </div>
         </section>
         <!-- Chat Popup -->
@@ -67,5 +71,6 @@
     </footer>
     <script src="dropdown.js"></script>
     <script src="chat.js"></script>
+    <script src="userposts.js"></script>
 </body>
 </html>

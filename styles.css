@@ -1268,5 +1268,140 @@ main, #map-section {
     background: linear-gradient(90deg, var(--color-muted) 0%, var(--color-primary) 100%);
     color: var(--color-dark);
 }
+#vendor-search-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
+#vendor-search-container h3 {
+    margin-bottom: 1rem;
+}
+
+#vendor-search {
+    width: 20%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1.5px solid #b3c6e0;
+}
+
+#vendor-search-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #2d3e50;
+    color: #fff;
+    margin-left: 0.5rem;
+}
+
+#journey-controls-outer {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#journey-controls {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+#journey-controls h3 {
+    margin-bottom: 0;
+    align-items: center;
+}
+
+#journey-controls label span {
+    font-weight: 600;
+}
+
+#location-a,
+#location-b {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1.5px solid #b3c6e0;
+    min-width: 180px;
+}
+
+#journey-go-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Add to styles.css */
+
+#feed-section {
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+#feed-section h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#post-form {
+    margin-bottom: 1rem;
+}
+
+#post-content {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1.5px solid #b3c6e0;
+    resize: vertical;
+    font-size: 1rem;
+}
+
+#post-form button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.feed-post {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.feed-post > div:first-child {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.feed-post > div:nth-child(2) {
+    margin: 0.5rem 0;
+}
+
+.feed-post > div:last-child {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Add to styles.css if not already present */
+#post-media {
+    display: block;
+    margin: 0.5rem 0;
+}
+.feed-media {
+    margin-top: 0.5rem;
+    max-width: 100%;
+    border-radius: 8px;
+}
+.feed-media video {
+    max-width: 100%;
+    border-radius: 8px;
+}
 

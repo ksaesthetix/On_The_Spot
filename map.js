@@ -322,6 +322,89 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // --- START: Journey from user location to vendor ---
+
+        // Add a "Start Journey" button above the map in your HTML:
+        // <button id="start-journey-btn" style="margin: 1rem 0; padding: 0.5rem 1.2rem; border-radius: 8px; background: var(--color-primary); color: #fff; border: none; font-weight: bold; cursor: pointer;">
+        //     Start Journey from My Location
+        // </button>
+        // (Make sure this button exists in your HTML)
+
+        let journeyStart = null;
+        let journeyRoutingControl = null;
+
+        function getUserLocation(callback) {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    callback([position.coords.latitude, position.coords.longitude]);
+                }, function(error) {
+                    alert("Could not get your location.");
+                });
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+
+        // Add journey logic to vendor popups
+        vendors.forEach(function(v, idx) {
+            var icon = createVendorIcon(v.logo || 'images/vendor-logos/default.png', 48);
+            var marker = L.marker([v.lat, v.lng], { icon: icon })
+                .addTo(map)
+                .bindPopup(
+                    `<b>${v.name}</b><br>${v.type}<br>
+                    <button id="route-btn-${idx}" data-lat="${v.lat}" data-lng="${v.lng}">Get Directions</button>`
+                );
+
+            marker.on('popupopen', function() {
+                setTimeout(function() {
+                    const btn = document.getElementById(`route-btn-${idx}`);
+                    if (btn) {
+                        btn.onclick = function() {
+                            // Only allow if journey mode is active (user clicked Start Journey)
+                            if (!journeyStart) {
+                                alert("Click 'Start Journey from My Location' first.");
+                                return;
+                            }
+                            if (journeyRoutingControl) {
+                                map.removeControl(journeyRoutingControl);
+                            }
+                            journeyRoutingControl = L.Routing.control({
+                                waypoints: [
+                                    L.latLng(journeyStart[0], journeyStart[1]),
+                                    L.latLng(v.lat, v.lng)
+                                ],
+                                routeWhileDragging: false,
+                                showAlternatives: false,
+                                draggableWaypoints: false
+                            }).addTo(map);
+
+                            journeyRoutingControl.on('routesfound', function(e) {
+                                var summary = e.routes[0].summary;
+                                alert(
+                                    'Distance: ' + (summary.totalDistance / 1000).toFixed(2) + ' km\n' +
+                                    'Estimated time: ' + Math.round(summary.totalTime / 60) + ' min'
+                                );
+                            });
+                        };
+                    }
+                }, 100);
+            });
+        });
+
+        // Listen for the Start Journey button
+        const startJourneyBtn = document.getElementById('start-journey-btn');
+        if (startJourneyBtn) {
+            startJourneyBtn.addEventListener('click', function() {
+                getUserLocation(function(userLatLng) {
+                    journeyStart = userLatLng;
+                    L.marker(journeyStart).addTo(map).bindPopup("Your Location (Journey Start)").openPopup();
+                    alert("Now click 'Get Directions' on a vendor popup to plot your journey.");
+                });
+            });
+        }
+
+        // --- END: Journey from user location to vendor ---
+
         function getUserLocation(callback) {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -399,5 +482,97 @@ document.addEventListener('DOMContentLoaded', function() {
             render();
             const interval = setInterval(render, 1000);
         }
+
+        // Add this to your map.js after vendors are loaded and map is initialized
+
+        // Populate the vendor dropdown
+        const locationB = document.getElementById('location-b');
+        locationB.innerHTML = '<option value="">Select a vendor</option>'; // reset
+        vendors.forEach((v, idx) => {
+            const opt = document.createElement('option');
+            opt.value = idx;
+            opt.textContent = v.name;
+            locationB.appendChild(opt);
+        });
+
+        // Set Location A to user's current location (but editable)
+        const locationA = document.getElementById('location-a');
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(pos) {
+                document.getElementById('location-a').value = "Current Location";
+                document.getElementById('location-a-lat').value = pos.coords.latitude;
+                document.getElementById('location-a-lng').value = pos.coords.longitude;
+            });
+        }
+
+        // Handle Go button click
+        document.getElementById('journey-go-btn').onclick = function() {
+            let startLat = parseFloat(document.getElementById('location-a-lat').value);
+            let startLng = parseFloat(document.getElementById('location-a-lng').value);
+
+            // If user manually enters coordinates (optional fallback)
+            if (isNaN(startLat) || isNaN(startLng)) {
+                const parts = document.getElementById('location-a').value.split(',');
+                if (parts.length === 2) {
+                    startLat = parseFloat(parts[0]);
+                    startLng = parseFloat(parts[1]);
+                }
+            }
+
+            // Get vendor destination
+            const vendorIdx = locationB.value;
+            if (vendorIdx === "" || !vendors[vendorIdx]) {
+                alert("Please select a vendor as your destination.");
+                return;
+            }
+            const vendor = vendors[vendorIdx];
+
+            // Remove previous route if it exists
+            if (window.journeyRoutingControl) {
+                map.removeControl(window.journeyRoutingControl);
+            }
+            window.journeyRoutingControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(startLat, startLng),
+                    L.latLng(vendor.lat, vendor.lng)
+                ],
+                routeWhileDragging: false,
+                showAlternatives: false,
+                draggableWaypoints: false
+            }).addTo(map);
+
+            window.journeyRoutingControl.on('routesfound', function(e) {
+                var summary = e.routes[0].summary;
+                alert(
+                    'Distance: ' + (summary.totalDistance / 1000).toFixed(2) + ' km\n' +
+                    'Estimated time: ' + Math.round(summary.totalTime / 60) + ' min'
+                );
+            });
+        };
+
+        // Add this after your vendor search input/button in your HTML:
+        const vendorDropdown = document.createElement('select');
+        vendorDropdown.id = 'vendor-dropdown';
+        vendorDropdown.style = 'padding:0.5rem; border-radius:8px; border:1.5px solid #b3c6e0; min-width:180px; margin-left:1rem;';
+        vendorDropdown.innerHTML = `<option value="">Select a vendor...</option>`;
+        vendors.forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v.name;
+            opt.textContent = v.name;
+            vendorDropdown.appendChild(opt);
+        });
+        document.getElementById('vendor-search-container').appendChild(vendorDropdown);
+
+        // When a vendor is selected from the dropdown, focus the map and open the popup
+        vendorDropdown.addEventListener('change', function() {
+            const selectedName = this.value;
+            if (!selectedName) return;
+            const found = vendors.find(v => v.name === selectedName);
+            if (found) {
+                const marker = vendorMarkers[found.name.toLowerCase()];
+                map.setView([found.lat, found.lng], 17);
+                marker.openPopup();
+            }
+        });
     }
 });

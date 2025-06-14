@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -45,6 +47,17 @@ const userSchema = new mongoose.Schema({
     trialEndsAt: { type: Date }
 });
 const User = mongoose.model('User', userSchema);
+
+// Post Schema
+const postSchema = new mongoose.Schema({
+    user: String,
+    content: String,
+    time: { type: Date, default: Date.now },
+    mediaUrl: String,
+    mediaType: String
+});
+
+const Post = mongoose.model('Post', postSchema);
 
 // JWT middleware
 function authenticateToken(req, res, next) {
@@ -122,7 +135,59 @@ app.get('/api/users', async (req, res) => {
     }
 });
 
-// Remove or comment out any /api/create-checkout-session and /webhook endpoints
+// Set up Multer for uploads (store in /uploads)
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        // Use timestamp + original name for uniqueness
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+const upload = multer({ storage: storage });
+
+// Serve uploaded files statically
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Simple in-memory posts array (replace with DB for production)
+// let posts = [];
+
+// Post creation endpoint
+app.post('/api/posts', upload.single('media'), async (req, res) => {
+    const content = req.body.content || '';
+    let mediaUrl = '';
+    let mediaType = '';
+    if (req.file) {
+        mediaUrl = '/uploads/' + req.file.filename;
+        mediaType = req.file.mimetype.startsWith('image') ? 'image' :
+                    req.file.mimetype.startsWith('video') ? 'video' : '';
+    }
+    const user = req.body.user || 'Guest';
+    try {
+        const post = new Post({
+            user,
+            content,
+            time: new Date(),
+            mediaUrl,
+            mediaType
+        });
+        await post.save();
+        res.json({ success: true, post });
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Failed to save post." });
+    }
+});
+
+// Endpoint to get all posts
+app.get('/api/posts', async (req, res) => {
+    try {
+        const posts = await Post.find().sort({ time: -1 });
+        res.json(posts);
+    } catch (err) {
+        res.status(500).json({ message: 'Server error.' });
+    }
+});
 
 app.get('/', (req, res) => {
     res.send('Backend is running!');
