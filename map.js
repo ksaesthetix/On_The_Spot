@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }).addTo(map);
 
         // Function to create a vendor icon
-        function createVendorIcon(logoUrl) {
+        function createVendorIcon(logoUrl, size = 48) {
             const svg = `
-            <svg width="48" height="60" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="${size}" height="${size*1.25}" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <clipPath id="logoClip">
                   <circle cx="24" cy="23" r="13"/>
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return L.divIcon({
                 className: '',
                 html: svg,
-                iconSize: [48, 60],
-                iconAnchor: [24, 60],
-                popupAnchor: [0, -55]
+                iconSize: [size, size*1.25],
+                iconAnchor: [size/2, size*1.25],
+                popupAnchor: [0, -size*1.1]
             });
         }
 
@@ -126,14 +126,52 @@ document.addEventListener('DOMContentLoaded', function() {
         // Keep a reference to all markers by vendor name
         var vendorMarkers = {};
         vendors.forEach(function(v) {
-            var icon = createVendorIcon(v.logo || 'images/vendor-logos/default.png');
-            var marker = L.marker([v.lat, v.lng], { icon: icon })
+            var normalIcon = createVendorIcon(v.logo || 'images/vendor-logos/default.png', 48);
+            var largeIcon = createVendorIcon(v.logo || 'images/vendor-logos/default.png', 64);
+
+            var marker = L.marker([v.lat, v.lng], { icon: normalIcon })
                 .addTo(map)
                 .bindPopup(`<b>${v.name}</b><br>${v.type}`);
+
+            marker.normalIcon = normalIcon;
+            marker.largeIcon = largeIcon;
+
+            marker.on('click', function() {
+                // Reset all markers to normal
+                Object.values(vendorMarkers).forEach(function(m) {
+                    m.setIcon(m.normalIcon);
+                });
+                // Enlarge this marker
+                marker.setIcon(marker.largeIcon);
+            });
+
+            // Optional: shrink back when popup closes
+            marker.on('popupclose', function() {
+                marker.setIcon(marker.normalIcon);
+            });
+
             vendorMarkers[v.name.toLowerCase()] = marker;
         });
 
-        L.marker([43.5539, 7.0170]).addTo(map).bindPopup("You are here").openPopup();
+        // User location marker, centered on load
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+
+                // Add a marker for the user's location
+                L.marker([lat, lng]).addTo(map).bindPopup("You are here").openPopup();
+
+                // Center the map on the user's location
+                map.setView([lat, lng], 16);
+            }, function() {
+                console.log("Unable to retrieve your location.");
+            });
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+
+        
 
         // Search function
         document.getElementById('vendor-search-btn').addEventListener('click', function() {
@@ -155,6 +193,158 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Enter') {
                 document.getElementById('vendor-search-btn').click();
             }
+        });
+
+        if ("geolocation" in navigator) {
+            navigator.geolocation.watchPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+
+                // If marker already exists, move it; otherwise, create it
+                if (window.userLocationMarker) {
+                    window.userLocationMarker.setLatLng([lat, lng]);
+                } else {
+                    window.userLocationMarker = L.marker([lat, lng])
+                        .addTo(map)
+                        .bindPopup("You are here")
+                        .openPopup();
+                }
+
+                // Optionally, center the map on the user's location the first time
+                if (!window.userLocationCentered) {
+                    map.setView([lat, lng], 16);
+                    window.userLocationCentered = true;
+                }
+            }, function(error) {
+                console.warn("Geolocation error:", error.message);
+            }, {
+                enableHighAccuracy: true
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+
+        // Example: Plan a route from point A to B
+        // var control = L.Routing.control({
+        //     waypoints: [
+        //         L.latLng(43.55110218455641, 7.015049886167262), // Point A
+        //         L.latLng(43.54843963720271, 7.030858269053223)  // Point B
+        //     ],
+        //     routeWhileDragging: true,
+        //     showAlternatives: true,
+        //     draggableWaypoints: true,
+        //     addWaypoints: true,
+        //     // Optionally, use a different routing service:
+        //     // router: L.Routing.openrouteservice('YOUR_API_KEY')
+        // }).addTo(map);
+
+        // control.on('routesfound', function(e) {
+        //     var routes = e.routes;
+        //     var summary = routes[0].summary;
+        //     alert('Total distance: ' + (summary.totalDistance / 1000).toFixed(2) + ' km, time: ' +
+        //         Math.round(summary.totalTime / 60) + ' minutes');
+        // });
+
+        let routePoints = [];
+        let routingControl = null;
+
+        map.on('click', function(e) {
+            if (routePoints.length < 2) {
+                routePoints.push(e.latlng);
+
+                // Optionally, add a marker for visual feedback
+                L.marker(e.latlng).addTo(map);
+
+                if (routePoints.length === 2) {
+                    // Remove previous route if it exists
+                    if (routingControl) {
+                        map.removeControl(routingControl);
+                    }
+                    // Add routing control
+                    routingControl = L.Routing.control({
+                        waypoints: routePoints,
+                        routeWhileDragging: false,
+                        showAlternatives: false,
+                        draggableWaypoints: true
+                    }).addTo(map);
+
+                    // Show travel time in an alert or UI
+                    routingControl.on('routesfound', function(e) {
+                        var summary = e.routes[0].summary;
+                        alert(
+                            'Distance: ' + (summary.totalDistance / 1000).toFixed(2) + ' km\n' +
+                            'Estimated time: ' + Math.round(summary.totalTime / 60) + ' min'
+                        );
+                    });
+                }
+            } else {
+                // Reset if user clicks a third time
+                routePoints = [];
+                if (routingControl) {
+                    map.removeControl(routingControl);
+                    routingControl = null;
+                }
+                map.eachLayer(function(layer) {
+                    if (layer instanceof L.Marker && !layer._popup) {
+                        map.removeLayer(layer);
+                    }
+                });
+            }
+        });
+
+        function getUserLocation(callback) {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    callback([position.coords.latitude, position.coords.longitude]);
+                }, function(error) {
+                    alert("Could not get your location.");
+                });
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+
+        vendors.forEach(function(v, idx) {
+            var icon = createVendorIcon(v.logo || 'images/vendor-logos/default.png', 48);
+            var marker = L.marker([v.lat, v.lng], { icon: icon })
+                .addTo(map)
+                .bindPopup(
+                    `<b>${v.name}</b><br>${v.type}<br>
+                    <button id="route-btn-${idx}" data-lat="${v.lat}" data-lng="${v.lng}">Get Directions</button>`
+                );
+
+            marker.on('popupopen', function() {
+                // Wait for the popup to be rendered
+                setTimeout(function() {
+                    const btn = document.getElementById(`route-btn-${idx}`);
+                    if (btn) {
+                        btn.onclick = function() {
+                            getUserLocation(function(userLatLng) {
+                                if (routingControl) {
+                                    map.removeControl(routingControl);
+                                }
+                                routingControl = L.Routing.control({
+                                    waypoints: [
+                                        L.latLng(userLatLng[0], userLatLng[1]),
+                                        L.latLng(v.lat, v.lng)
+                                    ],
+                                    routeWhileDragging: false,
+                                    showAlternatives: false,
+                                    draggableWaypoints: false
+                                }).addTo(map);
+
+                                routingControl.on('routesfound', function(e) {
+                                    var summary = e.routes[0].summary;
+                                    alert(
+                                        'Distance: ' + (summary.totalDistance / 1000).toFixed(2) + ' km\n' +
+                                        'Estimated time: ' + Math.round(summary.totalTime / 60) + ' min'
+                                    );
+                                });
+                            });
+                        };
+                    }
+                }, 100); // Delay ensures the popup DOM is ready
+            });
         });
     }
 });

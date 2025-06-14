@@ -29,49 +29,21 @@
     <main>
         <section class="network-section">
             <h2>Network</h2>
-            <ul class="user-list">
-                <li>
-                    <img src="avatar1.png" alt="Alice Vendor" class="user-avatar" />
-                    <span class="user-name">Alice Vendor</span>
-                    <span class="user-tag vendor">Vendor</span>
-                    <div class="user-actions">
-                        <a href="profile.html?user=alice" class="user-btn view-profile" title="View Profile">Profile</a>
-                        <button class="user-btn chat-btn" title="Chat">Chat</button>
-                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
-                    </div>
-                </li>
-                <li>
-                    <img src="avatar2.png" alt="Bob Attendee" class="user-avatar" />
-                    <span class="user-name">Bob Attendee</span>
-                    <span class="user-tag attendee">Attendee</span>
-                    <div class="user-actions">
-                        <a href="profile.html?user=bob" class="user-btn view-profile" title="View Profile">Profile</a>
-                        <button class="user-btn chat-btn" title="Chat">Chat</button>
-                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
-                    </div>
-                </li>
-                <li>
-                    <img src="avatar3.png" alt="Carol Vendor" class="user-avatar" />
-                    <span class="user-name">Carol Vendor</span>
-                    <span class="user-tag vendor">Vendor</span>
-                    <div class="user-actions">
-                        <a href="profile.html?user=carol" class="user-btn view-profile" title="View Profile">Profile</a>
-                        <button class="user-btn chat-btn" title="Chat">Chat</button>
-                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
-                    </div>
-                </li>
-                <li>
-                    <img src="avatar4.png" alt="David Attendee" class="user-avatar" />
-                    <span class="user-name">David Attendee</span>
-                    <span class="user-tag attendee">Attendee</span>
-                    <div class="user-actions">
-                        <a href="profile.html?user=david" class="user-btn view-profile" title="View Profile">Profile</a>
-                        <button class="user-btn chat-btn" title="Chat">Chat</button>
-                        <button class="user-btn connect-btn" title="Add Connection">Connect</button>
-                    </div>
-                </li>
-                <!-- Add more users as needed -->
-            </ul>
+            <div style="display: flex; flex-wrap: wrap; gap: 1em; margin-bottom: 1em;">
+                <input type="text" id="user-search" class="user-search" placeholder="Search by name, vendor, or type..." style="flex:2; min-width:180px; padding: 8px; border-radius: 8px; border: 1px solid #ccc;">
+                <select id="type-filter" style="flex:1; min-width:120px; padding: 8px; border-radius: 8px; border: 1px solid #ccc;">
+                    <option value="">All Types</option>
+                    <option value="Attendee">Attendee</option>
+                    <option value="Vendor">Vendor</option>
+                    <option value="Event">Event</option>
+                </select>
+                <select id="connection-filter" style="flex:1; min-width:120px; padding: 8px; border-radius: 8px; border: 1px solid #ccc;">
+                    <option value="">All</option>
+                    <option value="connected">Connected</option>
+                    <option value="not_connected">Not Connected</option>
+                </select>
+            </div>
+            <ul class="user-list"></ul>
         </section>
                 <!-- Chat Popup -->
         <div id="chat-popup" class="chat-popup">
@@ -98,5 +70,6 @@
     </footer>
     <script src="dropdown.js"></script>
     <script src="chat.js"></script>
+    <script src="network.js"></script>
 </body>
 </html>

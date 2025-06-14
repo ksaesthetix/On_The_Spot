@@ -81,4 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
+    const chatTarget = JSON.parse(localStorage.getItem('ots_chat_target'));
 });
