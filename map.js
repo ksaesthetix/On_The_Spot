@@ -1,26 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const token = localStorage.getItem('ots_jwt');
-    if (!token) {
-        window.location.href = 'login.html';
-        return;
-    }
-    fetch('https://on-the-spot.onrender.com/api/profile', {
-        headers: { 'Authorization': 'Bearer ' + token }
-    })
-    .then(res => res.json())
-    .then(user => {
-        const now = new Date();
-        const trialEndsAt = user.trialEndsAt ? new Date(user.trialEndsAt) : null;
-        if (!user.hasPaid && (!trialEndsAt || trialEndsAt < now)) {
-            window.location.href = 'paywall.html';
-        } else {
-            updateTrialTimer(user.trialEndsAt);
-            // Place any additional page logic here if needed
-        }
-    })
-    .catch(() => {
-        window.location.href = 'login.html';
-    });
+    // const token = localStorage.getItem('ots_jwt');
+    // if (!token) {
+    //     window.location.href = 'login.html';
+    //     return;
+    // }
+    // fetch('https://on-the-spot.onrender.com/api/profile', {
+    //     headers: { 'Authorization': 'Bearer ' + token }
+    // })
+    // .then(res => res.json())
+    // .then(user => {
+    //     // ...rest of your page logic here...
+    // })
+    // .catch(() => {
+    //     window.location.href = 'login.html';
+    // });
+
+    // Instead, just run your page logic directly here:
+    // ...rest of your page logic here...
 });
 
 document.addEventListener('DOMContentLoaded', function() {

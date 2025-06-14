@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (loginData.success && loginData.token) {
                         localStorage.setItem('ots_jwt', loginData.token);
                         localStorage.setItem('ots_user', JSON.stringify({ name: loginData.name, email: loginData.email, type: loginData.type }));
-                        // Redirect to paywall
-                        window.location.href = 'paywall.html';
+                        // Redirect to profile (not paywall)
+                        window.location.href = 'profile.html';
                     } else {
                         messageDiv.textContent = "Signup succeeded, but login failed. Please try logging in.";
                         messageDiv.style.color = "red";

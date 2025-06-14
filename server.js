@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -107,20 +106,14 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Protected profile endpoint
-app.get('/api/profile', authenticateToken, async (req, res) => {
-    try {
-        const user = await User.findById(req.user.id).select('-password');
-        if (!user) return res.status(404).json({ message: "User not found." });
-        user.hasPaid = true;
-        res.json(user);
-    } catch (err) {
-        res.status(500).json({ message: "Server error." });
-    }
+// Make profile endpoint public
+app.get('/api/profile', async (req, res) => {
+    // You may want to return a default/anonymous profile or handle this differently
+    res.json({ message: "Public profile endpoint. No authentication required." });
 });
 
-// Get all users (for networking list)
-app.get('/api/users', authenticateToken, async (req, res) => {
+// Make users endpoint public
+app.get('/api/users', async (req, res) => {
     try {
         const users = await User.find().select('-password');
         res.json(users);
@@ -129,46 +122,7 @@ app.get('/api/users', authenticateToken, async (req, res) => {
     }
 });
 
-// Create checkout session (Stripe)
-app.post('/api/create-checkout-session', authenticateToken, async (req, res) => {
-    try {
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            mode: 'payment',
-            line_items: [
-                {
-                    price: process.env.STRIPE_PRICE_ID,
-                    quantity: 1,
-                },
-            ],
-            customer_email: req.user.email,
-            success_url: 'https://ksaesthetix.github.io/On_The_Spot/paywall-success.html?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url: 'https://ksaesthetix.github.io/On_The_Spot/paywall-cancel.html',
-            metadata: { userId: req.user.id }
-        });
-        res.json({ url: session.url });
-    } catch (err) {
-        res.status(500).json({ message: 'Stripe error.' });
-    }
-});
-
-// Stripe webhook endpoint
-app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
-    const sig = req.headers['stripe-signature'];
-    let event;
-    try {
-        event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-    } catch (err) {
-        return res.status(400).send(`Webhook Error: ${err.message}`);
-    }
-
-    if (event.type === 'checkout.session.completed') {
-        const session = event.data.object;
-        const email = session.customer_email;
-        await User.findOneAndUpdate({ email }, { hasPaid: true });
-    }
-    res.json({ received: true });
-});
+// Remove or comment out any /api/create-checkout-session and /webhook endpoints
 
 app.get('/', (req, res) => {
     res.send('Backend is running!');
