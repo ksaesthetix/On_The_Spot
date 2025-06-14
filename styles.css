@@ -506,7 +506,7 @@ main, #map-section {
 
 .media-upload-label:hover {
     border-color: var(--color-muted);
-    background: var(--button-hover);
+    background: var(--color-light)be6;
     color: var(--color-dark);
 }
 
@@ -1163,3 +1163,49 @@ main, #map-section {
 .user-posts .post + .post {
     margin-top: 1rem;
 }
+
+/* Paywall Section */
+.paywall-section {
+    max-width: 420px;
+    margin: 4rem auto 0 auto;
+    background: var(--color-light);
+    border-radius: 16px;
+    box-shadow: var(--shadow-medium);
+    border: 1.5px solid var(--border-light);
+    padding: 2.5rem 2rem 2rem 2rem;
+    text-align: center;
+}
+.paywall-section h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+.paywall-section p {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+#pay-btn {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-muted) 100%);
+    color: var(--color-light);
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#pay-btn:hover {
+    background: linear-gradient(90deg, var(--color-muted) 0%, var(--color-primary) 100%);
+    color: var(--color-dark);
+}
+.paywall-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.2rem;
+}
+
+

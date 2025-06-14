@@ -1,16 +1,30 @@
-<h2>Payment Required</h2>
-<p>You must pay to access this site.</p>
-<button id="pay-btn">Pay Now</button>
-<script>
-const token = localStorage.getItem('ots_jwt');
-document.getElementById('pay-btn').onclick = function() {
-    fetch('https://on-the-spot.onrender.com/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Authorization': 'Bearer ' + token }
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.url) window.location = data.url;
-    });
-};
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Payment Required - On The Spot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <section class="paywall-section">
+        <img src="logo.png" alt="On The Spot Logo" class="paywall-logo" onerror="this.style.display='none';" />
+        <h2>Payment Required</h2>
+        <p>To access all features and connect with the community, please complete your payment.</p>
+        <button id="pay-btn">Pay Now</button>
+    </section>
+    <script>
+    const token = localStorage.getItem('ots_jwt');
+    document.getElementById('pay-btn').onclick = function() {
+        fetch('https://on-the-spot.onrender.com/api/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.url) window.location = data.url;
+        });
+    };
+    </script>
+</body>
+</html>
