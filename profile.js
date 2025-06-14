@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch all users (for connections and viewing other profiles)
-    fetch('http://localhost:5000/api/users', {
+    fetch('https://on-the-spot.onrender.com/api/users', {
         headers: { 'Authorization': 'Bearer ' + token }
     })
     .then(res => res.json())
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             user = users.find(u => u.email === emailParam);
         } else {
             // Fetch current user's profile
-            return fetch('http://localhost:5000/api/profile', {
+            return fetch('https://on-the-spot.onrender.com/api/profile', {
                 headers: { 'Authorization': 'Bearer ' + token }
             })
             .then(res => res.json())

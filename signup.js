@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         users.push({ name, email, password });
         localStorage.setItem('ots_users', JSON.stringify(users));
 
-        fetch('https://ideal-adventure-gpx467pq6v6f94p6-5000.app.github.dev/api/signup', {
+        fetch('https://on-the-spot.onrender.com/api/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password })

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
 
-        fetch('http://localhost:5000/api/login', {
+        fetch('https://on-the-spot.onrender.com/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
