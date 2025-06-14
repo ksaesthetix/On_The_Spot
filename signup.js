@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm-password');
 
-    // Create a message element if it doesn't exist
     let messageDiv = document.getElementById('signup-message');
     if (!messageDiv) {
         messageDiv = document.createElement('div');

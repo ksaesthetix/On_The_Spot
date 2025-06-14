@@ -14,15 +14,26 @@
         <button id="pay-btn">Pay Now</button>
     </section>
     <script>
-    const token = localStorage.getItem('ots_jwt');
     document.getElementById('pay-btn').onclick = function() {
+        const token = localStorage.getItem('ots_jwt');
+        if (!token) {
+            alert("You must be logged in to pay.");
+            window.location.href = "login.html";
+            return;
+        }
         fetch('https://on-the-spot.onrender.com/api/create-checkout-session', {
             method: 'POST',
             headers: { 'Authorization': 'Bearer ' + token }
         })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) throw new Error("Payment session creation failed: " + res.status);
+            return res.json();
+        })
         .then(data => {
             if (data.url) window.location = data.url;
+        })
+        .catch(err => {
+            alert(err.message);
         });
     };
     </script>
