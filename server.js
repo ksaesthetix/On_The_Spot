@@ -42,7 +42,8 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     type: { type: String, default: 'Attendee' },
-    hasPaid: { type: Boolean, default: false }
+    hasPaid: { type: Boolean, default: false },
+    trialEndsAt: { type: Date }
 });
 const User = mongoose.model('User', userSchema);
 
@@ -74,6 +75,7 @@ app.post('/api/signup', async (req, res) => {
             return res.json({ success: false, message: "Email already registered." });
         }
         const hashed = await bcrypt.hash(password, 10);
+        const trialEndsAt = new Date(Date.now() + 2 * 60 * 60 * 1000); // 2 hours from now
         const user = new User({ name, email, password: hashed });
         await user.save();
         res.json({ success: true });

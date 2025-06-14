@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(res => res.json())
     .then(user => {
-        if (!user.hasPaid) {
+        const now = new Date();
+        const trialEndsAt = user.trialEndsAt ? new Date(user.trialEndsAt) : null;
+        if (!user.hasPaid && (!trialEndsAt || trialEndsAt < now)) {
             window.location.href = 'paywall.html';
         } else {
+            updateTrialTimer(user.trialEndsAt);
             // ...rest of your page logic here...
         }
     })
@@ -377,5 +380,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 100); // Delay ensures the popup DOM is ready
             });
         });
+
+        function updateTrialTimer(trialEndsAt) {
+            const timerDiv = document.getElementById('trial-timer');
+            if (!trialEndsAt || !timerDiv) return;
+
+            function render() {
+                const now = new Date();
+                const end = new Date(trialEndsAt);
+                const diff = end - now;
+                if (diff <= 0) {
+                    timerDiv.textContent = "Your free trial has ended.";
+                    clearInterval(interval);
+                    return;
+                }
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                timerDiv.textContent = `Trial time left: ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            render();
+            const interval = setInterval(render, 1000);
+        }
     }
 });
