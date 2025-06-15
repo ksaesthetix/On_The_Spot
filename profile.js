@@ -68,8 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Render connections for both attendees and vendors
         const connectionsList = document.querySelector('.connections-list');
         if (connectionsList) {
-            if (user.connections && user.connections.length > 0) {
-                connectionsList.innerHTML = user.connections.map(conn => `
+            const connections = Array.isArray(user.connections) ? user.connections : [];
+            if (connections.length > 0) {
+                connectionsList.innerHTML = connections.map(conn => `
                     <li>
                         <img src="avatar.png" alt="${conn.name}" class="connection-avatar" />
                         <span>${conn.name} (${conn.type})</span>
