@@ -306,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId, targetId })
         });
+        // Optionally refresh the UI or fetch connections again
     }
     async function disconnect(userId, targetId) {
         await fetch('/api/disconnect', {

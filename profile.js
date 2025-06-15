@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             // Fetch current user's profile
-            fetch('https://on-the-spot.onrender.com/api/profile', {
-                headers: { 'Authorization': 'Bearer ' + token }
+            fetch('/api/profile', {
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('ots_jwt') }
             })
             .then(res => res.json())
-            .then(profile => {
-                renderProfile(profile, users, false);
-                updateTrialTimer(profile.trialEndsAt);
+            .then(user => {
+                renderProfile(user, users, false);
+                updateTrialTimer(user.trialEndsAt);
             })
             .catch(() => {
                 mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
