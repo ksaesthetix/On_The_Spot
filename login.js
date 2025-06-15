@@ -28,17 +28,22 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(res => res.json())
         .then(data => {
-            if (data.success && data.token && data.email) {
+            console.log("Login response:", data); // Debug: log the response
+
+            // Support both response shapes: { user: {...} } or top-level fields
+            const user = data.user || {
+                name: data.name,
+                email: data.email,
+                type: data.type
+            };
+
+            if (data.success && data.token && user && user.email) {
                 localStorage.setItem('ots_jwt', data.token);
-                localStorage.setItem('ots_user', JSON.stringify({
-                    name: data.name,
-                    email: data.email,
-                    type: data.type
-                }));
+                localStorage.setItem('ots_user', JSON.stringify(user));
                 messageDiv.textContent = "Login successful! Redirecting...";
                 messageDiv.style.color = "green";
                 setTimeout(() => {
-                    window.location.href = `profile.html?user=${encodeURIComponent(data.email)}`;
+                    window.location.href = `profile.html?user=${encodeURIComponent(user.email)}`;
                 }, 1200);
             } else {
                 messageDiv.textContent = data.message || "Login failed.";
