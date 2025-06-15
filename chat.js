@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
     // --- Chat Popup Logic ---
     const chatPopup = document.getElementById('chat-popup');
     const closeChatBtn = document.getElementById('close-chat');
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Connect to your backend
-    const socket = io('https://on-the-spot.onrender.com');
+    const socket = io(API_BASE);
 
     // Send a message (call this on form submit)
     function sendMessage(message) {
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Fetch and display chat history
-    fetch('https://on-the-spot.onrender.com/api/chat')
+    fetch(`${API_BASE}/api/chat`)
       .then(res => res.json())
       .then(messages => {
           messages.forEach(data => {

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
     const form = document.querySelector('.login-form');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageDiv.textContent = "Signing in...";
         messageDiv.style.color = "black";
 
-        fetch('https://on-the-spot.onrender.com/api/login', {
+        fetch(`${API_BASE}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

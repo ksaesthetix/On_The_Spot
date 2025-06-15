@@ -1,5 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
   (async function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
+
+    let attendeeConnections = [];
+
+    // Define fetchConnections first
+    async function fetchConnections(userId) {
+        const res = await fetch(`${API_BASE}/api/connections/${userId}`);
+        return await res.json();
+    }
+
+    // Define connect/disconnect functions first
+    async function connect(userId, targetId) {
+        await fetch(`${API_BASE}/api/connect`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, targetId })
+        });
+    }
+    async function disconnect(userId, targetId) {
+        await fetch(`${API_BASE}/api/disconnect`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, targetId })
+        });
+    }
+
+    // --- Move fetchUsers here, before its first use ---
+    async function fetchUsers() {
+        const res = await fetch(`${API_BASE}/api/users`);
+        return await res.json();
+    }
+
     const userList = document.querySelector('.user-list');
     const currentUser = JSON.parse(localStorage.getItem('ots_user'));
     let users = [];
@@ -291,54 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Helper: is this a real attendee (from backend)?
     function isAttendee(user) {
         return !!user._id;
-    }
-
-    // Fetch connections from backend for attendees
-    async function fetchConnections(userId) {
-        const res = await fetch(`/api/connections/${userId}`);
-        return await res.json(); // Array of user objects
-    }
-
-    // Connect/disconnect backend for attendees
-    async function connect(userId, targetId) {
-        await fetch('/api/connect', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId, targetId })
-        });
-        // Optionally refresh the UI or fetch connections again
-    }
-    async function disconnect(userId, targetId) {
-        await fetch('/api/disconnect', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId, targetId })
-        });
-    }
-
-    let attendeeConnections = [];
-    if (currentUser && currentUser._id) {
-        attendeeConnections = await fetchConnections(currentUser._id);
-    }
-
-    // Fetch all users from backend
-    async function fetchUsers() {
-        const res = await fetch('/api/users');
-        return await res.json();
-    }
-
-    async function connectUser(connection) {
-        const user = JSON.parse(localStorage.getItem('ots_user'));
-        if (!user) return;
-
-        await fetch('/api/connect', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                userId: user._id, // or user.id, depending on your schema
-                connection
-            })
-        });
     }
   })();
 });

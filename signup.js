@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
     const form = document.querySelector('.signup-form');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        fetch('https://on-the-spot.onrender.com/api/signup', {
+        fetch(`${API_BASE}/api/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, password })
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 // Auto-login after signup to get JWT
-                fetch('https://on-the-spot.onrender.com/api/login', {
+                fetch(`${API_BASE}/api/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })

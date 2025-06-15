@@ -1,8 +1,9 @@
+const API_BASE = 'https://on-the-spot.onrender.com';
 // Simple in-memory posts array (replace with backend fetch/save for production)
 let posts = [];
 
 function fetchPosts() {
-    fetch('https://on-the-spot.onrender.com/api/posts')
+    fetch(`${API_BASE}/api/posts`)
         .then(res => res.json())
         .then(data => {
             posts = data;
@@ -29,7 +30,7 @@ document.getElementById('post-form').addEventListener('submit', function(e) {
         formData.append('media', mediaInput.files[0]);
     }
 
-    fetch('https://on-the-spot.onrender.com/api/posts', {
+    fetch(`${API_BASE}/api/posts`, {
         method: 'POST',
         body: formData
     })

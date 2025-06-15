@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema({
     type: { type: String, default: 'Attendee' },
     hasPaid: { type: Boolean, default: false },
     trialEndsAt: { type: Date },
-    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] // <-- Add this line
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 const User = mongoose.model('User', userSchema);
 
@@ -155,25 +155,16 @@ app.post('/api/login', async (req, res) => {
 
 // Make profile endpoint public
 app.get('/api/profile', authenticateToken, async (req, res) => {
-    try {
-        const user = await User.findById(req.user.id)
-            .select('-password')
-            .populate('connections', 'name email type'); // Populate connections with basic info
-        if (!user) return res.status(404).json({ message: "User not found" });
-        res.json(user);
-    } catch (err) {
-        res.status(500).json({ message: "Server error." });
-    }
+    const user = await User.findById(req.user.id)
+        .select('-password')
+        .populate('connections', 'name email type');
+    res.json(user);
 });
 
 // Make users endpoint public
-app.get('/api/users', async (req, res) => {
-    try {
-        const users = await User.find().select('-password');
-        res.json(users);
-    } catch (err) {
-        res.status(500).json({ message: 'Server error.' });
-    }
+app.get('/api/users', authenticateToken, async (req, res) => {
+    const users = await User.find().populate('connections', 'name email type');
+    res.json(users);
 });
 
 // Set up Multer for uploads (store in /uploads)

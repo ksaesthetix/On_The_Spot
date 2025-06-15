@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
     const params = new URLSearchParams(window.location.search);
     const emailParam = params.get('user');
     const token = localStorage.getItem('ots_jwt');
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch all users (for connections and viewing other profiles)
-    fetch('https://on-the-spot.onrender.com/api/users', {
+    fetch(`${API_BASE}/api/users`, {
         headers: { 'Authorization': 'Bearer ' + token }
     })
     .then(res => res.json())
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             // Fetch current user's profile
-            fetch('/api/profile', {
+            fetch(`${API_BASE}/api/profile`, {
                 headers: { 'Authorization': 'Bearer ' + localStorage.getItem('ots_jwt') }
             })
             .then(res => res.json())
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .forEach(el => { if (el) el.style.display = ''; });
         } else {
             document.querySelectorAll('.profile-actions, .connections-section, .posts-section, .itinerary-section')
-                .forEach(el => { if (el) el.style.display = 'none'; });
+                .forEach(el => { if (el) el.style.display = ''; });
         }
 
         // Update profile info
@@ -69,12 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const connectionsList = document.querySelector('.connections-list');
         if (connectionsList) {
             const connections = Array.isArray(user.connections) ? user.connections : [];
+            console.log("Connections received:", user.connections);
             if (connections.length > 0) {
                 connectionsList.innerHTML = connections.map(conn => `
                     <li>
-                        <img src="avatar.png" alt="${conn.name}" class="connection-avatar" />
-                        <span>${conn.name} (${conn.type})</span>
-                        <a href="profile.html?user=${encodeURIComponent(conn.email)}" class="view-profile-link">View Profile</a>
+                        <span>${conn.name}</span>
                     </li>
                 `).join('');
             } else {
