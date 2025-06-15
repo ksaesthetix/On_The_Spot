@@ -43,7 +43,7 @@ app.use(cors({
 }));
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => {
         console.error('MongoDB connection error:', err);
@@ -297,14 +297,4 @@ app.get('/', (req, res) => {
 // Start the server
 server.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-});
-
-// MongoDB connection for additional endpoints
-const uri = 'MONGO_URI';
-const client = new MongoClient(uri);
-let db;
-
-client.connect().then(() => {
-    db = client.db('on_the_spot');
-    console.log('MongoDB connected for additional endpoints');
 });
