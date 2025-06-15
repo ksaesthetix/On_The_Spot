@@ -110,4 +110,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2000);
         }
     });
+
+    const API_BASE = 'https://on-the-spot.onrender.com';
+    const token = localStorage.getItem('ots_jwt');
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-to-itinerary-btn')) {
+            e.preventDefault();
+            const name = e.target.getAttribute('data-name');
+            const time = e.target.getAttribute('data-time');
+            const vendor = e.target.getAttribute('data-vendor');
+            fetch(`${API_BASE}/api/itinerary`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ name, time, vendor })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Added to your itinerary!');
+                } else {
+                    alert('Could not add to itinerary.');
+                }
+            });
+        }
+    });
 });

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailParam = params.get('user');
     const token = localStorage.getItem('ots_jwt');
     const mainEl = document.querySelector('main');
+    const itineraryList = document.querySelector('.itinerary-list');
 
     if (!token) {
         mainEl.innerHTML = '<section class="profile-section"><p>Please <a href="login.html">log in</a> to view your profile.</p></section>';
@@ -81,6 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 connectionsList.innerHTML = '<li>No connections yet.</li>';
             }
         }
+
+        // Render itinerary items
+        if (itineraryList && user.itinerary && user.itinerary.length > 0) {
+            itineraryList.innerHTML = user.itinerary.map(item => `
+                <li>${item.name} - ${item.time || ''} ${item.vendor ? '(' + item.vendor + ')' : ''}</li>
+            `).join('');
+        } else if (itineraryList) {
+            itineraryList.innerHTML = '<li>No itinerary items yet.</li>';
+        }
     }
 
     function updateTrialTimer(trialEndsAt) {
@@ -105,4 +115,26 @@ document.addEventListener('DOMContentLoaded', function() {
         render();
         const interval = setInterval(render, 1000);
     }
+
+    // Fetch and render itinerary
+    function renderItinerary(items) {
+        if (!itineraryList) return;
+        if (Array.isArray(items) && items.length > 0) {
+            itineraryList.innerHTML = items.map(item =>
+                `<li>${item.name}${item.time ? ' - ' + item.time : ''}${item.vendor ? ' (' + item.vendor + ')' : ''}</li>`
+            ).join('');
+        } else {
+            itineraryList.innerHTML = '<li>No itinerary items yet.</li>';
+        }
+    }
+
+    // Fetch itinerary from backend
+    fetch(`${API_BASE}/api/itinerary`, {
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.json())
+    .then(renderItinerary)
+    .catch(() => {
+        if (itineraryList) itineraryList.innerHTML = '<li>Could not load itinerary.</li>';
+    });
 });

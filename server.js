@@ -58,7 +58,12 @@ const userSchema = new mongoose.Schema({
     type: { type: String, default: 'Attendee' },
     hasPaid: { type: Boolean, default: false },
     trialEndsAt: { type: Date },
-    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    itinerary: [{
+        name: String,
+        time: String, // or Date if you want
+        vendor: String // or vendorId if you want to reference
+    }]
 });
 const User = mongoose.model('User', userSchema);
 
@@ -253,6 +258,33 @@ app.post('/api/disconnect', async (req, res) => {
 app.get('/api/connections/:userId', async (req, res) => {
     const user = await User.findById(req.params.userId).populate('connections', 'name email type');
     res.json(user.connections);
+});
+
+// Add to itinerary endpoint
+app.post('/api/itinerary', authenticateToken, async (req, res) => {
+    const { name, time, vendor } = req.body;
+    const userId = req.user.id;
+    try {
+        const user = await User.findByIdAndUpdate(
+            userId,
+            { $push: { itinerary: { name, time, vendor } } },
+            { new: true }
+        );
+        res.json({ success: true, itinerary: user.itinerary });
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Could not add to itinerary." });
+    }
+});
+
+// New endpoint to get itinerary
+app.get('/api/itinerary', authenticateToken, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('itinerary');
+        if (!user) return res.status(404).json({ message: "User not found" });
+        res.json(user.itinerary || []);
+    } catch (err) {
+        res.status(500).json({ message: "Server error." });
+    }
 });
 
 // Socket.io connection

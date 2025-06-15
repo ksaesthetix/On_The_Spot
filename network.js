@@ -28,7 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Move fetchUsers here, before its first use ---
     async function fetchUsers() {
-        const res = await fetch(`${API_BASE}/api/users`);
+        const token = localStorage.getItem('ots_jwt');
+        const res = await fetch(`${API_BASE}/api/users`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
         return await res.json();
     }
 
