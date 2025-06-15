@@ -95,5 +95,34 @@ feed.addEventListener('click', function(e) {
     }
 });
 
+feed.addEventListener('submit', function(e) {
+    if (e.target.classList.contains('comment-form')) {
+        e.preventDefault();
+        const postId = e.target.getAttribute('data-id');
+        const input = e.target.querySelector('input');
+        const text = input.value.trim();
+        if (!text) return;
+        const token = localStorage.getItem('ots_jwt');
+        fetch(`${API_BASE}/api/posts/${postId}/comment`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ text })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                input.value = '';
+                fetchPosts();
+            } else {
+                alert(data.message || "Could not add comment.");
+            }
+        })
+        .catch(() => alert("Network error."));
+    }
+});
+
 // Initial fetch
 fetchPosts();
