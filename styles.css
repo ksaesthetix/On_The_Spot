@@ -1097,6 +1097,87 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Like Button */
+.like-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+    outline: none;
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+}
+.like-btn:hover, .like-btn:focus {
+    color: var(--color-dark);
+    background: var(--color-muted);
+}
+
+/* Comments Section */
+.comments {
+    margin-top: 0.7rem;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.7rem 0.7rem 0.5rem 0.7rem;
+    box-shadow: 0 1px 4px rgba(44,62,80,0.03);
+}
+.comments ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+}
+.comments ul li {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+    word-break: break-word;
+}
+.comments ul li b {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-right: 0.3em;
+}
+
+/* Comment Form */
+.comment-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.comment-form input[type="text"] {
+    flex: 1 1 auto;
+    border-radius: 6px;
+    border: 1.5px solid var(--border-light);
+    padding: 0.4rem 0.7rem;
+    font-size: 1rem;
+    background: var(--color-light);
+    color: var(--text-primary);
+    transition: border 0.2s;
+}
+.comment-form input[type="text"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+.comment-form button {
+    background: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.comment-form button:hover {
+    background: var(--color-muted);
+    color: var(--color-dark);
+}
+
 /* Responsive adjustments for profile page */
 @media (max-width: 800px) {
     .profile-section,

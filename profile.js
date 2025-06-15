@@ -91,6 +91,32 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (itineraryList) {
             itineraryList.innerHTML = '<li>No itinerary items yet.</li>';
         }
+
+        // Render user's posts
+        const postList = document.querySelector('.post-list');
+        if (postList) {
+            postList.innerHTML = '<li>Loading posts...</li>';
+            fetch(`${API_BASE}/api/posts`)
+                .then(res => res.json())
+                .then(posts => {
+                    // Filter posts by user name (or use user.email if you store that in posts)
+                    const userPosts = posts.filter(post => post.user === user.name);
+                    if (userPosts.length > 0) {
+                        postList.innerHTML = userPosts.map(post => `
+                            <li class="post">
+                                <div>${post.content}</div>
+                                <span class="post-time">${new Date(post.time).toLocaleString()}</span>
+                                ${post.mediaUrl ? `<div class="feed-media"><img src="${post.mediaUrl}" alt="media" /></div>` : ''}
+                            </li>
+                        `).join('');
+                    } else {
+                        postList.innerHTML = '<li>No posts yet.</li>';
+                    }
+                })
+                .catch(() => {
+                    postList.innerHTML = '<li>Could not load posts.</li>';
+                });
+        }
     }
 
     function updateTrialTimer(trialEndsAt) {

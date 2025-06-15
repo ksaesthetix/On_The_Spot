@@ -67,13 +67,20 @@ const userSchema = new mongoose.Schema({
 });
 const User = mongoose.model('User', userSchema);
 
-// Post Schema
+// Comment and Post Schema
+const commentSchema = new mongoose.Schema({
+    user: String, // or userId/email
+    text: String,
+    time: { type: Date, default: Date.now }
+});
+
 const postSchema = new mongoose.Schema({
-    user: String,
-    content: String,
+    user: { type: String, required: true },
+    content: { type: String, required: true },
     time: { type: Date, default: Date.now },
-    mediaUrl: String,
-    mediaType: String
+    mediaUrl: { type: String },
+    likes: { type: [String], default: [] }, // array of user emails or IDs
+    comments: { type: [commentSchema], default: [] }
 });
 
 const Post = mongoose.model('Post', postSchema);
@@ -285,6 +292,40 @@ app.get('/api/itinerary', authenticateToken, async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: "Server error." });
     }
+});
+
+// Like a post endpoint
+const Post = require('./models/post'); // Make sure this is at the top
+
+app.post('/api/posts/:id/like', authenticateToken, async (req, res) => {
+    try {
+        const userEmail = req.user.email;
+        const post = await Post.findById(req.params.id);
+        if (!post) return res.status(404).json({ success: false, message: "Post not found" });
+
+        const index = post.likes.indexOf(userEmail);
+        if (index === -1) {
+            post.likes.push(userEmail);
+        } else {
+            post.likes.splice(index, 1);
+        }
+        await post.save();
+        res.json({ success: true, likes: post.likes.length, liked: index === -1 });
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Server error." });
+    }
+});
+
+// New endpoint to comment on a post
+app.post('/api/posts/:id/comment', authenticateToken, async (req, res) => {
+    const userEmail = req.user.email;
+    const { text } = req.body;
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ success: false, message: "Post not found" });
+
+    post.comments.push({ user: userEmail, text });
+    await post.save();
+    res.json({ success: true, comments: post.comments });
 });
 
 // Socket.io connection
