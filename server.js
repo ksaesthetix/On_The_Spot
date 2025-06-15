@@ -294,8 +294,6 @@ app.get('/api/itinerary', authenticateToken, async (req, res) => {
     }
 });
 
-// Like a post endpoint
-const Post = require('./models/post'); // Make sure this is at the top
 
 app.post('/api/posts/:id/like', authenticateToken, async (req, res) => {
     try {
