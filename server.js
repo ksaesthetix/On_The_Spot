@@ -8,6 +8,8 @@ const multer = require('multer');
 const path = require('path');
 const http = require('http');
 const { Server } = require('socket.io');
+const bodyParser = require('body-parser');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
 const server = http.createServer(app);
@@ -25,6 +27,8 @@ const io = new Server(server, {
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(bodyParser.json());
+
 const allowedOrigins = [
   'https://ksaesthetix.github.io',
   'https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev'
@@ -53,7 +57,8 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     type: { type: String, default: 'Attendee' },
     hasPaid: { type: Boolean, default: false },
-    trialEndsAt: { type: Date }
+    trialEndsAt: { type: Date },
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] // <-- Add this line
 });
 const User = mongoose.model('User', userSchema);
 
@@ -115,31 +120,50 @@ app.post('/api/signup', async (req, res) => {
 
 // Login endpoint (returns JWT)
 app.post('/api/login', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
-        if (!user) return res.json({ success: false, message: "Invalid credentials." });
-
-        const valid = await bcrypt.compare(password, user.password);
-        if (!valid) return res.json({ success: false, message: "Invalid credentials." });
-
-        // Issue JWT
-        const token = jwt.sign(
-            { id: user._id, email: user.email, name: user.name, type: user.type },
-            process.env.JWT_SECRET,
-            { expiresIn: '2h' }
-        );
-
-        res.json({ success: true, token, name: user.name, email: user.email, type: user.type });
-    } catch (err) {
-        res.json({ success: false, message: "Server error." });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    console.log("Login attempt:", email, password);
+    if (!user) {
+        console.log("User not found");
+        return res.json({ success: false, message: "User not found" });
     }
+    const match = await bcrypt.compare(password, user.password);
+    console.log("Password match:", match);
+    if (!match) {
+        console.log("Incorrect password");
+        return res.json({ success: false, message: "Incorrect password" });
+    }
+
+    // Generate JWT (replace with your JWT logic)
+    const token = jwt.sign(
+        { id: user._id, email: user.email, name: user.name, type: user.type },
+        process.env.JWT_SECRET,
+        { expiresIn: '2h' }
+    );
+
+    res.json({
+        success: true,
+        token,
+        user: {
+            name: user.name,
+            email: user.email,
+            type: user.type,
+            _id: user._id
+        }
+    });
 });
 
 // Make profile endpoint public
-app.get('/api/profile', async (req, res) => {
-    // You may want to return a default/anonymous profile or handle this differently
-    res.json({ message: "Public profile endpoint. No authentication required." });
+app.get('/api/profile', authenticateToken, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id)
+            .select('-password')
+            .populate('connections', 'name email type'); // Populate connections with basic info
+        if (!user) return res.status(404).json({ message: "User not found" });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ message: "Server error." });
+    }
 });
 
 // Make users endpoint public
@@ -216,6 +240,30 @@ app.get('/api/chat', async (req, res) => {
     }
 });
 
+// Connect to another user
+app.post('/api/connect', async (req, res) => {
+    const { userId, targetId } = req.body;
+    if (!userId || !targetId) return res.status(400).send('Missing userId or targetId');
+    await User.findByIdAndUpdate(userId, { $addToSet: { connections: targetId } });
+    await User.findByIdAndUpdate(targetId, { $addToSet: { connections: userId } });
+    res.sendStatus(200);
+});
+
+// Disconnect from another user
+app.post('/api/disconnect', async (req, res) => {
+    const { userId, targetId } = req.body;
+    if (!userId || !targetId) return res.status(400).send('Missing userId or targetId');
+    await User.findByIdAndUpdate(userId, { $pull: { connections: targetId } });
+    await User.findByIdAndUpdate(targetId, { $pull: { connections: userId } });
+    res.sendStatus(200);
+});
+
+// Get a user's connections
+app.get('/api/connections/:userId', async (req, res) => {
+    const user = await User.findById(req.params.userId).populate('connections', 'name email type');
+    res.json(user.connections);
+});
+
 // Socket.io connection
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
@@ -249,4 +297,14 @@ app.get('/', (req, res) => {
 // Start the server
 server.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+});
+
+// MongoDB connection for additional endpoints
+const uri = 'MONGO_URI';
+const client = new MongoClient(uri);
+let db;
+
+client.connect().then(() => {
+    db = client.db('on_the_spot');
+    console.log('MongoDB connected for additional endpoints');
 });

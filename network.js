@@ -1,10 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+  (async function() {
     const userList = document.querySelector('.user-list');
     const currentUser = JSON.parse(localStorage.getItem('ots_user'));
-    const users = JSON.parse(localStorage.getItem('ots_users') || '[]').map(u => ({
-        ...u,
-        type: u.type || 'Attendee'
-    }));
+    let users = [];
+    if (currentUser && currentUser._id) {
+        users = await fetchUsers();
+    } else {
+        users = JSON.parse(localStorage.getItem('ots_users') || '[]').map(u => ({
+            ...u,
+            type: u.type || 'Attendee'
+        }));
+    }
     let connections = JSON.parse(localStorage.getItem('ots_connections') || '[]');
 
     // Convert vendors to user-like objects with unique emails
@@ -119,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderUserList() {
         connections = JSON.parse(localStorage.getItem('ots_connections') || '[]');
-        // Filter users/vendors by search term
         const displayedUsers = filteredUsers.filter(user => {
             const search = searchTerm.toLowerCase();
             const matchesSearch =
@@ -128,7 +133,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 (user.email && user.email.toLowerCase().includes(search));
 
             const matchesType = !typeFilter || (user.type && user.type === typeFilter);
-            const isConnected = connections.includes(user.email);
+
+            let isConnected;
+            if (isAttendee(user)) {
+                isConnected = attendeeConnections.some(conn => conn._id === user._id);
+            } else {
+                isConnected = connections.includes(user.email);
+            }
+
             const matchesConnection =
                 !connectionFilter ||
                 (connectionFilter === 'connected' && isConnected) ||
@@ -136,27 +148,68 @@ document.addEventListener('DOMContentLoaded', function() {
 
             return matchesSearch && matchesType && matchesConnection;
         });
-        userList.innerHTML = displayedUsers.map(user => `
-            <li>
-                <img src="avatar.png" alt="${user.name}" class="user-avatar" />
-                <span class="user-name">${user.name}</span>
-                <span class="user-tag">${user.type || 'Attendee'}</span>
-                <div class="user-actions">
-                    <a href="profile.html?user=${encodeURIComponent(user.email)}" class="user-btn view-profile" title="View Profile">Profile</a>
-                    <button class="user-btn chat-btn" data-email="${user.email}" title="Chat">Chat</button>
-                    <button class="user-btn connect-btn" data-email="${user.email}" title="${connections.includes(user.email) ? 'Disconnect' : 'Add Connection'}">
-                        ${connections.includes(user.email) ? 'Disconnect' : 'Connect'}
-                    </button>
-                </div>
-            </li>
-        `).join('');
+
+        userList.innerHTML = displayedUsers.map(user => {
+            if (isAttendee(user)) {
+                const isConnected = attendeeConnections.some(conn => conn._id === user._id);
+                return `
+                    <li>
+                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}" alt="${user.name}" class="user-avatar" />
+                        <span class="user-name">${user.name}</span>
+                        <span class="user-tag">${user.type || 'Attendee'}</span>
+                        <div class="user-actions">
+                            <a href="profile.html?user=${encodeURIComponent(user.email)}" class="user-btn view-profile" title="View Profile">Profile</a>
+                            <button class="user-btn chat-btn" data-id="${user._id}" title="Chat">Chat</button>
+                            <button class="user-btn connect-btn" data-id="${user._id}" title="${isConnected ? 'Disconnect' : 'Add Connection'}">
+                                ${isConnected ? 'Disconnect' : 'Connect'}
+                            </button>
+                        </div>
+                    </li>
+                `;
+            } else {
+                const isConnected = connections.includes(user.email);
+                const isVendor = user.type && user.type.toLowerCase() === "vendor";
+                const isEvent = user.type && user.type.toLowerCase() === "event";
+                const profileLink = isVendor || isEvent
+                    ? `vendor.html?vendor=${encodeURIComponent(user.name)}`
+                    : `profile.html?user=${encodeURIComponent(user.email)}`;
+
+                return `
+                    <li>
+                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}" alt="${user.name}" class="user-avatar" />
+                        <span class="user-name">${user.name}</span>
+                        <span class="user-tag">${user.type || 'Attendee'}</span>
+                        <div class="user-actions">
+                            <a href="${profileLink}" class="user-btn view-profile" title="View Profile">Profile</a>
+                            <button class="user-btn chat-btn" data-email="${user.email}" title="Chat">Chat</button>
+                            <button class="user-btn connect-btn" data-email="${user.email}" title="${connections.includes(user.email) ? 'Disconnect' : 'Add Connection'}">
+                                ${connections.includes(user.email) ? 'Disconnect' : 'Connect'}
+                            </button>
+                        </div>
+                    </li>
+                `;
+            }
+        }).join('');
     }
 
     renderUserList();
 
     // Handle connect/disconnect button
-    userList.addEventListener('click', function(e) {
-        if (e.target.classList.contains('connect-btn')) {
+    userList.addEventListener('click', async function(e) {
+        // Attendee connect/disconnect (backend)
+        if (e.target.classList.contains('connect-btn') && e.target.hasAttribute('data-id')) {
+            const targetId = e.target.getAttribute('data-id');
+            const isConnected = attendeeConnections.some(conn => conn._id === targetId);
+            if (isConnected) {
+                await disconnect(currentUser._id, targetId);
+            } else {
+                await connect(currentUser._id, targetId);
+            }
+            attendeeConnections = await fetchConnections(currentUser._id);
+            renderUserList();
+        }
+        // Vendor connect/disconnect (local)
+        if (e.target.classList.contains('connect-btn') && e.target.hasAttribute('data-email')) {
             const email = e.target.getAttribute('data-email');
             let connections = JSON.parse(localStorage.getItem('ots_connections') || '[]');
             if (connections.includes(email)) {
@@ -233,5 +286,58 @@ document.addEventListener('DOMContentLoaded', function() {
         const interval = setInterval(render, 1000);
     }
 
-    updateTrialTimer(user.trialEndsAt);
+    updateTrialTimer(currentUser && currentUser.trialEndsAt);
+
+    // Helper: is this a real attendee (from backend)?
+    function isAttendee(user) {
+        return !!user._id;
+    }
+
+    // Fetch connections from backend for attendees
+    async function fetchConnections(userId) {
+        const res = await fetch(`/api/connections/${userId}`);
+        return await res.json(); // Array of user objects
+    }
+
+    // Connect/disconnect backend for attendees
+    async function connect(userId, targetId) {
+        await fetch('/api/connect', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, targetId })
+        });
+    }
+    async function disconnect(userId, targetId) {
+        await fetch('/api/disconnect', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, targetId })
+        });
+    }
+
+    let attendeeConnections = [];
+    if (currentUser && currentUser._id) {
+        attendeeConnections = await fetchConnections(currentUser._id);
+    }
+
+    // Fetch all users from backend
+    async function fetchUsers() {
+        const res = await fetch('/api/users');
+        return await res.json();
+    }
+
+    async function connectUser(connection) {
+        const user = JSON.parse(localStorage.getItem('ots_user'));
+        if (!user) return;
+
+        await fetch('/api/connect', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userId: user._id, // or user.id, depending on your schema
+                connection
+            })
+        });
+    }
+  })();
 });

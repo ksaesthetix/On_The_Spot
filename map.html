@@ -24,8 +24,8 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="profile.html">My Profile</a>
-                    <a href="login.html">Sign In</a>
                     <a href="signup.html">Sign Up</a>
+                    <a href="#" id="logout-link" style="display:none;">Logout</a>
                 </div>
             </div>
         </nav>
@@ -34,6 +34,7 @@
     <main>
         <section id="map-section">
             <div id="map-directions-wrapper">
+                <select id="vendor-dropdown" style="display:none;"></select>
                 <div id="vendor-list-panel"></div>
                 <div id="map-container">
                     <div id="google-map"></div>

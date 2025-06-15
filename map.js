@@ -205,6 +205,31 @@ function initGoogleMap(user = {}) {
             alert("Geolocation is not supported by your browser.");
         }
     };
+
+    // Sync vendor list to dropdown for mobile
+    function syncVendorDropdown() {
+        const vendorDropdown = document.getElementById('vendor-dropdown');
+        vendorDropdown.innerHTML = '<option value="">Select a vendor...</option>';
+        vendors.forEach((v, idx) => {
+            const option = document.createElement('option');
+            option.value = idx;
+            option.textContent = v.name;
+            vendorDropdown.appendChild(option);
+        });
+    }
+    syncVendorDropdown();
+
+    // When dropdown changes, trigger the same as clicking the list item
+    document.getElementById('vendor-dropdown').addEventListener('change', function(e) {
+        const idx = parseInt(e.target.value, 10);
+        if (!isNaN(idx)) {
+            // Center map and open info window
+            map.setCenter({ lat: vendors[idx].lat, lng: vendors[idx].lng });
+            map.setZoom(17);
+            infoWindows[idx].open(map, vendorMarkers[idx]);
+            setActiveListItem(idx);
+        }
+    });
 }
 
 // Make sure the function is global for the callback to work:

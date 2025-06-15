@@ -19,22 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
         let user;
         if (emailParam) {
             user = users.find(u => u.email === emailParam);
+            if (user) {
+                renderProfile(user, users, true);
+            } else {
+                mainEl.innerHTML = '<section class="profile-section"><p>User not found.</p></section>';
+            }
         } else {
             // Fetch current user's profile
-            return fetch('https://on-the-spot.onrender.com/api/profile', {
+            fetch('https://on-the-spot.onrender.com/api/profile', {
                 headers: { 'Authorization': 'Bearer ' + token }
             })
             .then(res => res.json())
             .then(profile => {
-                user = profile;
-                renderProfile(user, users, false);
-                updateTrialTimer(user.trialEndsAt);
+                renderProfile(profile, users, false);
+                updateTrialTimer(profile.trialEndsAt);
+            })
+            .catch(() => {
+                mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
             });
-        }
-        if (user) {
-            renderProfile(user, users, !!emailParam);
-        } else {
-            mainEl.innerHTML = '<section class="profile-section"><p>User not found.</p></section>';
         }
     })
     .catch(() => {
@@ -49,31 +51,33 @@ document.addEventListener('DOMContentLoaded', function() {
         const postsSection = document.querySelector('.posts-section');
         const itinerarySection = document.querySelector('.itinerary-section');
         const profileActions = document.querySelector('.profile-actions');
-        const connectionsList = document.querySelector('.connections-list');
+
+        // Always show all sections for your own profile
+        if (!isOtherUser) {
+            document.querySelectorAll('.profile-actions, .connections-section, .posts-section, .itinerary-section')
+                .forEach(el => { if (el) el.style.display = ''; });
+        } else {
+            document.querySelectorAll('.profile-actions, .connections-section, .posts-section, .itinerary-section')
+                .forEach(el => { if (el) el.style.display = 'none'; });
+        }
 
         // Update profile info
-        nameEl.textContent = user.name;
-        usernameEl.textContent = '@' + (user.email ? user.email.split('@')[0] : 'username');
-        // Optionally, set a user-specific avatar if you have one
-        // avatarEl.src = user.avatarUrl || 'avatar.png';
+        if (nameEl) nameEl.textContent = user.name;
+        if (usernameEl) usernameEl.textContent = '@' + (user.name || 'username');
 
-        // If viewing another user's profile, hide actions, connections, posts, itinerary
-        if (isOtherUser) {
-            if (profileActions) profileActions.style.display = 'none';
-            if (connectionsSection) connectionsSection.style.display = 'none';
-            if (postsSection) postsSection.style.display = 'none';
-            if (itinerarySection) itinerarySection.style.display = 'none';
-        } else {
-            // Show connections for the logged-in user only
-            if (connectionsList && user.connections) {
-                connectionsList.innerHTML = user.connections.map(connId => {
-                    const u = users.find(user => user._id === connId);
-                    if (!u) return '';
-                    return `<li>
-                        <img src="avatar.png" alt="${u.name}" class="connection-avatar" />
-                        <span>${u.name}</span>
-                    </li>`;
-                }).join('') || '<li>No connections yet.</li>';
+        // Render connections for both attendees and vendors
+        const connectionsList = document.querySelector('.connections-list');
+        if (connectionsList) {
+            if (user.connections && user.connections.length > 0) {
+                connectionsList.innerHTML = user.connections.map(conn => `
+                    <li>
+                        <img src="avatar.png" alt="${conn.name}" class="connection-avatar" />
+                        <span>${conn.name} (${conn.type})</span>
+                        <a href="profile.html?user=${encodeURIComponent(conn.email)}" class="view-profile-link">View Profile</a>
+                    </li>
+                `).join('');
+            } else {
+                connectionsList.innerHTML = '<li>No connections yet.</li>';
             }
         }
     }
