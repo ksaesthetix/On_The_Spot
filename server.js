@@ -316,7 +316,7 @@ app.post('/api/posts/:id/like', authenticateToken, async (req, res) => {
 
 // New endpoint to comment on a post
 app.post('/api/posts/:id/comment', authenticateToken, async (req, res) => {
-    const userEmail = req.user.email;
+    const userName = req.user.name;
     const { text } = req.body;
     const post = await Post.findById(req.params.id);
     if (!post) return res.status(404).json({ success: false, message: "Post not found" });
