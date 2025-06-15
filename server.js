@@ -321,7 +321,7 @@ app.post('/api/posts/:id/comment', authenticateToken, async (req, res) => {
     const post = await Post.findById(req.params.id);
     if (!post) return res.status(404).json({ success: false, message: "Post not found" });
 
-    post.comments.push({ user: userEmail, text });
+    post.comments.push({ user: userName, text });
     await post.save();
     res.json({ success: true, comments: post.comments });
 });
