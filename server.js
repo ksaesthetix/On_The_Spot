@@ -6,27 +6,36 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: [
+            "https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev",
+            "https://ksaesthetix.github.io"
+        ],
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 const allowedOrigins = [
   'https://ksaesthetix.github.io',
-  'https://ideal-adventure-gpx467pq6v6f94p6-5500.app.github.dev'
+  'https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev'
 ];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    // allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
+    origin: [
+        "https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev", // your Codespace origin
+        "https://ksaesthetix.github.io" // your GitHub Pages origin (if needed)
+    ],
+    credentials: true
 }));
 
 // MongoDB connection
@@ -58,6 +67,14 @@ const postSchema = new mongoose.Schema({
 });
 
 const Post = mongoose.model('Post', postSchema);
+
+// Chat Message Schema
+const chatMessageSchema = new mongoose.Schema({
+    user: String,         // sender's name or ID
+    message: String,      // message text
+    time: { type: Date, default: Date.now }
+});
+const ChatMessage = mongoose.model('ChatMessage', chatMessageSchema);
 
 // JWT middleware
 function authenticateToken(req, res, next) {
@@ -189,10 +206,47 @@ app.get('/api/posts', async (req, res) => {
     }
 });
 
+// New endpoint to get chat messages
+app.get('/api/chat', async (req, res) => {
+    try {
+        const messages = await ChatMessage.find().sort({ time: 1 }); // oldest first
+        res.json(messages);
+    } catch (err) {
+        res.status(500).json({ message: 'Server error.' });
+    }
+});
+
+// Socket.io connection
+io.on('connection', (socket) => {
+    console.log('A user connected:', socket.id);
+
+    socket.on('chat message', async (data) => {
+        // Broadcast to all users (including sender)
+        io.emit('chat message', data);
+
+        // Save to MongoDB
+        try {
+            const chatMsg = new ChatMessage({
+                user: data.user,
+                message: data.message,
+                time: new Date()
+            });
+            await chatMsg.save();
+        } catch (err) {
+            console.error('Failed to save chat message:', err);
+        }
+    });
+
+    socket.on('disconnect', () => {
+        console.log('User disconnected:', socket.id);
+    });
+});
+
 app.get('/', (req, res) => {
     res.send('Backend is running!');
 });
 
-app.listen(PORT, () => {
+// Start the server
+server.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });

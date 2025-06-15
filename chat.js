@@ -41,20 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const msg = chatInput.value.trim();
             if (msg) {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = 'chat-message me';
-                msgDiv.textContent = msg;
-                chatMessages.appendChild(msgDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+                sendMessage(msg); // Only send to server
                 chatInput.value = '';
-                // Simulate a reply
-                setTimeout(() => {
-                    const replyDiv = document.createElement('div');
-                    replyDiv.className = 'chat-message other';
-                    replyDiv.textContent = "Thanks for your message!";
-                    chatMessages.appendChild(replyDiv);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 800);
             }
         });
 
@@ -82,5 +70,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    const chatTarget = JSON.parse(localStorage.getItem('ots_chat_target'));
+    // Connect to your backend
+    const socket = io('https://on-the-spot.onrender.com');
+
+    // Send a message (call this on form submit)
+    function sendMessage(message) {
+        socket.emit('chat message', {
+            user: localStorage.getItem('ots_user') || 'Guest',
+            message: message
+        });
+    }
+
+    // Listen for all incoming messages
+    socket.on('chat message', function(data) {
+        const chatMessages = document.getElementById('chat-messages');
+        const msgDiv = document.createElement('div');
+        // Compare user to local user to style as 'me' or 'other'
+        const localUser = localStorage.getItem('ots_user') || 'Guest';
+        msgDiv.className = data.user === localUser ? 'chat-message me' : 'chat-message other';
+        msgDiv.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+    // Fetch and display chat history
+    fetch('https://on-the-spot.onrender.com/api/chat')
+      .then(res => res.json())
+      .then(messages => {
+          messages.forEach(data => {
+              const msgDiv = document.createElement('div');
+              const localUser = localStorage.getItem('ots_user') || 'Guest';
+              msgDiv.className = data.user === localUser ? 'chat-message me' : 'chat-message other';
+              msgDiv.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
+              chatMessages.appendChild(msgDiv);
+          });
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
 });

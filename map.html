@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    
 </head>
 <body>
     <header>
@@ -34,33 +33,13 @@
     </header>
     <main>
         <section id="map-section">
-        <br>
-            <div id="vendor-search-container">
-                <h3>Vendor Search</h3>
-                <input type="text" id="vendor-search" placeholder="Search for a vendor or event...">
-                <button id="vendor-search-btn">Search</button>
-            </div>
-            <div id="journey-controls-outer" style="text-align:center;">
-                </br>
-                <h3 style="margin-bottom:1rem;">Plan Your Journey</h3>
-                <div id="journey-controls" style="display:inline-flex;">
-                    <label>
-                        <span>Start:</span>
-                        <input type="text" id="location-a" value="Current Location" readonly />
-                    </label>
-                    <input type="hidden" id="location-a-lat" />
-                    <input type="hidden" id="location-a-lng" />
-                    <label>
-                        <span>Destination:</span>
-                        <select id="location-b">
-                            <option value="">Select a vendor</option>
-                            <!-- Vendor options will be populated by JS -->
-                        </select>
-                    </label>
-                    <button id="journey-go-btn">Go</button>
+            <div id="map-directions-wrapper">
+                <div id="vendor-list-panel"></div>
+                <div id="map-container">
+                    <div id="google-map"></div>
                 </div>
+                <div id="directions-panel"></div>
             </div>
-            <div id="map"></div>
         </section>
                 <!-- Chat Popup -->
         <div id="chat-popup" class="chat-popup">
@@ -84,8 +63,8 @@
     <!-- Leaflet JS -->
     <script src="dropdown.js"></script>
     <script src="map.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>    
     <script src="chat.js"></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb-Oe6BeLB9r3-mCPVfYaDc6mH4zclzB4&callback=initGoogleMap" async defer></script>
 </body>
 </html>
