@@ -190,8 +190,8 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
         if (!user) return res.status(404).json({ success: false, message: "User not found." });
 
         // --- TEST ONLY: Force trial expired and unpaid ---
-        user.hasPaid = false;
-        user.trialEndsAt = new Date(Date.now() - 1000 * 60 * 60 * 24); // 24 hours ago
+        // user.hasPaid = false;
+        // user.trialEndsAt = new Date(Date.now() - 1000 * 60 * 60 * 24); // 24 hours ago
         // --- END TEST ---
 
         res.json({ success: true, user });
@@ -399,7 +399,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
     }
 });
 
-// Stripe webhook endpoint
+// Add at the top:
 app.use('/webhook', express.raw({type: 'application/json'}));
 app.post('/webhook', async (req, res) => {
     const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
