@@ -74,10 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Connect to your backend
     const socket = io(API_BASE);
 
+    function getFirstName(name) {
+        return (name || '').split(' ')[0];
+    }
+
     // Send a message (call this on form submit)
     function sendMessage(message) {
         const userObj = JSON.parse(localStorage.getItem('ots_user') || '{}');
-        const userName = userObj.name || 'Guest';
+        const userName = getFirstName(userObj.name) || 'Guest';
         socket.emit('chat message', {
             user: userName,
             message: message
@@ -88,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     socket.on('chat message', function(data) {
         const chatMessages = document.getElementById('chat-messages');
         const msgDiv = document.createElement('div');
-        const localUser = (JSON.parse(localStorage.getItem('ots_user') || '{}').name) || 'Guest';
+        const localUser = getFirstName((JSON.parse(localStorage.getItem('ots_user') || '{}').name)) || 'Guest';
         msgDiv.className = data.user === localUser ? 'chat-message me' : 'chat-message other';
         msgDiv.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
         chatMessages.appendChild(msgDiv);
@@ -99,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(`${API_BASE}/api/chat`)
       .then(res => res.json())
       .then(messages => {
-          const localUser = (JSON.parse(localStorage.getItem('ots_user') || '{}').name) || 'Guest';
+          const localUser = getFirstName((JSON.parse(localStorage.getItem('ots_user') || '{}').name)) || 'Guest';
           messages.forEach(data => {
               const msgDiv = document.createElement('div');
               msgDiv.className = data.user === localUser ? 'chat-message me' : 'chat-message other';

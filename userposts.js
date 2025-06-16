@@ -1,5 +1,10 @@
 const API_BASE = 'https://on-the-spot.onrender.com';
+const isLoggedIn = !!localStorage.getItem('ots_jwt');
 // Simple in-memory posts array (replace with backend fetch/save for production)
+if (!localStorage.getItem('ots_jwt')) {
+    document.getElementById('post-form').style.display = 'none';
+    document.getElementById('feed').innerHTML = '<p>Please <a href="login.html">log in</a> to post.</p>';
+}
 let posts = [];
 
 function fetchPosts() {
@@ -22,7 +27,7 @@ document.getElementById('post-form').addEventListener('submit', function(e) {
     let user = "Guest";
     try {
         const u = JSON.parse(localStorage.getItem('ots_user'));
-        if (u && u.name) user = u.name;
+        if (u && u.name) user = getFirstName(u.name);
     } catch {}
     formData.append('user', user);
 
@@ -53,22 +58,24 @@ function renderFeed() {
     const currentUser = JSON.parse(localStorage.getItem('ots_user'));
     feed.innerHTML = posts.map(post => `
         <div class="feed-post" style="background:#f8fafc;border-radius:10px;padding:1rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,0.03);">
-            <div style="font-weight:bold;color:var(--color-primary);">${post.user}</div>
+            <div style="font-weight:bold;color:var(--color-primary);">${getFirstName(post.user)}</div>
             <div style="margin:0.5rem 0;">${post.content ? post.content : ""}</div>
             ${post.mediaUrl && post.mediaType === 'image' ? `<img class="feed-media" src="${post.mediaUrl}" alt="post image" style="max-width:100%;border-radius:8px;">` : ""}
             ${post.mediaUrl && post.mediaType === 'video' ? `<video class="feed-media" controls src="${post.mediaUrl}" style="max-width:100%;border-radius:8px;"></video>` : ""}
             <div style="font-size:0.9em;color:#888;">${post.time}</div>
-            <button class="like-btn" data-id="${post._id}">
+            <button class="like-btn" data-id="${post._id}" ${!isLoggedIn ? 'disabled title="Log in to like"' : ''}>
                 ❤️ ${post.likes ? post.likes.length : 0}
             </button>
             <div class="comments">
                 <ul>
-                    ${(post.comments || []).map(c => `<li><b>${c.user}:</b> ${c.text}</li>`).join('')}
+                    ${(post.comments || []).map(c => `<li><b>${getFirstName(c.user)}:</b> ${c.text}</li>`).join('')}
                 </ul>
+                ${isLoggedIn ? `
                 <form class="comment-form" data-id="${post._id}">
                     <input type="text" placeholder="Add a comment..." required>
                     <button type="submit">Comment</button>
                 </form>
+                ` : `<div style="color:#aaa;font-size:0.95em;">Log in to comment</div>`}
             </div>
         </div>
     `).join('');
@@ -126,3 +133,8 @@ feed.addEventListener('submit', function(e) {
 
 // Initial fetch
 fetchPosts();
+
+function getFirstName(name) {
+    return (name || '').split(' ')[0];
+}
+

@@ -41,16 +41,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch and display vendor events from JSON
-    fetch('cannesfringeeventdata.json')
+    fetch('cannesfringeeventdata_with_coords.json')
         .then(response => response.json())
         .then(allEvents => {
-            const vendorEvents = allEvents.filter(ev => (ev["host "] || "").trim() === vendorName);
+            // Robust filter: trim and lowercase both sides
+            const vendorEvents = allEvents.filter(ev => {
+                const host = (ev["host "] || "").trim().toLowerCase();
+                const vendor = (vendorName || "").trim().toLowerCase();
+                return host === vendor;
+            });
+
+            // Debug: log available hosts and vendorName
+            // console.log("Looking for vendor:", vendorName);
+            // console.log("Available hosts:", [...new Set(allEvents.map(ev => (ev["host "] || "").trim()))]);
 
             const tbody = document.getElementById('vendor-events-list');
             if (tbody) {
-                tbody.innerHTML = vendorEvents.map((ev, idx) => `
+                tbody.innerHTML = vendorEvents.map((ev, idx) => {
+                    // Safe date formatting
+                    const dateStr = ev.date_time || "";
+                    let formattedDate = "";
+                    if (dateStr) {
+                        const d = new Date(dateStr);
+                        formattedDate = !isNaN(d) ? d.toISOString().split("T")[0] : dateStr;
+                    }
+                    return `
                     <tr>
-                        <td>${ev.date_time ? new Date(ev.date_time).toLocaleString() : ''}</td>
+                        <td>${formattedDate}</td>
                         <td>${ev.event_name || ''}</td>
                         <td>${ev.description || ''}</td>
                         <td>${ev.event_type || ''}</td>
@@ -61,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <button 
                                 class="add-itinerary-btn"
                                 data-name="${ev.event_name || ''}"
-                                data-time="${ev.date_time ? new Date(ev.date_time).toISOString() : ''}"
+                                data-time="${ev.date_time && !isNaN(new Date(ev.date_time)) ? new Date(ev.date_time).toISOString() : ''}"
                                 data-vendor="${vendorName || ''}"
                                 data-description="${ev.description || ''}"
                                 data-event_type="${ev.event_type || ''}"
@@ -70,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             >Add</button>
                         </td>
                     </tr>
-                `).join('');
+                    `;
+                }).join('');
             }
         })
         .catch(err => {

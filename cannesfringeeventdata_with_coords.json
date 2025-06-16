@@ -10,7 +10,8 @@
     "location": "Palais des Festivals et des Congrès, 1 Bd de la Croisette, 06400 Cannes, France",
     "": "",
     "latitude": "43.5506848",
-    "longitude": "7.0176580"
+    "longitude": "7.0176580",
+    "logo": "./images/vendor_logo/Cannes Lions.png"
   },
   {
     "date_time": "Week-long venue",
@@ -23,7 +24,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WACL - Propeller.png"
   },
   {
     "date_time": "Week-long venue",
@@ -36,7 +38,8 @@
     "location": "3 Rdpt Duboys d’Angers, 06400 Cannes",
     "": "",
     "latitude": "43.5509917",
-    "longitude": "7.0259632"
+    "longitude": "7.0259632",
+    "logo": "./images/vendor_logo/Dept.png"
   },
   {
     "date_time": "Week-long venue",
@@ -49,7 +52,8 @@
     "location": "Canopy by Hilton, 2 Bd jean Hibert, 06400",
     "": "",
     "latitude": "43.5485116",
-    "longitude": "7.0117679"
+    "longitude": "7.0117679",
+    "logo": "./images/vendor_logo/Campaign.png"
   },
   {
     "date_time": "Week-long venue",
@@ -62,7 +66,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes, 06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": ""
   },
   {
     "date_time": "Week-long venue",
@@ -75,7 +80,8 @@
     "location": "La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": "43.5493802",
-    "longitude": "7.0258816"
+    "longitude": "7.0258816",
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "Week-long venue",
@@ -88,7 +94,8 @@
     "location": "72 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": "43.5516086",
-    "longitude": "7.0165064"
+    "longitude": "7.0165064",
+    "logo": "./images/vendor_logo/Quintal.png"
   },
   {
     "date_time": "12.00 - June 18 - 18.00",
@@ -101,7 +108,8 @@
     "location": "Hôtel Splendid Cannes, 4-6 Rue Félix Faure 06400 Canne",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "Week-long venue",
@@ -114,7 +122,8 @@
     "location": "10 Av. Branly, Cannes",
     "": "",
     "latitude": "43.5502989",
-    "longitude": "7.0286013"
+    "longitude": "7.0286013",
+    "logo": "./images/vendor_logo/LWS.png"
   },
   {
     "date_time": "Week-long venue",
@@ -127,7 +136,8 @@
     "location": "61 Bd de la Croisette, Cannes",
     "": "",
     "latitude": "43.5510498",
-    "longitude": "7.0189922"
+    "longitude": "7.0189922",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "Week-long venue",
@@ -140,7 +150,8 @@
     "location": "Annex Beach, Bd de la Croisette, 06400",
     "": "",
     "latitude": "43.5490376",
-    "longitude": "7.0262121"
+    "longitude": "7.0262121",
+    "logo": "./images/vendor_logo/Culture Mix.png"
   },
   {
     "date_time": "Week-long venue",
@@ -153,7 +164,8 @@
     "location": "11 Rue Des Belges,\nCannes",
     "": "",
     "latitude": "43.5517724",
-    "longitude": "7.0191613"
+    "longitude": "7.0191613",
+    "logo": ""
   },
   {
     "date_time": "Week-long venue",
@@ -166,7 +178,8 @@
     "location": "5 Sq. Mérimée",
     "": "",
     "latitude": "43.5517505",
-    "longitude": "7.0171778"
+    "longitude": "7.0171778",
+    "logo": ""
   },
   {
     "date_time": "Week-long venue",
@@ -179,11 +192,12 @@
     "location": "Boulevard de la Croisette\nCannes ",
     "": "",
     "latitude": "43.5515568",
-    "longitude": "7.0169617"
+    "longitude": "7.0169617",
+    "logo": "./images/vendor_logo/Oguru.png"
   },
   {
     "date_time": "16th & 17th June",
-    "host ": "Insights LIghthouse",
+    "host ": "Insights Lighthouse",
     "event_name": "Insights Lions 2025",
     "description": "Future Back - Fueling Creativity with Human Centric Intelligence",
     "event_type": "Networking",
@@ -192,7 +206,8 @@
     "location": "Majestic hotel, Cannes",
     "": "",
     "latitude": "43.5511063",
-    "longitude": "7.0204108"
+    "longitude": "7.0204108",
+    "logo": "./images/vendor_logo/Insights Lighthouse.png"
   },
   {
     "date_time": "Week-long venue",
@@ -205,7 +220,8 @@
     "location": "Jetée Albert Edouard",
     "": "",
     "latitude": "43.5501160",
-    "longitude": "7.0167549"
+    "longitude": "7.0167549",
+    "logo": "./images/vendor_logo/The Room.png"
   },
   {
     "date_time": "Week-long venue",
@@ -218,7 +234,8 @@
     "location": "10 Rue des Frères Pradignac, 06400 Cannes",
     "": "",
     "latitude": "43.5514776",
-    "longitude": "7.0225309"
+    "longitude": "7.0225309",
+    "logo": ""
   },
   {
     "date_time": "Week-long venue",
@@ -231,7 +248,8 @@
     "location": "Port Pierre Canto",
     "": "",
     "latitude": "43.5414927",
-    "longitude": "7.0327851"
+    "longitude": "7.0327851",
+    "logo": ""
   },
   {
     "date_time": "",
@@ -244,7 +262,8 @@
     "location": "",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "SUNDAY 15 JUNE",
@@ -257,7 +276,8 @@
     "location": "location",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 19.00",
@@ -270,7 +290,8 @@
     "location": "Port des Marines de Cogolin, Saint Tropez",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 18.00",
@@ -283,7 +304,8 @@
     "location": "Nammos\nPalm Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Human.png"
   },
   {
     "date_time": "16.30",
@@ -296,7 +318,8 @@
     "location": "CRITEO YACHT, Jetée Albert Edouard",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 19.00",
@@ -309,7 +332,8 @@
     "location": "Jetée Albert Edouard",
     "": "",
     "latitude": "43.5501160",
-    "longitude": "7.0167549"
+    "longitude": "7.0167549",
+    "logo": "./images/vendor_logo/The Room.png"
   },
   {
     "date_time": "17:00 - 20:00",
@@ -322,7 +346,8 @@
     "location": "Equativ Yacht, Harbor",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Equativ.png"
   },
   {
     "date_time": "18.30 20.30",
@@ -335,7 +360,8 @@
     "location": "Canopy Hilton Rooftop\n2 Bd Jean Hibert, Cannes ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19:00 - 21:00",
@@ -348,7 +374,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.00 - 22.00",
@@ -361,7 +388,8 @@
     "location": "The Kantar Apartment\nRue de Serbes, 13, 5th and 6th floor, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Kantar.png"
   },
   {
     "date_time": "19.00 - 21.30",
@@ -374,7 +402,8 @@
     "location": "65 Bd de la Croisette, 06400 Cannes,",
     "": "",
     "latitude": "43.5490121",
-    "longitude": "7.0291783"
+    "longitude": "7.0291783",
+    "logo": ""
   },
   {
     "date_time": "19.30 - 22.30",
@@ -387,7 +416,8 @@
     "location": "BOBO Bistro, 21 Rue du Commandant André, Cannes, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Bloomberg Media.png"
   },
   {
     "date_time": "20.00 - ",
@@ -400,7 +430,8 @@
     "location": "La Croisette - precise location given to those booking a ticket",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "21.30 - 02.00",
@@ -413,7 +444,8 @@
     "location": "65 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": "43.5490121",
-    "longitude": "7.0291783"
+    "longitude": "7.0291783",
+    "logo": ""
   },
   {
     "date_time": "MONDAY 16 JUNE",
@@ -426,7 +458,8 @@
     "location": "location",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "TBA",
@@ -439,7 +472,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "TBD",
@@ -452,7 +486,8 @@
     "location": "Innovid Yacht, Yacht Row",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "07.00 - 08.00",
@@ -465,7 +500,8 @@
     "location": "Palais des festivals et des congrès de Cannes, 1 Bd de la Croisette,",
     "": "",
     "latitude": "43.5506848",
-    "longitude": "7.0176580"
+    "longitude": "7.0176580",
+    "logo": ""
   },
   {
     "date_time": "07.00 - 08.00",
@@ -478,7 +514,8 @@
     "location": "Caffé Roma\n1 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "07.30",
@@ -491,7 +528,8 @@
     "location": "Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "08.00",
@@ -504,7 +542,8 @@
     "location": "B Deck, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "08.00 - 09.00",
@@ -517,7 +556,8 @@
     "location": "Omnicom Space, Prom. Robert Favre le Bret\nCannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08.00 - 17.00",
@@ -530,7 +570,8 @@
     "location": "InMobi Café, La Cantina, 41 Rue Hoche, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/InMobi.png"
   },
   {
     "date_time": "08.30",
@@ -543,7 +584,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08:30 - 10:00 ",
@@ -556,7 +598,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08.30 - 12.00",
@@ -569,7 +612,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/VML.png"
   },
   {
     "date_time": "09.00 - 09.30",
@@ -582,7 +626,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.00 - 10.00",
@@ -595,7 +640,8 @@
     "location": "Omnicom Space, Prom. Robert Favre le Bret\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Omnicon.png"
   },
   {
     "date_time": "09.00 - 10.30",
@@ -608,7 +654,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/VML.png"
   },
   {
     "date_time": "09.00 - 11.00",
@@ -621,7 +668,8 @@
     "location": "Carlton, 58 Boulevard De La Croisette ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.00 - 18.00",
@@ -634,7 +682,8 @@
     "location": "Shuttles will pick confirmed attendees in front of JW Marriott starting at 9AM and will loop continuously.",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.10 - 11.30",
@@ -647,7 +696,8 @@
     "location": "Maëma Beach\n26 Boulevard Jean Hibert Azur Plage, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.30 - 10.00",
@@ -660,7 +710,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.30 - 10,00",
@@ -673,7 +724,8 @@
     "location": "Smartly Penthouse ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "10.00 - 10.30",
@@ -686,7 +738,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.00 - 11.00",
@@ -699,7 +752,8 @@
     "location": "A cafe near you - will be confirmed",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.00 - 11.30",
@@ -712,7 +766,8 @@
     "location": "Axios at Fervor\n\n5 Rue des Frères Casanova, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.00 - 11.30",
@@ -725,7 +780,8 @@
     "location": "10 Av. Branly, Cannes",
     "": "",
     "latitude": "43.5502989",
-    "longitude": "7.0286013"
+    "longitude": "7.0286013",
+    "logo": "./images/vendor_logo/LWS.png"
   },
   {
     "date_time": "10.00 - 12.00",
@@ -738,7 +794,8 @@
     "location": "Luxury Big Data Yacht (Beneteau First 53)",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.00 - 16.00",
@@ -751,7 +808,8 @@
     "location": "LinkedIn Studio,  Carlton Cannes, \n58 Boulevard De La Croisette ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.00 - 18.00",
@@ -764,7 +822,8 @@
     "location": "Plage 3CV Lucia Beach, Bd de la Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.30 - 11.00",
@@ -777,7 +836,8 @@
     "location": "Beach Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.30 -11.00",
@@ -790,7 +850,8 @@
     "location": "Showcase Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.30 - 11.15",
@@ -803,7 +864,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "10.30 - 11.30",
@@ -816,7 +878,8 @@
     "location": "La Californie Restaurant (Across from the Palais)",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/iHeart.png"
   },
   {
     "date_time": "10.30 - 13.30",
@@ -829,7 +892,8 @@
     "location": "#Newlnnovid Yacht, Yacht Row",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.30 - 18.00",
@@ -842,7 +906,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "10.45 - 11.15",
@@ -855,7 +920,8 @@
     "location": "The Washington Pst Lounge,  29 rue du Commandant André, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/The Washington Post.png"
   },
   {
     "date_time": "11.00",
@@ -868,7 +934,8 @@
     "location": "Main Stage, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "11.00 - 11.30",
@@ -881,7 +948,8 @@
     "location": "7 Bd de la Croisette,\n8th Floor,\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11:00 - 11.30",
@@ -894,7 +962,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.00 - 12.00",
@@ -907,7 +976,8 @@
     "location": " Infillion Café, Mondrian Hotel, 45 Bd de la Croisette\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.00 - 12.30",
@@ -920,7 +990,8 @@
     "location": "UK House\nGray d'Albion Residence\n20 Rue des Serbes, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.15 - 11.45",
@@ -933,7 +1004,8 @@
     "location": "Magenta Cabana, La Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.30",
@@ -946,7 +1018,8 @@
     "location": "Main Stage, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "11.30 - 12.00",
@@ -959,7 +1032,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.30 - 12.30",
@@ -972,7 +1046,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB"
   },
   {
     "date_time": "11:45 - 12:30",
@@ -985,7 +1060,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00",
@@ -998,7 +1074,8 @@
     "location": "Beach Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00 - 13.00",
@@ -1011,7 +1088,8 @@
     "location": "Salon Culture Conversations Villa\n384 Boulevard des Glaïeuls\n06220 Vallauris",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00 - 14.00",
@@ -1024,7 +1102,8 @@
     "location": "4 Rue Des Serbes, Gray d'Albion",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00 - 14.30",
@@ -1037,7 +1116,8 @@
     "location": "The Kantar Apartment\nRue de Serbes, 13\n5th and 6th floor\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Kantar.png"
   },
   {
     "date_time": "12.30",
@@ -1050,7 +1130,8 @@
     "location": "Beach Stage  - TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.30 - 13.00",
@@ -1063,7 +1144,8 @@
     "location": "Beach Stage ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.30 - 13.15",
@@ -1076,7 +1158,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "12.30 - 14.00",
@@ -1089,7 +1172,8 @@
     "location": "Maison NDA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/New Digital Age.png"
   },
   {
     "date_time": "12.30 - 14.30",
@@ -1102,7 +1186,8 @@
     "location": "BOBO Bistro\n21 Rue du Commandant André\nCannes, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Bloomberg Media.png"
   },
   {
     "date_time": "13.00",
@@ -1115,7 +1200,8 @@
     "location": "Main Stage, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "13.00 ",
@@ -1128,7 +1214,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 13.15",
@@ -1141,7 +1228,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "13.00 - 13.30",
@@ -1154,7 +1242,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13:00 - 13:45",
@@ -1167,7 +1256,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 14.00",
@@ -1180,7 +1270,8 @@
     "location": "Brands&Culture  VILLA, 13 Avenue de Benefiat, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brands&Culture.png"
   },
   {
     "date_time": "13.00 - 14.30",
@@ -1193,7 +1284,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 15.00",
@@ -1206,7 +1298,8 @@
     "location": "Fouquet's in Hotel Barrière, Le Majestic,  10 Bd de la Croisette, 06400 ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.30",
@@ -1219,7 +1312,8 @@
     "location": "Main Stage, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "13.30 - 14.00",
@@ -1232,7 +1326,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.30 - 14.15",
@@ -1245,7 +1340,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "13.45 - 14..15",
@@ -1258,7 +1354,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "14.00",
@@ -1271,7 +1368,8 @@
     "location": "Main Stage, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": " 14.00",
@@ -1284,7 +1382,8 @@
     "location": "Hôtel Martinez Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Canva_logo.png"
   },
   {
     "date_time": "14.00 - 14.30",
@@ -1297,7 +1396,8 @@
     "location": "Showcase Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 14.45",
@@ -1310,7 +1410,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 15.00",
@@ -1323,7 +1424,8 @@
     "location": "Empower Cafe",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 15.30",
@@ -1336,7 +1438,8 @@
     "location": "Axios at Fervor\n\n5 Rue des Frères Casanova, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 -15.30",
@@ -1349,7 +1452,8 @@
     "location": "UK House\nGray d'Albion Residence\n20 Rue des Serbes, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 16.00",
@@ -1362,7 +1466,8 @@
     "location": "Luxury Big Data Yacht (Beneteau First 53)",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.05 - 14.35",
@@ -1375,7 +1480,8 @@
     "location": "Beach Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.10 - 14.40",
@@ -1388,7 +1494,8 @@
     "location": "Maëma Beach\n26 Boulevard Jean Hibert Azur Plage, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14..15 - 14.30",
@@ -1401,7 +1508,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "14:15 - 15:00",
@@ -1414,7 +1522,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": " 14.30",
@@ -1427,7 +1536,8 @@
     "location": "Hôtel Martinez Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Canva_logo.png"
   },
   {
     "date_time": "14.30",
@@ -1440,7 +1550,8 @@
     "location": "Omnicom Space, Prom. Robert Favre le Bret\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Omnicon.png"
   },
   {
     "date_time": "14.30 - 15.00",
@@ -1453,7 +1564,8 @@
     "location": "Showcase Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.30 - 15.15",
@@ -1466,7 +1578,8 @@
     "location": "Tubi Cabana • Checkpoint Entry #3\nPalais Des Festivals, La Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.35- 15.00",
@@ -1479,7 +1592,8 @@
     "location": "Beach Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.45 - 15.00",
@@ -1492,7 +1606,8 @@
     "location": "Equativ Yacht, Harbor",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Equativ.png"
   },
   {
     "date_time": "14.45 - 15.15",
@@ -1505,7 +1620,8 @@
     "location": "Maëma Beach\n26 Boulevard Jean Hibert Azur Plage, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.45 - 15.30",
@@ -1518,7 +1634,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.00",
@@ -1531,7 +1648,8 @@
     "location": "Boardroom, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "15.00 - 15.30",
@@ -1544,7 +1662,8 @@
     "location": "Beach Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.00 - 15.45",
@@ -1557,7 +1676,8 @@
     "location": "Smartly Rooftop",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "15.00 - 16.00",
@@ -1570,7 +1690,8 @@
     "location": "Brands&Culture  VILLA, 13 Avenue de Benefiat, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brands&Culture.png"
   },
   {
     "date_time": "15.00 - 16.00",
@@ -1583,7 +1704,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": ""
   },
   {
     "date_time": "15.00 - 16.30",
@@ -1596,7 +1718,8 @@
     "location": "Lucia Beach Bd de la Croisette, Cannes, France 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/3C Ventures.png"
   },
   {
     "date_time": "15.00 - 17.00",
@@ -1609,7 +1732,8 @@
     "location": "Cabana Row, Palace of Festivals\n1 Boulevard de la Croisette, Cannes ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Braze.png"
   },
   {
     "date_time": "15.10 - 15.30",
@@ -1622,7 +1746,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.20 - 15.50",
@@ -1635,7 +1760,8 @@
     "location": "Maëma Beach\n26 Boulevard Jean Hibert Azur Plage, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.30",
@@ -1648,7 +1774,8 @@
     "location": "CRITEO YACHT, Jetée Albert Edouard",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.30 - 15.45",
@@ -1661,7 +1788,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "15.30 - 16.00",
@@ -1674,7 +1802,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15:30 - 16:00",
@@ -1687,7 +1816,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.30 - 16.15",
@@ -1700,7 +1830,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "15.30 - 17.00",
@@ -1713,7 +1844,8 @@
     "location": "Axios at Fervor\n\n5 Rue des Frères Casanova, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.30 - 17.30",
@@ -1726,7 +1858,8 @@
     "location": "Motel Yahoo, Martinez Beach, 73 Boulevard de la Croisette, 06400 Cannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Yahoo.png"
   },
   {
     "date_time": "16.00",
@@ -1739,7 +1872,8 @@
     "location": "Omnicom Space, Prom. Robert Favre le Bret\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Omnicon.png"
   },
   {
     "date_time": "16.00 - 16.20",
@@ -1752,7 +1886,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.00 - 16.30",
@@ -1765,7 +1900,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/FQ.png"
   },
   {
     "date_time": "16.00 - 17.00",
@@ -1778,7 +1914,8 @@
     "location": "Brands&Culture  VILLA, 13 Avenue de Benefiat, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brands&Culture.png"
   },
   {
     "date_time": "16.00 - 17.30",
@@ -1791,7 +1928,8 @@
     "location": "Tubi Cabana - Checkpoint Entry #3, Palais Des Festivals, La Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.00 - 18.00",
@@ -1804,7 +1942,8 @@
     "location": "Lucia Beach Bd de la Croisette, Cannes, France 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.00 - 18.30",
@@ -1817,7 +1956,8 @@
     "location": "The Kantar Apartment\nRue de Serbes, 13\n5th and 6th floor\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Kantar.png"
   },
   {
     "date_time": "16.00 - 19.00",
@@ -1830,7 +1970,8 @@
     "location": "The Haven by HUMAN\n2 Rue des Serbes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.05 - 16.30",
@@ -1843,7 +1984,8 @@
     "location": "Beach Stage  ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.15 - 16.30",
@@ -1856,7 +1998,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "16.15 - 17.00",
@@ -1869,7 +2012,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WACL - Propeller.png"
   },
   {
     "date_time": "16.20 - 17.00",
@@ -1882,7 +2026,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16:30 - 17:00",
@@ -1895,7 +2040,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.30 - 17.00",
@@ -1908,7 +2054,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "16.30 - 17.15",
@@ -1921,7 +2068,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "16.30 - 17.30",
@@ -1934,7 +2082,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.30 - 18.30",
@@ -1947,7 +2096,8 @@
     "location": "Chase Media Solutions cabana on the Palais des Festivals",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 17.30",
@@ -1960,7 +2110,8 @@
     "location": "Sonishi Yacht, IGY Vieux-Port de Cannes\nJetée Albert Edouard\nCannes, France 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 19.00",
@@ -1973,7 +2124,8 @@
     "location": "DV Seven Sins Yacht, Jetée Albert Edouard",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "17:00 - 19:00",
@@ -1986,7 +2138,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 19.00",
@@ -1999,7 +2152,8 @@
     "location": "7 Bd de la Croisette, Cannes",
     "": "",
     "latitude": "43.5511048",
-    "longitude": "7.0189788"
+    "longitude": "7.0189788",
+    "logo": ""
   },
   {
     "date_time": "17.00  - 19.00",
@@ -2012,7 +2166,8 @@
     "location": "Infillion Café\nLocated at the Mondrian",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 19.00",
@@ -2025,7 +2180,8 @@
     "location": "10 Rue des Frères Pradignac, 06400 Cannes",
     "": "",
     "latitude": "43.5514776",
-    "longitude": "7.0225309"
+    "longitude": "7.0225309",
+    "logo": ""
   },
   {
     "date_time": "17.00 - 20.30",
@@ -2038,7 +2194,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": ""
   },
   {
     "date_time": "17.30 - 17.45",
@@ -2051,7 +2208,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.30 - 18.00",
@@ -2064,7 +2222,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 Bd de la Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": " 17.30 - 18.00",
@@ -2077,7 +2236,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.30 - 19.00",
@@ -2090,7 +2250,8 @@
     "location": "Sonishi Yacht, IGY Vieux-Port de Cannes\nJetée Albert Edouard\nCannes, France 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.30 - 20.30",
@@ -2103,7 +2264,8 @@
     "location": "IGY Vieux-Port, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.45 - 18.05",
@@ -2116,7 +2278,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.00 - 19.30",
@@ -2129,7 +2292,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LWS.png"
   },
   {
     "date_time": "18.00 - 22.00",
@@ -2142,7 +2306,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "18.05 - 18.15",
@@ -2155,7 +2320,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.15 - 20.00",
@@ -2168,7 +2334,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.30",
@@ -2181,7 +2348,8 @@
     "location": "Hotel du Cap-Eden-Roc, 167-165 Bd J. F. Kennedy, 06160 Antibes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Celtra.png"
   },
   {
     "date_time": "18.30 - 20.30",
@@ -2194,7 +2362,8 @@
     "location": "Little Black Book & Friends Beach, Boulevard de la Croisette (Opposite Hotel Miramar)",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/The Marketing Society.png"
   },
   {
     "date_time": "19.00 - 21.00",
@@ -2207,7 +2376,8 @@
     "location": "\nChez Vayner Café, 2 Pl. du Général de Gaulle",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.00 - 21.30",
@@ -2220,7 +2390,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.30",
@@ -2233,7 +2404,8 @@
     "location": "Croisette Beach, 68 Boulevard de la Croisette 06400 Cannes ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.45",
@@ -2246,7 +2418,8 @@
     "location": "Boulevard de la Croisette\nCannes ",
     "": "",
     "latitude": "43.5515568",
-    "longitude": "7.0169617"
+    "longitude": "7.0169617",
+    "logo": "./images/vendor_logo/Oguru.png"
   },
   {
     "date_time": "20.00 - 23.30",
@@ -2259,7 +2432,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/VML.png"
   },
   {
     "date_time": "20.00 - 24.00",
@@ -2272,7 +2446,8 @@
     "location": "Ma Nolan’s, 6 Rue Buttura, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "20.15 - 22.30",
@@ -2285,7 +2460,8 @@
     "location": "Smartly Rooftop",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "20.30 - 22.30",
@@ -2298,7 +2474,8 @@
     "location": "Hotel Barrière Le Majestic Cannes\n10 Bd de la Croisette, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "21.00 - 23.00",
@@ -2311,7 +2488,8 @@
     "location": "\nChez Vayner Café, 2 Pl. du Général de Gaulle",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "22.00 - 01.00",
@@ -2324,7 +2502,8 @@
     "location": "The Washington Pst Lounge,  29 rue du Commandant André, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/The Washington Post.png"
   },
   {
     "date_time": "22.00 - 03.00",
@@ -2337,7 +2516,8 @@
     "location": "Bisous Bisous Club\n1 Bd de la Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/BeReal.png"
   },
   {
     "date_time": "01.00 - none",
@@ -2350,7 +2530,8 @@
     "location": "Le Vesuvio, 68 Bd de la Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Uber AdvertisingGroup.png"
   },
   {
     "date_time": "TUESDAY 17 JUNE",
@@ -2363,7 +2544,8 @@
     "location": "location",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "TBC",
@@ -2376,7 +2558,8 @@
     "location": "The Carlton,  58 Boulevard de la Croisette Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/msq.png"
   },
   {
     "date_time": "Early morning",
@@ -2389,7 +2572,8 @@
     "location": "Motel Yahoo, Martinez Beach, 73 Boulevard de la Croisette, 06400 Cannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Yahoo.png"
   },
   {
     "date_time": "07.00",
@@ -2402,7 +2586,8 @@
     "location": "Court, Sport Beach, La Plage Du Festival at 52 Bd de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Sport Beach.png"
   },
   {
     "date_time": "07:30",
@@ -2415,7 +2600,8 @@
     "location": "Caffé Roma, 1 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "07.30 - 08.30",
@@ -2428,7 +2614,8 @@
     "location": "Equativ Yacht, Harbor",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Equativ.png"
   },
   {
     "date_time": "08.30 - 09.20",
@@ -2441,7 +2628,8 @@
     "location": "Grand Salon, The Carlton, 58 Boulevard de la Croisette Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08.30 - 09.30",
@@ -2454,7 +2642,8 @@
     "location": "Chez Vayner\n2 Place du Général de Gaulle\nCannes, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/AdAge.png"
   },
   {
     "date_time": "08.30 - 10.00",
@@ -2467,7 +2656,8 @@
     "location": "The Kantar Apartment\nRue de Serbes, 13\n5th and 6th floor\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Kantar.png"
   },
   {
     "date_time": "08.30 - 11.00",
@@ -2480,7 +2670,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08.45 - 10.45",
@@ -2493,7 +2684,8 @@
     "location": "Sport Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Business Insider.png"
   },
   {
     "date_time": "09.00",
@@ -2506,7 +2698,8 @@
     "location": "Omnicom Space, Prom. Robert Favre le Bret\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Omnicon.png"
   },
   {
     "date_time": "09.00 - 11.00",
@@ -2519,7 +2712,8 @@
     "location": "Port Pierre Canto",
     "": "",
     "latitude": "43.5414927",
-    "longitude": "7.0327851"
+    "longitude": "7.0327851",
+    "logo": ""
   },
   {
     "date_time": "09.00 - 11.00",
@@ -2532,7 +2726,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "09.00 - 11.00",
@@ -2545,7 +2740,8 @@
     "location": "749 Bd Georges Courteline, 06250 Mougins\n",
     "": "",
     "latitude": "43.5974096",
-    "longitude": "6.9868135"
+    "longitude": "6.9868135",
+    "logo": ""
   },
   {
     "date_time": "09.15 - 10.45",
@@ -2558,7 +2754,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/The Drum.png"
   },
   {
     "date_time": "09.20 - 10.00",
@@ -2571,7 +2768,8 @@
     "location": "Grand Salon, The Carlton, 58 Boulevard de la Croisette Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.30 - 11.00",
@@ -2584,7 +2782,8 @@
     "location": "20 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": "43.5506894",
-    "longitude": "7.0215395"
+    "longitude": "7.0215395",
+    "logo": ""
   },
   {
     "date_time": "09.30 - 11.30",
@@ -2597,7 +2796,8 @@
     "location": "LVMH Villa Bagatelle",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.30 - 12.00",
@@ -2610,7 +2810,8 @@
     "location": "Maison NDA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/New Digital Age.png"
   },
   {
     "date_time": "10.00",
@@ -2623,7 +2824,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/VML.png"
   },
   {
     "date_time": "10.00 - 10.45",
@@ -2636,7 +2838,8 @@
     "location": "Smartly Rooftop",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "10.00 - 13.00",
@@ -2649,7 +2852,8 @@
     "location": "The Haven by HUMAN\n2 Rue des Serbes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Human.png"
   },
   {
     "date_time": "10.10 - 10.30",
@@ -2662,7 +2866,8 @@
     "location": "Grand Salon, The Carlton, 58 Boulevard de la Croisette Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.10 - 10.40",
@@ -2675,7 +2880,8 @@
     "location": "Chez Vayner\n2 Place du Général de Gaulle\nCannes, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/AdAge.png"
   },
   {
     "date_time": "10.15",
@@ -2688,7 +2894,8 @@
     "location": "Omnicom Space, Prom. Robert Favre le Bret\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Oguru.png"
   },
   {
     "date_time": "10:15 - 11:00",
@@ -2701,7 +2908,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.30 - 12.00",
@@ -2714,7 +2922,8 @@
     "location": "Reddit HQ, Intersection of Prom. Robert Favre le Bret and Rue Buttura | Entry at Checkpoint 3, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Reddit.png"
   },
   {
     "date_time": "10.30 - 12.30",
@@ -2727,7 +2936,8 @@
     "location": "Motel Yahoo, Martinez Beach, 73 Boulevard de la Croisette, 06400 Cannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Yahoo.png"
   },
   {
     "date_time": "10.45 - 11.10",
@@ -2740,7 +2950,8 @@
     "location": "Chez Vayner\n2 Place du Général de Gaulle\nCannes, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/AdAge.png"
   },
   {
     "date_time": "11.00 - 11.45",
@@ -2753,7 +2964,8 @@
     "location": "Smartly Rooftop",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "11.00 - 14.00",
@@ -2766,7 +2978,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Blutui.png"
   },
   {
     "date_time": "11.00- 14.00",
@@ -2779,7 +2992,8 @@
     "location": "Vayner Villa",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Vayner.png"
   },
   {
     "date_time": "11.00 - 16.00",
@@ -2792,7 +3006,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11:15 - 12:00",
@@ -2805,7 +3020,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.15 - 12.15",
@@ -2818,7 +3034,8 @@
     "location": "Freewheel Beach, Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": " 11.30 - 12.00",
@@ -2831,7 +3048,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.30 - 12.15",
@@ -2844,7 +3062,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "11.30 - 14.00",
@@ -2857,7 +3076,8 @@
     "location": "La Terrasse Du Gray, 4 Rue Des Serbes, Gray d'Albion",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.30 - 15.30",
@@ -2870,7 +3090,8 @@
     "location": "La Guerite",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/InMobi.png"
   },
   {
     "date_time": "11.45 - 13.30",
@@ -2883,7 +3104,8 @@
     "location": "The Mastercard Villa\n3067 Bd des Horizons, 06220\nVallauris",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00 - 12.30",
@@ -2896,7 +3118,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "12.00 - 13.30",
@@ -2909,7 +3132,8 @@
     "location": "UK House\nGray d'Albion Residence\n20 Rue des Serbes, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00 - 15.00",
@@ -2922,7 +3146,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Wetransfer.png"
   },
   {
     "date_time": "12.00 - 16.00",
@@ -2935,7 +3160,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WPP.png"
   },
   {
     "date_time": "12:15 - 12.45",
@@ -2948,7 +3174,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.30 - 14.00",
@@ -2961,7 +3188,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes, 06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "12.35 - 13.00",
@@ -2974,7 +3202,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "12.45 - 13.30",
@@ -2987,7 +3216,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "12.50 - 13.20",
@@ -3000,7 +3230,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 17.00",
@@ -3013,7 +3244,8 @@
     "location": "Gerety Villa",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.15 - 14.00",
@@ -3026,7 +3258,8 @@
     "location": "Brands&Culture  VILLA, 13 Avenue de Benefiat, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brands&Culture.png"
   },
   {
     "date_time": "13.30 - 15.30",
@@ -3039,7 +3272,8 @@
     "location": "23 Avenue Florida 06400 Cannes ",
     "": "",
     "latitude": "43.5513339",
-    "longitude": "7.0362958"
+    "longitude": "7.0362958",
+    "logo": ""
   },
   {
     "date_time": "13.30 - 15.30",
@@ -3052,7 +3286,8 @@
     "location": "Mr. Nakamato at Mondrian Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/The Marketing Society.png"
   },
   {
     "date_time": "13.45 - 14.15",
@@ -3065,7 +3300,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "13.45 - 14.30",
@@ -3078,7 +3314,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 14.15",
@@ -3091,7 +3328,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00  - 16.00",
@@ -3104,7 +3342,8 @@
     "location": "Hotel Le Suquet, 5 Rue des Tambourinaires, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 17.00",
@@ -3117,7 +3356,8 @@
     "location": "\nWITHIN Suite, next to The Carlton Hotel",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.05 - 14.30",
@@ -3130,7 +3370,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "14.15 - 14.30",
@@ -3143,7 +3384,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "14.15 - 15.15",
@@ -3156,7 +3398,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.30 - 16.00",
@@ -3169,7 +3412,8 @@
     "location": "Marea Restaurant,  Rooftop, 2 Bd Jean Hibert, 06400 Cannes, France",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14:45 - 15:30",
@@ -3182,7 +3426,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.50",
@@ -3195,7 +3440,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "15.00 - 15.15",
@@ -3208,7 +3454,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "15:00 - 16:00",
@@ -3221,7 +3468,8 @@
     "location": "LBB & Friends Beach - 65 Bd de la Croisette, 06400 Cannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "15.00 - 17.00 ",
@@ -3234,7 +3482,8 @@
     "location": "4 Rue des Serbes, Rèsidence Gray d'Albion, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.00 - 18.00",
@@ -3247,7 +3496,8 @@
     "location": "Hotel Le Suquet, 5 Rue des Tambourinaires, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.15 - 15.45",
@@ -3260,7 +3510,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "15.15 - 15.45",
@@ -3273,7 +3524,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5510498",
-    "longitude": "7.0189922"
+    "longitude": "7.0189922",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "15.15 - 16.00",
@@ -3286,7 +3538,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.15 - 16.15",
@@ -3299,7 +3552,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.25",
@@ -3312,7 +3566,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "15.45 - 16.15",
@@ -3325,7 +3580,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5510498",
-    "longitude": "7.0189922"
+    "longitude": "7.0189922",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "15.45 - 16.15",
@@ -3338,7 +3594,8 @@
     "location": "3 Rdpt Duboys d’Angers, 06400 Cannes, France",
     "": "",
     "latitude": "43.5509917",
-    "longitude": "7.0259632"
+    "longitude": "7.0259632",
+    "logo": "./images/vendor_logo/Dept.png"
   },
   {
     "date_time": "15.50 - 16.20",
@@ -3351,7 +3608,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "16:00 - 16.30",
@@ -3364,7 +3622,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16:00 - 16:45",
@@ -3377,7 +3636,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.15",
@@ -3390,7 +3650,8 @@
     "location": "Brands&Culture  VILLA, 13 Avenue de Benefiat, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brands&Culture.png"
   },
   {
     "date_time": "16.15 - 16.45",
@@ -3403,7 +3664,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "16.15 - 17.00",
@@ -3416,7 +3678,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5510498",
-    "longitude": "7.0189922"
+    "longitude": "7.0189922",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "16.20",
@@ -3429,7 +3692,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "16.30 - 17.00",
@@ -3442,7 +3706,8 @@
     "location": "Boulevard de la Croisette\nCannes ",
     "": "",
     "latitude": "43.5515568",
-    "longitude": "7.0169617"
+    "longitude": "7.0169617",
+    "logo": "./images/vendor_logo/Oguru.png"
   },
   {
     "date_time": "16.30 - 18.00",
@@ -3455,7 +3720,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.30-18.30",
@@ -3468,7 +3734,8 @@
     "location": "VCCP Terrasse, 63 Boulevard De la Croisette 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.30 - 21.00",
@@ -3481,7 +3748,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.45 - 17.00",
@@ -3494,7 +3762,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "17.00",
@@ -3507,7 +3776,8 @@
     "location": "10 Rue des Frères Pradignac, 06400 Cannes",
     "": "",
     "latitude": "43.5514776",
-    "longitude": "7.0225309"
+    "longitude": "7.0225309",
+    "logo": ""
   },
   {
     "date_time": "17:00 - 18.00 ",
@@ -3520,7 +3790,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 18.00",
@@ -3533,7 +3804,8 @@
     "location": "Boulevard de la Croisette\nCannes ",
     "": "",
     "latitude": "43.5515568",
-    "longitude": "7.0169617"
+    "longitude": "7.0169617",
+    "logo": "./images/vendor_logo/Oguru.png"
   },
   {
     "date_time": "17:00 - 18:30",
@@ -3546,7 +3818,8 @@
     "location": "Campaign House, Rooftop, Canopy by Hilton,  2 Bd jean Hibert, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 20.00",
@@ -3559,7 +3832,8 @@
     "location": "Hotel Belle Plage, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.00 - 20.00",
@@ -3572,7 +3846,8 @@
     "location": "Maëma Beach\n26 Boulevard Jean Hibert Azur Plage, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.00 - 21.00",
@@ -3585,7 +3860,8 @@
     "location": "The Haven by HUMAN\n2 Rue des Serbes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Human.png"
   },
   {
     "date_time": "18:30 - 20:30",
@@ -3598,7 +3874,8 @@
     "location": "Campaign House, Mezzanine, Canopy by Hilton,  2 Bd jean Hibert, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.30 - 20-30",
@@ -3611,7 +3888,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "18.30 - 21.30",
@@ -3624,7 +3902,8 @@
     "location": "Les Pêcheurs\n10 Bd Maréchal Juin, 06160 Antibes, France",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Digital Voices.png"
   },
   {
     "date_time": "19.00 - 23.00",
@@ -3637,7 +3916,8 @@
     "location": "La Cantine Provençale, 9 Rue Bivouac Napoléon, 06400 ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.30 - 22.00",
@@ -3650,7 +3930,8 @@
     "location": "Smartly Rooftop",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Smartly.png"
   },
   {
     "date_time": "19.30 - late",
@@ -3663,7 +3944,8 @@
     "location": "Carlton Beach,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "21.00 - 01.00",
@@ -3676,7 +3958,8 @@
     "location": "Hotel Le Suquet, 5 Rue des Tambourinaires, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "WEDNESDAY 18 JUNE",
@@ -3689,7 +3972,8 @@
     "location": "location",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "07.-00 - 08.00",
@@ -3702,7 +3986,8 @@
     "location": "MediaLink Beach, Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "07.00 - 11.00",
@@ -3715,7 +4000,8 @@
     "location": "Le Rooftop, 67 Blvd. de la Croisette, Cannes, France",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08.30 - ",
@@ -3728,7 +4014,8 @@
     "location": "The Kantar Apartment\nRue de Serbes, 13\n5th and 6th floor\nCannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Kantar.png"
   },
   {
     "date_time": "08.30 - 10.30",
@@ -3741,7 +4028,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WPP.png"
   },
   {
     "date_time": "09.30 - 10.15",
@@ -3754,7 +4042,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WPP.png"
   },
   {
     "date_time": "09.30 - 10.30",
@@ -3767,7 +4056,8 @@
     "location": "Reddit HQ\nIntersection of Prom. Robert Favre le Bret and Rue Buttura | Entry at Checkpoint 3",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Reddit.png"
   },
   {
     "date_time": "09.30 - 11.00",
@@ -3780,7 +4070,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.00 - 12.00 ",
@@ -3793,7 +4084,8 @@
     "location": "Restaurant Villa at the Villa Belle Plage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Chase Media solutions.png"
   },
   {
     "date_time": "10.00 - 13.30",
@@ -3806,7 +4098,8 @@
     "location": "3 Rdpt Duboys d’Angers, 06400 Cannes",
     "": "",
     "latitude": "43.5509917",
-    "longitude": "7.0259632"
+    "longitude": "7.0259632",
+    "logo": ""
   },
   {
     "date_time": "10.05 - 10.30",
@@ -3819,7 +4112,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "10.10 - 10.40",
@@ -3832,7 +4126,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "10.40 - 10.55",
@@ -3845,7 +4140,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "10.55 - 11.00",
@@ -3858,7 +4154,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "11.00 - 11.25",
@@ -3871,7 +4168,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "11.00 - 13.00",
@@ -3884,7 +4182,8 @@
     "location": "11 Rue Des Belges,\nCannes",
     "": "",
     "latitude": "43.5517724",
-    "longitude": "7.0191613"
+    "longitude": "7.0191613",
+    "logo": "./images/vendor_logo/FT.png"
   },
   {
     "date_time": "11.00 - 13.30",
@@ -3897,7 +4196,8 @@
     "location": "Villa Tsavorite, All. du Parc Fiorentina, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.25",
@@ -3910,7 +4210,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "11.30 - 11.55",
@@ -3923,7 +4224,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "11:30 - 12:15",
@@ -3936,7 +4238,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.30 - 12.30 ",
@@ -3949,7 +4252,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "11.30 - 13.00",
@@ -3962,7 +4266,8 @@
     "location": "Chez Vayner Café, 2 Pl. du Général de Gaulle",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Vayner.png"
   },
   {
     "date_time": "11.45 - 12.15",
@@ -3975,7 +4280,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "11.50",
@@ -3988,7 +4294,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "12.00 - 12.25",
@@ -4001,7 +4308,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes,  06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "12.00 - 15.00  ",
@@ -4014,7 +4322,8 @@
     "location": "21 Rue du Commandant André 06400 Cannes",
     "": "",
     "latitude": "43.5506329",
-    "longitude": "7.0229194"
+    "longitude": "7.0229194",
+    "logo": ""
   },
   {
     "date_time": "12.00 - 16.00",
@@ -4027,7 +4336,8 @@
     "location": "67 Bd de la Croisette",
     "": "",
     "latitude": "43.5500941",
-    "longitude": "7.0242228"
+    "longitude": "7.0242228",
+    "logo": ""
   },
   {
     "date_time": "12.25",
@@ -4040,7 +4350,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "12.30 - 12.45",
@@ -4053,7 +4364,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "12.30 - 13.30",
@@ -4066,7 +4378,8 @@
     "location": "Cognitiv Yacht O’Lion, Jetée Albert Edouard Nord",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Cognitiv.png"
   },
   {
     "date_time": "12.30 - 15.15",
@@ -4079,7 +4392,8 @@
     "location": "Accama Delta, Port de Cannes\nPromenade de la Pantiero, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Digital Voices.png"
   },
   {
     "date_time": "12.35",
@@ -4092,7 +4406,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "12:45 - 13:30",
@@ -4105,7 +4420,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 13.20",
@@ -4118,7 +4434,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "13.00-15.30",
@@ -4131,7 +4448,8 @@
     "location": "Register to receive address.",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 18.00",
@@ -4144,7 +4462,8 @@
     "location": "Le Bayou\n11 Rue Victor Cousin,\n06400, Cannes        ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.00 - 19.00",
@@ -4157,7 +4476,8 @@
     "location": "133 AVENUE DE LA GABELLE 06220",
     "": "",
     "latitude": "43.5705007",
-    "longitude": "7.0564397"
+    "longitude": "7.0564397",
+    "logo": ""
   },
   {
     "date_time": "13.05",
@@ -4170,7 +4490,8 @@
     "location": "Showcase Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "13.15",
@@ -4183,7 +4504,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.30 - 13.45",
@@ -4196,7 +4518,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "13.30 - 13.50",
@@ -4209,7 +4532,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "13.30 - 14.10",
@@ -4222,7 +4546,8 @@
     "location": "Stop At Nothing Cafe @ Le Bayou, 11 Rue Victor Cousin, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13.30-15.00",
@@ -4235,7 +4560,8 @@
     "location": "3 Rdpt Duboys d’Angers, 06400 Cannes",
     "": "",
     "latitude": "43.5509923",
-    "longitude": "7.0259542"
+    "longitude": "7.0259542",
+    "logo": "./images/vendor_logo/Dept.png"
   },
   {
     "date_time": "13.50",
@@ -4248,7 +4574,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "14.00 - 14.05",
@@ -4261,7 +4588,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 14.20",
@@ -4274,7 +4602,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "14:00 - 14:45",
@@ -4287,7 +4616,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 16.00",
@@ -4300,7 +4630,8 @@
     "location": "Théâtre Claude Debussy\n1 Boulevard de la Croisette 06400 Cannes",
     "": "",
     "latitude": "43.5508447",
-    "longitude": "7.0174746"
+    "longitude": "7.0174746",
+    "logo": ""
   },
   {
     "date_time": "14.00 - 16.00",
@@ -4313,7 +4644,8 @@
     "location": "23 Avenue Florida 06400 Cannes ",
     "": "",
     "latitude": "43.5513339",
-    "longitude": "7.0362958"
+    "longitude": "7.0362958",
+    "logo": ""
   },
   {
     "date_time": "14:00 - 19:00",
@@ -4326,7 +4658,8 @@
     "location": "Villa Rochelle, 562 bis Chem. de Bigaud, 06250 Mougins",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.05 - 15.05",
@@ -4339,7 +4672,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.15",
@@ -4352,7 +4686,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "14.30 - 14.50",
@@ -4365,7 +4700,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "14.30 - 15.15",
@@ -4378,7 +4714,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5500941",
-    "longitude": "7.0242228"
+    "longitude": "7.0242228",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "14.30 - 18.00",
@@ -4391,7 +4728,8 @@
     "location": "3155 Bd des Horizons\n06220 Vallauris,",
     "": "",
     "latitude": "43.5692117",
-    "longitude": "7.0615090"
+    "longitude": "7.0615090",
+    "logo": ""
   },
   {
     "date_time": "14.40",
@@ -4404,7 +4742,8 @@
     "location": "Beach Stage",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "15.00",
@@ -4417,7 +4756,8 @@
     "location": "10 Rue des Frères Pradignac, 06400 Cannes",
     "": "",
     "latitude": "43.5514776",
-    "longitude": "7.0225309"
+    "longitude": "7.0225309",
+    "logo": ""
   },
   {
     "date_time": "15.00 - 15.20",
@@ -4430,7 +4770,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "15.00 - 15.40",
@@ -4443,7 +4784,8 @@
     "location": "Stop At Nothing Cafe @ Le Bayou, 11 Rue Victor Cousin, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.00 - 19.00",
@@ -4456,7 +4798,8 @@
     "location": "La Guérite, Île Sainte-Marguerite, 06400 Cannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.05 - 15.30",
@@ -4469,7 +4812,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15:15 - 16.00",
@@ -4482,7 +4826,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.30 - 15.50",
@@ -4495,7 +4840,8 @@
     "location": " LBB Beach , 65 Bd de la Croisette, 06400 Cannes",
     "": "\n",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/LBB.png"
   },
   {
     "date_time": "15.30 - 16.30",
@@ -4508,7 +4854,8 @@
     "location": "Le Speakeasy Cannes, 22 Rue Latour-Maubourg, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.00 - 16.15",
@@ -4521,7 +4868,8 @@
     "location": "Carlton Hotel,  58 Bd de la Croisette Cs 40052, 06400",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/TikTok.png"
   },
   {
     "date_time": "16.00 - 16.45",
@@ -4534,7 +4882,8 @@
     "location": "Accama Delta, Port de Cannes\nPromenade de la Pantiero, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Digital Voices.png"
   },
   {
     "date_time": "16.00 - 18.00",
@@ -4547,7 +4896,8 @@
     "location": "3 Rdpt Duboys d’Angers, 06400 Cannes",
     "": "",
     "latitude": "43.5509923",
-    "longitude": "7.0259542"
+    "longitude": "7.0259542",
+    "logo": ""
   },
   {
     "date_time": "16.00 -18.30",
@@ -4560,7 +4910,8 @@
     "location": "IRCODE Yacht \"DXB\" Jetée Albert Edouard Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.10 - 16.50",
@@ -4573,7 +4924,8 @@
     "location": "Stop At Nothing Cafe @ Le Bayou, 11 Rue Victor Cousin, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.15 - 17.00",
@@ -4586,7 +4938,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5500941",
-    "longitude": "7.0242228"
+    "longitude": "7.0242228",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "16.40 - 17.00",
@@ -4599,7 +4952,8 @@
     "location": "WPP Rooftop at the Martinez",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WPP.png"
   },
   {
     "date_time": "16.45 - 17.30",
@@ -4612,7 +4966,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00",
@@ -4625,7 +4980,8 @@
     "location": "The Givsly Hub ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": " 17.00 - 17.30",
@@ -4638,7 +4994,8 @@
     "location": "Hôtel Martinez – Suite 731\n73 La Croisette\n06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 18.00",
@@ -4651,7 +5008,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.00 - 18.30",
@@ -4664,7 +5022,8 @@
     "location": "Index Exchange Suite Residence 3 & 4 boulevard de la Croisette, Apartment 300 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17.30 - 19.30",
@@ -4677,7 +5036,8 @@
     "location": "The Lawn at Mondrian Cannes\n45 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/AdAge.png"
   },
   {
     "date_time": "17:30 - 19:30",
@@ -4690,7 +5050,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.00",
@@ -4703,7 +5064,8 @@
     "location": "The Givsly Hub ",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.30 - 21.00",
@@ -4716,7 +5078,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5500941",
-    "longitude": "7.0242228"
+    "longitude": "7.0242228",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "18.30 - 21:30",
@@ -4729,7 +5092,8 @@
     "location": "Carlton Beach, 06400 Cannes",
     "": "",
     "latitude": "43.5489635",
-    "longitude": "7.0270786"
+    "longitude": "7.0270786",
+    "logo": ""
   },
   {
     "date_time": "19.00",
@@ -4742,7 +5106,8 @@
     "location": "Martinez Hotel terrace",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.00 - 24.00",
@@ -4755,7 +5120,8 @@
     "location": "TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "20:00 – 23:00",
@@ -4768,7 +5134,8 @@
     "location": "72 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": "43.5516086",
-    "longitude": "7.0165064"
+    "longitude": "7.0165064",
+    "logo": "./images/vendor_logo/Quintal.png"
   },
   {
     "date_time": "20.30 - 23.30",
@@ -4781,7 +5148,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WPP.png"
   },
   {
     "date_time": "23.00 - 03.00",
@@ -4794,7 +5162,8 @@
     "location": "Bisous Bisous Club, 1 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "THURSDAY 19 JUNE ",
@@ -4807,7 +5176,8 @@
     "location": "location",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "09.00 - 13.00",
@@ -4820,7 +5190,8 @@
     "location": "67 Bd de la Croisette 06400 Cannes",
     "": "",
     "latitude": "43.5516086",
-    "longitude": "7.0165064"
+    "longitude": "7.0165064",
+    "logo": ""
   },
   {
     "date_time": "09.00 - 16.00",
@@ -4833,7 +5204,8 @@
     "location": "Jetée Albert Edouard\nCannes, ",
     "": "",
     "latitude": "43.5501160",
-    "longitude": "7.0167549"
+    "longitude": "7.0167549",
+    "logo": ""
   },
   {
     "date_time": "09.45 - 10.45",
@@ -4846,7 +5218,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5510498",
-    "longitude": "7.0189922"
+    "longitude": "7.0189922",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "10.00 - 16.00",
@@ -4859,7 +5232,8 @@
     "location": "Jetée Albert Edouard",
     "": "",
     "latitude": "43.5501160",
-    "longitude": "7.0167549"
+    "longitude": "7.0167549",
+    "logo": "./images/vendor_logo/The Room.png"
   },
   {
     "date_time": "10.30",
@@ -4872,7 +5246,8 @@
     "location": "Beach Stage  - TBA",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
   },
   {
     "date_time": "10:30 - 11:15",
@@ -4885,7 +5260,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "10.45 - 11.15",
@@ -4898,7 +5274,8 @@
     "location": "61 Bd de la Croisette\nCannes",
     "": "",
     "latitude": "43.5510498",
-    "longitude": "7.0189922"
+    "longitude": "7.0189922",
+    "logo": "./images/vendor_logo/WSJ.png"
   },
   {
     "date_time": "11.00 - 15.00",
@@ -4911,7 +5288,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/WPP.png"
   },
   {
     "date_time": "11.30 - 16.00",
@@ -4924,7 +5302,8 @@
     "location": "335 Vieille Route de Cannes, Vallauris, Provence-Alpes-Côte d'Azur 06220, France",
     "": "",
     "latitude": "43.5685953",
-    "longitude": "7.0460890"
+    "longitude": "7.0460890",
+    "logo": ""
   },
   {
     "date_time": "11.45 - 12.30",
@@ -4937,7 +5316,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "12.00 - 14.00",
@@ -4950,7 +5330,8 @@
     "location": "Plage Goéland. Boulevard de la Croisette Cannes, Cannes 06400",
     "": "",
     "latitude": "43.5498704",
-    "longitude": "7.0227136"
+    "longitude": "7.0227136",
+    "logo": "./images/vendor_logo/Freewheel.png"
   },
   {
     "date_time": "13:00 - 13:30",
@@ -4963,7 +5344,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "13:30 - 14.00",
@@ -4976,7 +5358,8 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 14.10",
@@ -4989,7 +5372,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.00 - 15.00 ",
@@ -5002,7 +5386,8 @@
     "location": "Chez Vayner Café, 2 Pl. du Général de Gaulle",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Vayner.png"
   },
   {
     "date_time": " 14.10 - 14.55",
@@ -5015,7 +5400,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "14.55 - 15.40",
@@ -5028,7 +5414,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.15 - 16.45",
@@ -5041,7 +5428,8 @@
     "location": "L'Avenue 1-5 Sq. Mérimée, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "15.40 -  16.25",
@@ -5054,7 +5442,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.00 - 20.00",
@@ -5067,7 +5456,8 @@
     "location": "Microsoft Beach, 64 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "16.40 - 17. 25",
@@ -5080,7 +5470,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "17. 25 - 18.10",
@@ -5093,7 +5484,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18:00 - 19:00 ",
@@ -5106,7 +5498,8 @@
     "location": "Checkpoint 3, Palais des Festivals La Croisette, Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18:00 - 20:00 ",
@@ -5119,7 +5512,8 @@
     "location": "Equativ Yacht, Harbor",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Equativ.png"
   },
   {
     "date_time": "18.00 - 22.30",
@@ -5132,7 +5526,8 @@
     "location": "Maison de PMG\n11 Chem. Saint-Nicolas\nCannes,",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/PMG.png"
   },
   {
     "date_time": "18.20 - 18.55",
@@ -5145,7 +5540,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "18.55 - 19.55",
@@ -5158,7 +5554,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.00 - 20.00",
@@ -5171,7 +5568,8 @@
     "location": "Salon Culture Conversations Villa\n384 Boulevard des Glaïeuls\n06220 Vallauris",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "19.55 - 20.55",
@@ -5184,7 +5582,8 @@
     "location": "The Rooftop The Penthouse, 67 Boulevard de la Croisette",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "21.00 - 23.00 ",
@@ -5197,7 +5596,8 @@
     "location": "Chez Vayner Café, 2 Pl. du Général de Gaulle",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/Vayner.png"
   },
   {
     "date_time": "22.00 - 02.00",
@@ -5210,7 +5610,8 @@
     "location": "Croisette Beach, Boulevard de la Croisette, Cannes",
     "": "",
     "latitude": "43.5481210",
-    "longitude": "7.0291330"
+    "longitude": "7.0291330",
+    "logo": ""
   },
   {
     "date_time": "FRIDAY 20 JUNE",
@@ -5223,7 +5624,8 @@
     "location": "location",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
   },
   {
     "date_time": "08.30 - 14.00",
@@ -5236,7 +5638,8 @@
     "location": "WPP Beach",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": "./images/vendor_logo/VML.png"
   },
   {
     "date_time": "10:30 - 12:30",
@@ -5249,6 +5652,1177 @@
     "location": "Le Majestic Hotel\n10 Bd de la Croisette, 06400 Cannes",
     "": "",
     "latitude": null,
-    "longitude": null
+    "longitude": null,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "The House of Amazon at Amazon Port",
+    "event_name": "The House of Amazon at Amazon Port",
+    "description": "",
+    "event_type": "Event",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55110218455641,
+    "longitude": 7.015049886167262,
+    "logo": "./images/vendor_logo/Amazon.png"
+  },
+  {
+    "date_time": "",
+    "host ": "MediaLink Beach",
+    "event_name": "MediaLink Beach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55092767110725,
+    "longitude": 7.018601156770044,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "ADWEEK House",
+    "event_name": "ADWEEK House",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551201464243,
+    "longitude": 7.019769600453224,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Campaign HOUSE",
+    "event_name": "Campaign HOUSE",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54857169448848,
+    "longitude": 7.0120379560461865,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "FreeWheel Beach",
+    "event_name": "FreeWheel Beach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.550297014080535,
+    "longitude": 7.022690394680652,
+    "logo": "./images/vendor_logo/Freewheel.png"
+  },
+  {
+    "date_time": "",
+    "host ": "SPORT BEACH",
+    "event_name": "SPORT BEACH",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54955539195014,
+    "longitude": 7.026315380624815,
+    "logo": "./images/vendor_logo/Sport Beach.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Quintal of Brazilian",
+    "event_name": "Quintal of Brazilian",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.548295252508304,
+    "longitude": 7.03007929468061,
+    "logo": "./images/vendor_logo/Quintal.png"
+  },
+  {
+    "date_time": "",
+    "host ": "World Woman Foundation",
+    "event_name": "World Woman Foundation",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55220193370154,
+    "longitude": 7.016503067131006,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "LWS at Cannes",
+    "event_name": "LWS at Cannes",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55033366971327,
+    "longitude": 7.028704567692792,
+    "logo": "./images/vendor_logo/LWS.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Kantar",
+    "event_name": "Kantar",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55218207949816,
+    "longitude": 7.020349167692896,
+    "logo": "./images/vendor_logo/Kantar.png"
+  },
+  {
+    "date_time": "",
+    "host ": "The Wall Street Journal",
+    "event_name": "The Wall Street Journal",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54921501236062,
+    "longitude": 7.028023296528102,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Ad Age",
+    "event_name": "Ad Age",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54921501236062,
+    "longitude": 7.028023296528102,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Pinterest",
+    "event_name": "Pinterest",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54899903666016,
+    "longitude": 7.027514930343928,
+    "logo": "./images/vendor_logo/Pinterest.png"
+  },
+  {
+    "date_time": "",
+    "host ": "RTL Beach",
+    "event_name": "RTL Beach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55009245044343,
+    "longitude": 7.024723515002513,
+    "logo": "./images/vendor_logo/RTL.png"
+  },
+  {
+    "date_time": "",
+    "host ": "GWI at Cannes Lions",
+    "event_name": "GWI at Cannes Lions",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54977471946039,
+    "longitude": 7.027268911869482,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "GWI Spark Stadium",
+    "event_name": "GWI Spark Stadium",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55090568496215,
+    "longitude": 7.018563011307737,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Nielsen",
+    "event_name": "Nielsen",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54857650649061,
+    "longitude": 7.030868404198778,
+    "logo": "./images/vendor_logo/Nielsen.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Snowflake",
+    "event_name": "Snowflake",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.547683991612615,
+    "longitude": 7.031272453075026,
+    "logo": "./images/vendor_logo/Snowflake.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Brands&Culture",
+    "event_name": "Brands&Culture",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.560131882240626,
+    "longitude": 7.029063039843496,
+    "logo": "./images/vendor_logo/Brands&Culture.png"
+  },
+  {
+    "date_time": "",
+    "host ": "InMobi",
+    "event_name": "InMobi",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55326488009182,
+    "longitude": 7.022883828496712,
+    "logo": "./images/vendor_logo/InMobi.png"
+  },
+  {
+    "date_time": "",
+    "host ": "CULTURE MIX",
+    "event_name": "CULTURE MIX",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54933793604799,
+    "longitude": 7.0268693652834395,
+    "logo": "./images/vendor_logo/Culture Mix.png"
+  },
+  {
+    "date_time": "",
+    "host ": "72Point",
+    "event_name": "72Point",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.548923416525724,
+    "longitude": 7.029541919090773,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "GALA",
+    "event_name": "GALA",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.550199856160674,
+    "longitude": 7.028389269011532,
+    "logo": "./images/vendor_logo/GALA.png"
+  },
+  {
+    "date_time": "",
+    "host ": "TikTok",
+    "event_name": "TikTok",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54968142901191,
+    "longitude": 7.0272206346338715,
+    "logo": "./images/vendor_logo/TikTok.png"
+  },
+  {
+    "date_time": "",
+    "host ": "The Female Quotient",
+    "event_name": "The Female Quotient",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54855294690185,
+    "longitude": 7.031255163435929,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Little Black Book",
+    "event_name": "Little Black Book",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.548923416525724,
+    "longitude": 7.029541919090773,
+    "logo": "./images/vendor_logo/LBB.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Captiv8",
+    "event_name": "Captiv8",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.549782495463724,
+    "longitude": 7.027590776929952,
+    "logo": "./images/vendor_logo/Captive 8.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Basis Technologies",
+    "event_name": "Basis Technologies",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55225808497614,
+    "longitude": 7.021744845685439,
+    "logo": "./images/vendor_logo/Basis.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Brand Innovators",
+    "event_name": "Brand Innovators",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54832264755541,
+    "longitude": 7.029441292271279,
+    "logo": "./images/vendor_logo/Brand Innovators.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Braze",
+    "event_name": "Braze",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55020526624211,
+    "longitude": 7.017022927210905,
+    "logo": "./images/vendor_logo/Braze.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Experian",
+    "event_name": "Experian",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551200711865135,
+    "longitude": 7.020778710022148,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "IAS",
+    "event_name": "IAS",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55019269419352,
+    "longitude": 7.015044236448103,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Business Insider",
+    "event_name": "Business Insider",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55150605951972,
+    "longitude": 7.019214541990527,
+    "logo": "./images/vendor_logo/Business Insider.png"
+  },
+  {
+    "date_time": "",
+    "host ": "VIOOH, JCDecaux and Displayce",
+    "event_name": "VIOOH, JCDecaux and Displayce",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55204186126596,
+    "longitude": 7.015850762874275,
+    "logo": "./images/vendor_logo/VIOOH.png"
+  },
+  {
+    "date_time": "",
+    "host ": "3C Ventures",
+    "event_name": "3C Ventures",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.549676415601944,
+    "longitude": 7.025232179339243,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Fortune",
+    "event_name": "Fortune",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55218032809176,
+    "longitude": 7.021444438295668,
+    "logo": "./images/vendor_logo/Fortune.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Microsoft",
+    "event_name": "Microsoft",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.548762237087736,
+    "longitude": 7.0284823248015105,
+    "logo": "./images/vendor_logo/Microsoft.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Yahoo",
+    "event_name": "Yahoo",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54770732042873,
+    "longitude": 7.031175893556885,
+    "logo": "./images/vendor_logo/Yahoo.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Financial Times",
+    "event_name": "Financial Times",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55208728541697,
+    "longitude": 7.0193342253636,
+    "logo": "./images/vendor_logo/FT.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Bloomberg Media",
+    "event_name": "Bloomberg Media",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55127496002658,
+    "longitude": 7.023757213155166,
+    "logo": "./images/vendor_logo/Bloomberg Media.png"
+  },
+  {
+    "date_time": "",
+    "host ": "MiQ",
+    "event_name": "MiQ",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.549751391444424,
+    "longitude": 7.027762438295537,
+    "logo": "./images/vendor_logo/MiQ.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Blutui",
+    "event_name": "Blutui",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.548923416525724,
+    "longitude": 7.029541919090773,
+    "logo": "./images/vendor_logo/Blutui.png"
+  },
+  {
+    "date_time": "",
+    "host ": "VaynerX",
+    "event_name": "VaynerX",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55230298486027,
+    "longitude": 7.0162809253635725,
+    "logo": "./images/vendor_logo/Vayner.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Tubi",
+    "event_name": "Tubi",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55097566764265,
+    "longitude": 7.019013622392396,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Meta Beach",
+    "event_name": "Meta Beach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.550571322144705,
+    "longitude": 7.019592979501241,
+    "logo": "./images/vendor_logo/Meta.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Advertising Week powered by PRODU",
+    "event_name": "Advertising Week powered by PRODU",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54847684235262,
+    "longitude": 7.029703338857325,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Monks",
+    "event_name": "Monks",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551889979950296,
+    "longitude": 7.017114625363567,
+    "logo": "./images/vendor_logo/monks.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Inkwell Beach",
+    "event_name": "Inkwell Beach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54892616517826,
+    "longitude": 7.027459196528062,
+    "logo": "./images/vendor_logo/Inkwell Beach.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Influential Beach",
+    "event_name": "Influential Beach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54871902259302,
+    "longitude": 7.028314983034094,
+    "logo": "./images/vendor_logo/Influential Beach.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Spotify",
+    "event_name": "Spotify",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54981131120654,
+    "longitude": 7.0256555898620645,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Ogury",
+    "event_name": "Ogury",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551515435295876,
+    "longitude": 7.017813149942138,
+    "logo": "./images/vendor_logo/Oguru.png"
+  },
+  {
+    "date_time": "",
+    "host ": "GumGum",
+    "event_name": "GumGum",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55062838918143,
+    "longitude": 7.023815967692815,
+    "logo": "./images/vendor_logo/GumGum.png"
+  },
+  {
+    "date_time": "",
+    "host ": "iHeartMedia",
+    "event_name": "iHeartMedia",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551917910107164,
+    "longitude": 7.016928552351518,
+    "logo": "./images/vendor_logo/iHeart.png"
+  },
+  {
+    "date_time": "",
+    "host ": "LinkedIn",
+    "event_name": "LinkedIn",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54967754370975,
+    "longitude": 7.026614823515962,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Insights Lighthouse",
+    "event_name": "Insights Lighthouse",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551045363965876,
+    "longitude": 7.0201462346007135,
+    "logo": "./images/vendor_logo/Insights Lighthouse.png"
+  },
+  {
+    "date_time": "",
+    "host ": "MMA",
+    "event_name": "MMA",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.548423848557114,
+    "longitude": 7.03078916650735,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "OpenX",
+    "event_name": "OpenX",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55160043825184,
+    "longitude": 7.01837506769285,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Omnicom",
+    "event_name": "Omnicom",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55030511025082,
+    "longitude": 7.019833621106698,
+    "logo": "./images/vendor_logo/Omnicon.png"
+  },
+  {
+    "date_time": "",
+    "host ": "The Weather Company",
+    "event_name": "The Weather Company",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55173994300517,
+    "longitude": 7.020830368060339,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "The Washington Post",
+    "event_name": "The Washington Post",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55173994300517,
+    "longitude": 7.020830368060339,
+    "logo": "./images/vendor_logo/The Washington Post.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Criteo",
+    "event_name": "Criteo",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54942726835005,
+    "longitude": 7.0170193695401775,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Human",
+    "event_name": "Human",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55107793973495,
+    "longitude": 7.020766538857428,
+    "logo": "./images/vendor_logo/Human.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Bain",
+    "event_name": "Bain",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551171499429536,
+    "longitude": 7.02489835776828,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Transmission",
+    "event_name": "Transmission",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.5484751899793,
+    "longitude": 7.03061334809453,
+    "logo": "./images/vendor_logo/Transmission.png"
+  },
+  {
+    "date_time": "",
+    "host ": "BCG - Boston Consulting Group",
+    "event_name": "BCG - Boston Consulting Group",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.549159923156,
+    "longitude": 7.027850791129357,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Canva",
+    "event_name": "Canva",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54843963720271,
+    "longitude": 7.030858269053223,
+    "logo": "./images/vendor_logo/Canva_logo.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Havas",
+    "event_name": "Havas",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55049205803851,
+    "longitude": 7.0249823076127855,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Infillion",
+    "event_name": "Infillion",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551171499429536,
+    "longitude": 7.02489835776828,
+    "logo": "./images/vendor_logo/Infillion.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Monks",
+    "event_name": "Monks",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551873207216204,
+    "longitude": 7.017115796528242,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Empower Café",
+    "event_name": "Empower Café",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55200685842121,
+    "longitude": 7.017220154198889,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "The Room",
+    "event_name": "The Room",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.549411716250766,
+    "longitude": 7.016933538857386,
+    "logo": "./images/vendor_logo/The Room.png"
+  },
+  {
+    "date_time": "",
+    "host ": "The Media Trust",
+    "event_name": "The Media Trust",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55246568444047,
+    "longitude": 7.015286838857559,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "The SH Collective",
+    "event_name": "The SH Collective",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.559909496125954,
+    "longitude": 7.054605304027461,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Chase Media Solutions",
+    "event_name": "Chase Media Solutions",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55094456423911,
+    "longitude": 7.017919281186798,
+    "logo": "./images/vendor_logo/Chase Media solutions.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Taboola",
+    "event_name": "Taboola",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55125081508018,
+    "longitude": 7.024699354198866,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Videoamp",
+    "event_name": "Videoamp",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54954164409556,
+    "longitude": 7.025856625363427,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "StackAdapt",
+    "event_name": "StackAdapt",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55097566764265,
+    "longitude": 7.017940738857496,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Chez Verve",
+    "event_name": "Chez Verve",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.55148788376024,
+    "longitude": 7.022739894680785,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Viant",
+    "event_name": "Viant",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551076467317394,
+    "longitude": 7.019695623516063,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Advertising Association - UK Advertising",
+    "event_name": "Advertising Association - UK Advertising",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551562659395636,
+    "longitude": 7.0210136407049415,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Alkimiads",
+    "event_name": "Alkimiads",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.540513973150354,
+    "longitude": 7.032561294680153,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Givsly",
+    "event_name": "Givsly",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.551407566249445,
+    "longitude": 7.018821956046345,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Adform",
+    "event_name": "Adform",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.5512430392663,
+    "longitude": 7.024667167692819,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Spectrum Reach",
+    "event_name": "Spectrum Reach",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54996771090391,
+    "longitude": 7.026551810022072,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Pickaxe Foundry",
+    "event_name": "Pickaxe Foundry",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.550216022038676,
+    "longitude": 7.014529252351352,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Pantone",
+    "event_name": "Pantone",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.550983443491035,
+    "longitude": 7.018552282472389,
+    "logo": "./images/vendor_logo/Pantone.png"
+  },
+  {
+    "date_time": "",
+    "host ": "VCCP",
+    "event_name": "VCCP",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54913554524819,
+    "longitude": 7.0286328676927035,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "Deep Blue Sports + Entertainment",
+    "event_name": "Deep Blue Sports + Entertainment",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54891431910658,
+    "longitude": 7.008380063835597,
+    "logo": ""
+  },
+  {
+    "date_time": "",
+    "host ": "BeReal",
+    "event_name": "BeReal",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.550189714343546,
+    "longitude": 7.016926367692765,
+    "logo": "./images/vendor_logo/BeReal.png"
+  },
+  {
+    "date_time": "",
+    "host ": "Snowflake",
+    "event_name": "Snowflake",
+    "description": "",
+    "event_type": "Vendor",
+    "url_link": "",
+    "rsvp": "",
+    "location": "",
+    "latitude": 43.54861057527106,
+    "longitude": 7.011973583034092,
+    "logo": ""
   }
 ]

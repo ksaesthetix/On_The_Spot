@@ -1688,3 +1688,57 @@ main {
 .hero-guide p {
     margin-top: 1em;
 }
+
+/* =======================
+   Creator Section
+   ======================= */
+#creator-section {
+    background: var(--color-light);
+    border-top: 1px solid var(--border-light);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+#creator-section .creator-name {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-bottom: 0.7rem;
+}
+
+#creator-section .creator-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+#creator-section .creator-icons {
+    margin-bottom: 0.7rem;
+}
+
+#creator-section .creator-icons a {
+    margin: 0 0.5em;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.15s;
+}
+
+#creator-section .creator-icons a:hover {
+    transform: scale(1.15);
+}
+
+#creator-section .creator-icons i {
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+#creator-section .creator-instructions {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+}
+
+#creator-section .creator-instructions a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+}

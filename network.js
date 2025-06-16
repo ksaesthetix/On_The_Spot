@@ -1,3 +1,6 @@
+if (!localStorage.getItem('ots_jwt')) {
+    window.location.href = 'login.html';
+}
 document.addEventListener('DOMContentLoaded', function() {
   (async function() {
     const API_BASE = 'https://on-the-spot.onrender.com';
@@ -65,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const hosts = JSON.parse(xhr.responseText);
             vendors = hosts.map(v => {
                 // Determine type: use v.event_type if present, else "vendor"
-                let type = (v.event_type && v.event_type.toLowerCase() === "event") ? "Event" : "Vendor";
+                let type = (v.event_type && v.event_type.toLowerCase() === "event") ? "Event" : "Host";
                 return {
                     ...v,
                     name: (v['host '] || v.event_name || 'Unknown Vendor'),
@@ -90,6 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let searchTerm = '';
     let typeFilter = '';
     let connectionFilter = '';
+
+    // Helper to get first name
+    function getFirstName(name) {
+        return (name || '').split(' ')[0];
+    }
 
     function renderUserList() {
         connections = JSON.parse(localStorage.getItem('ots_connections') || '[]');
@@ -118,12 +126,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         userList.innerHTML = displayedUsers.map(user => {
+            // Show only first name for attendees, full name for vendors/hosts/events
+            const displayName = isAttendee(user) ? getFirstName(user.name) : user.name;
             if (isAttendee(user)) {
                 const isConnected = attendeeConnections.some(conn => conn._id === user._id);
                 return `
                     <li>
-                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}" alt="${user.name}" class="user-avatar" />
-                        <span class="user-name">${user.name}</span>
+                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}" alt="${displayName}" class="user-avatar" />
+                        <span class="user-name">${displayName}</span>
                         <span class="user-tag">${user.type || 'Attendee'}</span>
                         <div class="user-actions">
                             <a href="profile.html?user=${encodeURIComponent(user.email)}" class="user-btn view-profile" title="View Profile">Profile</a>
@@ -136,16 +146,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             } else {
                 const isConnected = connections.includes(user.email);
-                const isVendor = user.type && user.type.toLowerCase() === "vendor";
+                const isVendor = user.type && user.type.toLowerCase() === "host";
                 const isEvent = user.type && user.type.toLowerCase() === "event";
                 const profileLink = isVendor || isEvent
-                    ? `vendor.html?vendor=${encodeURIComponent(user.name)}`
+                    ? `vendor.html?vendor=${encodeURIComponent(user['host '] || user.name)}`
                     : `profile.html?user=${encodeURIComponent(user.email)}`;
 
                 return `
                     <li>
-                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}" alt="${user.name}" class="user-avatar" />
-                        <span class="user-name">${user.name}</span>
+                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}" alt="${displayName}" class="user-avatar" />
+                        <span class="user-name">${displayName}</span>
                         <span class="user-tag">${user.type || 'Attendee'}</span>
                         <div class="user-actions">
                             <a href="${profileLink}" class="user-btn view-profile" title="View Profile">Profile</a>

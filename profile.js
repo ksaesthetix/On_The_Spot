@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainEl = document.querySelector('main');
     const itineraryList = document.querySelector('.itinerary-list');
 
+    console.log("JWT token:", token);
+
     if (!token) {
         mainEl.innerHTML = '<section class="profile-section"><p>Please <a href="login.html">log in</a> to view your profile.</p></section>';
         return;
@@ -47,11 +49,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: { 'Authorization': 'Bearer ' + token }
             })
             .then(res => res.json())
-            .then(user => {
+            .then(data => {
+                if (!data.success) {
+                    mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
+                    return;
+                }
+                const user = data.user;
                 renderProfileHeader(user);
                 renderProfile(user, users, false);
                 updateTrialTimer(user.trialEndsAt);
-                // Save to localStorage for edit modal
                 localStorage.setItem('ots_user', JSON.stringify(user));
             })
             .catch(() => {
