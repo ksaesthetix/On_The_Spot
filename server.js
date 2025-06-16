@@ -10,6 +10,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 const server = http.createServer(app);
@@ -187,6 +188,12 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
         if (!user) return res.status(404).json({ success: false, message: "User not found." });
+
+        // --- TEST ONLY: Force trial expired and unpaid ---
+        user.hasPaid = false;
+        user.trialEndsAt = new Date(Date.now() - 1000 * 60 * 60 * 24); // 24 hours ago
+        // --- END TEST ---
+
         res.json({ success: true, user });
     } catch (err) {
         res.status(500).json({ success: false, message: "Server error." });
@@ -362,6 +369,19 @@ app.post('/api/profile', authenticateToken, async (req, res) => {
     } catch (err) {
         res.status(500).json({ success: false, message: "Could not update profile." });
     }
+});
+
+// Example: create a session and redirect to Stripe Checkout
+app.get('/api/create-checkout-session', async (req, res) => {
+    // const session = await stripe.checkout.sessions.create({
+    //     payment_method_types: ['card'],
+    //     line_items: [{ price: 'YOUR_PRICE_ID', quantity: 1 }],
+    //     mode: 'payment',
+    //     success_url: 'https://yourdomain.com/paywall-success.html',
+    //     cancel_url: 'https://yourdomain.com/paywall.html',
+    // });
+    // res.redirect(session.url);
+    res.redirect('/paywall.html'); // For now, just redirect to your paywall
 });
 
 // Socket.io connection
