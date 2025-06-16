@@ -55,7 +55,7 @@
         document.body.appendChild(overlay);
 
         document.getElementById('paywall-pay-btn').onclick = function() {
-            window.location.href = 'https://on-the-spot.onrender.com/api/create-checkout-session';
+            window.location.href = 'https://buy.stripe.com/test_3cI6oAcZB4It3O9alvcbC00';
         };
 
         // Prevent closing the popup by clicking outside or pressing Esc

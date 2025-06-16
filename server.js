@@ -10,7 +10,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 const server = http.createServer(app);
@@ -372,16 +372,62 @@ app.post('/api/profile', authenticateToken, async (req, res) => {
 });
 
 // Example: create a session and redirect to Stripe Checkout
-app.get('/api/create-checkout-session', async (req, res) => {
-    // const session = await stripe.checkout.sessions.create({
-    //     payment_method_types: ['card'],
-    //     line_items: [{ price: 'YOUR_PRICE_ID', quantity: 1 }],
-    //     mode: 'payment',
-    //     success_url: 'https://yourdomain.com/paywall-success.html',
-    //     cancel_url: 'https://yourdomain.com/paywall.html',
-    // });
-    // res.redirect(session.url);
-    res.redirect('/paywall.html'); // For now, just redirect to your paywall
+app.post('/api/create-checkout-session', async (req, res) => {
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: [
+                {
+                    price_data: {
+                        currency: 'gbp',
+                        product_data: {
+                            name: 'On The Spot Access',
+                        },
+                        unit_amount: 990, // $9.90 (amount in cents)
+                    },
+                    quantity: 1,
+                },
+            ],
+            mode: 'payment',
+            success_url: 'https://on-the-spot.onrender.com/paywall-success.html',
+            cancel_url: 'https://on-the-spot.onrender.com/paywall.html',
+        });
+        res.json({ url: session.url });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to create checkout session' });
+    }
+});
+
+// Add at the top:
+app.use('/webhook', express.raw({type: 'application/json'}));
+
+app.post('/webhook', async (req, res) => {
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET; // Set this in your env
+    const sig = req.headers['stripe-signature'];
+    let event;
+
+    try {
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+    } catch (err) {
+        console.error('Webhook signature verification failed.', err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    // Handle successful payment
+    if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+        // If you collect email in Stripe, use session.customer_email
+        const customerEmail = session.customer_email;
+        if (customerEmail) {
+            await User.findOneAndUpdate(
+                { email: customerEmail },
+                { $set: { hasPaid: true }, $unset: { trialEndsAt: "" } }
+            );
+        }
+    }
+
+    res.json({received: true});
 });
 
 // Socket.io connection
