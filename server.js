@@ -26,8 +26,8 @@ const io = new Server(server, {
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
-app.use(bodyParser.json());
+app.use(express.json({ limit: '5mb' }));
+app.use(bodyParser.json({ limit: '5mb' }));
 
 const allowedOrigins = [
   'https://ksaesthetix.github.io',
