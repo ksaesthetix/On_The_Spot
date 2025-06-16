@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (diff <= 0) {
             timerDiv.textContent = "Your free trial has ended.";
             clearInterval(interval);
+            // Show paywall popup if not paid
+            if (user.hasPaid === false && typeof window.showPaywallPopup === "function") {
+                window.showPaywallPopup();
+            }
             return;
         }
         const hours = Math.floor(diff / (1000 * 60 * 60));

@@ -19,7 +19,8 @@
     })
     .catch(() => {});
 
-    function showPaywallPopup() {
+    // Make showPaywallPopup globally available
+    window.showPaywallPopup = function() {
         // Prevent multiple popups
         if (document.getElementById('paywall-popup-overlay')) return;
 
@@ -63,5 +64,25 @@
         document.addEventListener('keydown', function blockEsc(e) {
             if (e.key === "Escape") e.preventDefault();
         }, true);
-    }
+    };
+
+    // On page load, check if trial expired and not paid
+    (function() {
+        const API_BASE = 'https://on-the-spot.onrender.com';
+        const token = localStorage.getItem('ots_jwt');
+        if (!token) return;
+
+        fetch(`${API_BASE}/api/profile`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success || !data.user) return;
+            const user = data.user;
+            if (user.hasPaid === false && user.trialEndsAt && new Date(user.trialEndsAt) < new Date()) {
+                window.showPaywallPopup();
+            }
+        })
+        .catch(() => {});
+    })();
 })();
