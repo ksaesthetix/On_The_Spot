@@ -35,10 +35,15 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-    origin: [
-        "https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev", // your Codespace origin
-        "https://ksaesthetix.github.io" // your GitHub Pages origin (if needed)
-    ],
+    origin: function(origin, callback) {
+        // Allow requests with no origin (like mobile apps, curl, etc.)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            return callback(null, true);
+        } else {
+            return callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
 
