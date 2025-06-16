@@ -178,7 +178,9 @@ app.post('/api/login', async (req, res) => {
             name: user.name,
             email: user.email,
             type: user.type,
-            _id: user._id
+            _id: user._id,
+            trialEndsAt: user.trialEndsAt, 
+            hasPaid: user.hasPaid          
         }
     });
 });

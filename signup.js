@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(loginData => {
                     if (loginData.success && loginData.token) {
                         localStorage.setItem('ots_jwt', loginData.token);
-                        localStorage.setItem('ots_user', JSON.stringify({ name: loginData.name, email: loginData.email, type: loginData.type }));
+                        localStorage.setItem('ots_user', JSON.stringify(loginData.user));
                         // Redirect to profile (not paywall)
                         window.location.href = 'profile.html';
                     } else {
