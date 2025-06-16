@@ -140,7 +140,7 @@ app.post('/api/signup', async (req, res) => {
         }
         const hashed = await bcrypt.hash(password, 10);
         const trialEndsAt = new Date(Date.now() + 2 * 60 * 60 * 1000); // 2 hours from now
-        const user = new User({ name, email, password: hashed });
+        const user = new User({ name, email, password: hashed, trialEndsAt }); // <-- add trialEndsAt here
         await user.save();
         res.json({ success: true });
     } catch (err) {
