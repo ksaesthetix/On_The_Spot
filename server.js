@@ -399,25 +399,19 @@ app.post('/api/create-checkout-session', async (req, res) => {
     }
 });
 
-// Add at the top:
+// Stripe webhook endpoint
 app.use('/webhook', express.raw({type: 'application/json'}));
-
 app.post('/webhook', async (req, res) => {
-    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET; // Set this in your env
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
     const sig = req.headers['stripe-signature'];
     let event;
-
     try {
         event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
     } catch (err) {
-        console.error('Webhook signature verification failed.', err.message);
         return res.status(400).send(`Webhook Error: ${err.message}`);
     }
-
-    // Handle successful payment
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object;
-        // If you collect email in Stripe, use session.customer_email
         const customerEmail = session.customer_email;
         if (customerEmail) {
             await User.findOneAndUpdate(
@@ -426,7 +420,6 @@ app.post('/webhook', async (req, res) => {
             );
         }
     }
-
     res.json({received: true});
 });
 
