@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
         timerDiv.textContent = `Trial time left: ${hours}h ${minutes}m ${seconds}s`;
     }
-
+    
+    interval = setInterval(render, 1000);
     render();
-    const interval = setInterval(render, 1000);
+
 });
