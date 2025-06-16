@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const res = await fetch(`${API_BASE}/api/users`, {
             headers: { 'Authorization': 'Bearer ' + token }
         });
+        if (!res.ok) {
+            // If unauthorized or error, return empty array
+            return [];
+        }
         return await res.json();
     }
 
@@ -40,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let users = [];
     if (currentUser && currentUser._id) {
         users = await fetchUsers();
+        if (!Array.isArray(users)) users = [];
     } else {
         users = JSON.parse(localStorage.getItem('ots_users') || '[]').map(u => ({
             ...u,
@@ -48,102 +53,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     let connections = JSON.parse(localStorage.getItem('ots_connections') || '[]');
 
-    // Convert vendors to user-like objects with unique emails
-    const vendors = [
-        { name: "The House of Amazon at Amazon Port", type: "Event" },
-        { name: "MediaLink Beach", type: "Vendor" },
-        { name: "ADWEEK House", type: "Vendor" },
-        { name: "Campaign HOUSE", type: "Vendor" },
-        { name: "FreeWheel Beach", type: "Vendor" },
-        { name: "SPORT BEACH", type: "Vendor" },
-        { name: "Quintal of Brazilian", type: "Vendor" },
-        { name: "World Woman Foundation", type: "Vendor" },
-        { name: "LWS at Cannes", type: "Vendor" },
-        { name: "Kantar", type: "Vendor" },
-        { name: "The Wall Street Journal", type: "Vendor" },
-        { name: "Ad Age", type: "Vendor" },
-        { name: "Pinterest", type: "Vendor" },
-        { name: "RTL Beach", type: "Vendor" },
-        { name: "GWI at Cannes Lions", type: "Vendor" },
-        { name: "GWI Spark Stadium", type: "Vendor" },
-        { name: "Nielsen", type: "Vendor" },
-        { name: "Snowflake", type: "Vendor" },
-        { name: "Brands&Culture", type: "Vendor" },
-        { name: "InMobi", type: "Vendor" },
-        { name: "CULTURE MIX", type: "Vendor" },
-        { name: "72Point", type: "Vendor" },
-        { name: "GALA", type: "Vendor" },
-        { name: "TikTok", type: "Vendor" },
-        { name: "The Female Quotient", type: "Vendor" },
-        { name: "Little Black Book", type: "Vendor" },
-        { name: "Captiv8", type: "Vendor" },
-        { name: "Basis Technologies", type: "Vendor" },
-        { name: "Brand Innovators", type: "Vendor" },
-        { name: "Braze", type: "Vendor" },
-        { name: "Experian", type: "Vendor" },
-        { name: "IAS", type: "Vendor" },
-        { name: "Business Insider", type: "Vendor" },
-        { name: "VIOOH, JCDecaux and Displayce", type: "Vendor" },
-        { name: "3C Ventures", type: "Vendor" },
-        { name: "Fortune", type: "Vendor" },
-        { name: "Microsoft", type: "Vendor" },
-        { name: "Yahoo", type: "Vendor" },
-        { name: "Financial Times", type: "Vendor" },
-        { name: "Bloomberg Media", type: "Vendor" },
-        { name: "MiQ", type: "Vendor" },
-        { name: "Blutui", type: "Vendor" },
-        { name: "VaynerX", type: "Vendor" },
-        { name: "Tubi", type: "Vendor" },
-        { name: "Meta Beach", type: "Vendor" },
-        { name: "Advertising Week powered by PRODU", type: "Vendor" },
-        { name: "Monks", type: "Vendor" },
-        { name: "Inkwell Beach", type: "Vendor" },
-        { name: "IInfluential Beach", type: "Vendor" },
-        { name: "Spotify", type: "Vendor" },
-        { name: "Ogury", type: "Vendor" },
-        { name: "GumGum", type: "Vendor" },
-        { name: "iHeartMedia", type: "Vendor" },
-        { name: "LinkedIn", type: "Vendor" },
-        { name: "Insights LIghthouse", type: "Vendor" },
-        { name: "MMA", type: "Vendor" },
-        { name: "OpenX", type: "Vendor" },
-        { name: "Omnicom", type: "Vendor" },
-        { name: "The Weather Company", type: "Vendor" },
-        { name: "The Washington Post", type: "Vendor" },
-        { name: "Criteo", type: "Vendor" },
-        { name: "Human", type: "Vendor" },
-        { name: "Bain", type: "Vendor" },
-        { name: "Transmission", type: "Vendor" },
-        { name: "BCG - Boston Consulting Group", type: "Vendor" },
-        { name: "Canva", type: "Vendor" },
-        { name: "Havas", type: "Vendor" },
-        { name: "Infillion", type: "Vendor" },
-        { name: "Monks", type: "Vendor" },
-        { name: "Empower Café", type: "Vendor" },
-        { name: "The Room", type: "Vendor" },
-        { name: "The Media Trust", type: "Vendor" },
-        { name: "The SH Collective", type: "Vendor" },
-        { name: "Chase Media Solutions", type: "Vendor" },
-        { name: "Taboola", type: "Vendor" },
-        { name: "Videoamp", type: "Vendor" },
-        { name: "StackAdapt", type: "Vendor" },
-        { name: "Chez Verve", type: "Vendor" },
-        { name: "Viant", type: "Vendor" },
-        { name: "Advertising Association - UK Advertising", type: "Vendor" },
-        { name: "Alkimiads", type: "Vendor" },
-        { name: "Givsly", type: "Vendor" },
-        { name: "Adform", type: "Vendor" },
-        { name: "Spectrum Reach", type: "Vendor" },
-        { name: "Pickaxe Foundry", type: "Vendor" },
-        { name: "Pantone", type: "Vendor" },
-        { name: "VCCP", type: "Vendor" },
-        { name: "Deep Blue Sports + Entertainment", type: "Vendor" },
-        { name: "BeReal", type: "Vendor" },
-        { name: "Snowflake", type: "Vendor" }
-    ].map(v => ({
-        ...v,
-        email: v.name.replace(/\s+/g, '').toLowerCase() + '@vendor.com'
-    }));
+    // Convert hosts.json to user-like objects with unique emails
+    let vendors = [];
+    try {
+        // Synchronously load hosts.json (works if served locally or via server)
+        // If using a bundler or module system, adjust as needed
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'cannesfringeeventdata_with_coords.json', false); // synchronous
+        xhr.send(null);
+        if (xhr.status === 200) {
+            const hosts = JSON.parse(xhr.responseText);
+            vendors = hosts.map(v => {
+                // Determine type: use v.event_type if present, else "vendor"
+                let type = (v.event_type && v.event_type.toLowerCase() === "event") ? "Event" : "Vendor";
+                return {
+                    ...v,
+                    name: (v['host '] || v.event_name || 'Unknown Vendor'),
+                    email: (v['host '] || v.event_name || 'unknown').replace(/\s+/g, '').toLowerCase() + '@vendor.com',
+                    type: type
+                };
+            });
+        }
+    } catch (e) {
+        console.error('Could not load hosts.json', e);
+    }
 
     // Merge users and vendors for the list
     const allPeople = [

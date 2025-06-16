@@ -61,9 +61,17 @@ const userSchema = new mongoose.Schema({
     connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     itinerary: [{
         name: String,
-        time: String, // or Date if you want
-        vendor: String // or vendorId if you want to reference
-    }]
+        time: String,
+        vendor: String,
+        description: String,
+        event_type: String,
+        location: String,
+        url_link: String
+    }],
+    phone: String,
+    website: String,
+    socials: [String],
+    avatarUrl: String
 });
 const User = mongoose.model('User', userSchema);
 
@@ -165,12 +173,15 @@ app.post('/api/login', async (req, res) => {
     });
 });
 
-// Make profile endpoint public
+// Get current user's profile
 app.get('/api/profile', authenticateToken, async (req, res) => {
-    const user = await User.findById(req.user.id)
-        .select('-password')
-        .populate('connections', 'name email type');
-    res.json(user);
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) return res.status(404).json({ success: false, message: "User not found." });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Server error." });
+    }
 });
 
 // Make users endpoint public
@@ -269,12 +280,12 @@ app.get('/api/connections/:userId', async (req, res) => {
 
 // Add to itinerary endpoint
 app.post('/api/itinerary', authenticateToken, async (req, res) => {
-    const { name, time, vendor } = req.body;
+    const event = req.body; // Accept all fields sent from frontend
     const userId = req.user.id;
     try {
         const user = await User.findByIdAndUpdate(
             userId,
-            { $push: { itinerary: { name, time, vendor } } },
+            { $push: { itinerary: event } },
             { new: true }
         );
         res.json({ success: true, itinerary: user.itinerary });
@@ -324,6 +335,24 @@ app.post('/api/posts/:id/comment', authenticateToken, async (req, res) => {
     post.comments.push({ user: userName, text });
     await post.save();
     res.json({ success: true, comments: post.comments });
+});
+
+// Update profile endpoint
+app.post('/api/profile', authenticateToken, async (req, res) => {
+    const userId = req.user.id;
+    const { phone, website, email, socials, avatarUrl } = req.body;
+    try {
+        const update = { phone, website, email, socials, avatarUrl };
+        Object.keys(update).forEach(key => update[key] === undefined && delete update[key]);
+        const user = await User.findByIdAndUpdate(
+            userId,
+            { $set: update },
+            { new: true }
+        );
+        res.json({ success: true, user });
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Could not update profile." });
+    }
 });
 
 // Socket.io connection

@@ -27,18 +27,26 @@
                 </div>
             </div>
         </nav>
+                <!-- Add this where you want the countdown to appear -->
+        <div id="trial-timer" style="margin-top:1rem; color:var(--color-primary); font-weight:bold;"></div>
     </header>
     <main>
         <section class="profile-section">
             <div class="profile-header">
-                <img src="avatar.png" alt="Profile Picture" class="profile-avatar" id="profile-avatar" />
-                <div>
-                    <h2 id="profile-name">Your Name</h2>
-                    <p id="profile-username">@yourusername</p>
+                <img id="profile-avatar" src="https://ui-avatars.com/api/?name=User" alt="Profile Picture" class="profile-avatar" />
+                <div class="profile-info">
+                    <h2 id="profile-name"></h2>
+                    <div id="profile-username"></div>
+                    <div id="profile-contact-details">
+                        <div><strong>Phone:</strong> <span id="profile-phone"></span></div>
+                        <div><strong>Website:</strong> <span id="profile-website"></span></div>
+                        <div><strong>Email:</strong> <span id="profile-email"></span></div>
+                        <div><strong>Socials:</strong> <span id="profile-socials"></span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="profile-actions">
-                <button>Edit Profile</button>
+                <div class="profile-actions">
+                    <button id="edit-profile-btn">Edit Profile</button>
+                </div>
             </div>
         </section>
 
@@ -72,8 +80,7 @@
         </div>
         <button id="open-chat" class="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
 
-        <!-- Add this where you want the countdown to appear -->
-        <div id="trial-timer" style="margin-top:1rem; color:var(--color-primary); font-weight:bold;"></div>
+
     </main>
     <footer>
         <p>&copy; 2025 On The Spot. All rights reserved.</p>
@@ -82,5 +89,36 @@
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>    
     <script src="chat.js"></script>
     <script src="profile.js"></script>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal" id="close-edit-profile">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form" enctype="multipart/form-data">
+                <label>
+                    Phone Number:
+                    <input type="tel" name="phone" id="edit-phone" />
+                </label>
+                <label>
+                    Website:
+                    <input type="url" name="website" id="edit-website" />
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" id="edit-email" />
+                </label>
+                <label>
+                    Socials (comma separated):
+                    <input type="text" name="socials" id="edit-socials" placeholder="twitter.com/..., linkedin.com/..." />
+                </label>
+                <label>
+                    Profile Picture:
+                    <input type="file" name="avatar" id="edit-avatar" accept="image/*" />
+                </label>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
