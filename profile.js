@@ -27,43 +27,72 @@ document.addEventListener('DOMContentLoaded', function() {
             : '';
     }
 
-    // Fetch all users (for connections and viewing other profiles)
-    fetch(`${API_BASE}/api/users`, {
+    // Always check session validity first
+    fetch(`${API_BASE}/api/profile`, {
         headers: { 'Authorization': 'Bearer ' + token }
     })
-    .then(res => res.json())
-    .then(users => {
-        // If viewing another user's profile
-        let user;
-        if (emailParam) {
-            user = users.find(u => u.email === emailParam);
-            if (user) {
-                renderProfileHeader(user);
-                renderProfile(user, users, true);
-            } else {
-                mainEl.innerHTML = '<section class="profile-section"><p>User not found.</p></section>';
-            }
-        } else {
-            // Fetch current user's profile
-            fetch(`${API_BASE}/api/profile`, {
-                headers: { 'Authorization': 'Bearer ' + token }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (!data.success) {
-                    mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
-                    return;
-                }
-                const user = data.user;
-                renderProfileHeader(user);
-                renderProfile(user, users, false);
-                updateTrialTimer(user.trialEndsAt);
-                localStorage.setItem('ots_user', JSON.stringify(user));
-            })
-            .catch(() => {
-                mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
-            });
+    .then(async res => {
+        if (!res.ok) throw new Error('Session expired');
+        return res.json();
+    })
+    .then(data => {
+        if (!data.success || !data.user) {
+            mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
+            return;
         }
+        // Now fetch all users (for connections and viewing other profiles)
+        fetch(`${API_BASE}/api/users`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(res => {
+            console.log("Fetched /api/users, status:", res.status);
+            return res.json();
+        })
+        .then(users => {
+            console.log("Users array:", users);
+            let user;
+            if (emailParam) {
+                user = users.find(u => u.email === emailParam);
+                console.log("Found user for emailParam:", user);
+                if (user) {
+                    renderProfileHeader(user);
+                    renderProfile(user, users, true);
+                } else {
+                    mainEl.innerHTML = '<section class="profile-section"><p>User not found.</p></section>';
+                }
+            } else {
+                fetch(`${API_BASE}/api/profile`, {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                })
+                .then(async res => {
+                    console.log("Fetched /api/profile, status:", res.status);
+                    if (!res.ok) {
+                        throw new Error('Session expired');
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    console.log('Profile API response:', data);
+                    if (!data.success) {
+                        mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
+                        return;
+                    }
+                    const user = data.user;
+                    renderProfileHeader(user);
+                    renderProfile(user, users, false);
+                    updateTrialTimer(user.trialEndsAt);
+                    localStorage.setItem('ots_user', JSON.stringify(user));
+                })
+                .catch((err) => {
+                    console.error("Error fetching /api/profile:", err);
+                    mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
+                });
+            }
+        })
+        .catch((err) => {
+            console.error("Error fetching /api/users:", err);
+            mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';
+        });
     })
     .catch(() => {
         mainEl.innerHTML = '<section class="profile-section"><p>Session expired. Please <a href="login.html">log in</a> again.</p></section>';

@@ -194,7 +194,7 @@ app.get('/api/profile', authenticateToken, async (req, res) => {
 });
 
 // Make users endpoint public
-app.get('/api/users', authenticateToken, async (req, res) => {
+app.get('/api/users', async (req, res) => {
     const users = await User.find().populate('connections', 'name email type');
     res.json(users);
 });
