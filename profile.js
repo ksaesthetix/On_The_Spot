@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('profile-phone').textContent = user.phone || '';
         document.getElementById('profile-website').innerHTML = user.website
             ? `<a href="${user.website}" target="_blank">${user.website}</a>` : '';
-        document.getElementById('profile-email').textContent = user.email || '';
+        //document.getElementById('profile-email').textContent = user.email || '';
         document.getElementById('profile-socials').innerHTML = Array.isArray(user.socials)
             ? user.socials.map(s => `<a href="${s}" target="_blank">${s}</a>`).join(', ')
             : '';
