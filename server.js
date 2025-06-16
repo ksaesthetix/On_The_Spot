@@ -29,6 +29,40 @@ const io = new Server(server, {
 
 const PORT = process.env.PORT || 5000;
 
+// --- Place this BEFORE any express.json() or bodyParser.json() ---
+app.use('/webhook', express.raw({type: 'application/json'}));
+
+// Stripe webhook endpoint
+app.post('/webhook', async (req, res) => {
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    const sig = req.headers['stripe-signature'];
+    let event;
+    try {
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+    } catch (err) {
+        console.error("Webhook signature error:", err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+    console.log("Received Stripe event:", event.type);
+    if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+        // Use customer_details.email as customer_email is null in new API
+        const customerEmail = session.customer_email || (session.customer_details && session.customer_details.email);
+        console.log("Session completed for email:", customerEmail);
+        if (customerEmail) {
+            const result = await User.findOneAndUpdate(
+                { email: customerEmail },
+                { $set: { hasPaid: true }, $unset: { trialEndsAt: "" } }
+            );
+            console.log("User update result:", result);
+        } else {
+            console.log("No customer_email in session!");
+        }
+    }
+    res.json({received: true});
+});
+
+// JSON and body parser middleware
 app.use(express.json({ limit: '5mb' }));
 app.use(bodyParser.json({ limit: '5mb' }));
 
@@ -399,30 +433,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
         console.error(err);
         res.status(500).json({ error: 'Failed to create checkout session' });
     }
-});
-
-// Add at the top:
-app.use('/webhook', express.raw({type: 'application/json'}));
-app.post('/webhook', async (req, res) => {
-    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-    const sig = req.headers['stripe-signature'];
-    let event;
-    try {
-        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-    } catch (err) {
-        return res.status(400).send(`Webhook Error: ${err.message}`);
-    }
-    if (event.type === 'checkout.session.completed') {
-        const session = event.data.object;
-        const customerEmail = session.customer_email;
-        if (customerEmail) {
-            await User.findOneAndUpdate(
-                { email: customerEmail },
-                { $set: { hasPaid: true }, $unset: { trialEndsAt: "" } }
-            );
-        }
-    }
-    res.json({received: true});
 });
 
 // Socket.io connection
