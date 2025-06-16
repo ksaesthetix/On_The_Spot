@@ -17,7 +17,9 @@ const io = new Server(server, {
     cors: {
         origin: [
             "https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev",
-            "https://ksaesthetix.github.io"
+            "https://ksaesthetix.github.io",
+            'http://www.onthespot.marketing', // <-- add this line
+            'https://www.onthespot.marketing' 
         ],
         methods: ["GET", "POST"],
         credentials: true
@@ -31,7 +33,9 @@ app.use(bodyParser.json({ limit: '5mb' }));
 
 const allowedOrigins = [
   'https://ksaesthetix.github.io',
-  'https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev'
+  'https://ideal-adventure-gpx467pq6v6f94p6-5501.app.github.dev',
+  'http://www.onthespot.marketing', // <-- add this line
+  'https://www.onthespot.marketing' 
 ];
 
 app.use(cors({
