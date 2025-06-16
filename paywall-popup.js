@@ -56,7 +56,7 @@
         document.body.appendChild(overlay);
 
         document.getElementById('paywall-pay-btn').onclick = function() {
-            window.location.href = 'https://buy.stripe.com/test_3cI6oAcZB4It3O9alvcbC00';
+            window.location.href = 'https://buy.stripe.com/fZufZhbe3bku0UE19LeME00';
         };
 
         // Prevent closing the popup by clicking outside or pressing Esc
