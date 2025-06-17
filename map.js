@@ -413,4 +413,17 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         fetchAndRenderUserEvents();
     }
+
+    // Modal logic for Add Event
+    const openBtn = document.getElementById('open-add-event-modal');
+    const modal = document.getElementById('add-event-modal');
+    const closeBtn = document.getElementById('close-add-event-modal');
+
+    if (openBtn && modal && closeBtn) {
+        openBtn.onclick = () => { modal.style.display = 'block'; };
+        closeBtn.onclick = () => { modal.style.display = 'none'; };
+        window.onclick = function(event) {
+            if (event.target === modal) modal.style.display = 'none';
+        };
+    }
 });
