@@ -7,6 +7,7 @@ let allVendors = [];
 let hostEventsMap = {};
 let map, vendorMarkers = [], infoWindows = [];
 let directionsService, directionsRenderer;
+window.userEventMarkers = [];
 
 // Google Maps initialization (must be global)
 window.initGoogleMap = function() {
@@ -137,6 +138,9 @@ window.initGoogleMap = function() {
             }
         });
     }
+
+    // --- Render user events on the map (user-added events) ---
+    fetchAndRenderUserEvents();
 };
 
 function getFilteredVendors() {
@@ -277,6 +281,7 @@ window.planRoute = planRoute;
 
 function syncVendorDropdown() {
     const vendorDropdown = document.getElementById('vendor-dropdown');
+    if (!vendorDropdown) return;
     vendorDropdown.innerHTML = '<option value="">Select a vendor...</option>';
     const hostNames = Object.keys(hostEventsMap).sort();
     hostNames.forEach(name => {
@@ -383,46 +388,36 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         };
     }
-
-    // --- Render user events on the map ---
-    window.fetchAndRenderUserEvents = function() {
-        fetch(`${API_BASE}/api/user-events`)
-            .then(res => res.json())
-            .then(events => {
-                if (!window.map) return;
-                if (!window.userEventMarkers) window.userEventMarkers = [];
-                window.userEventMarkers.forEach(m => m.setMap(null));
-                window.userEventMarkers = [];
-
-                events.forEach(ev => {
-                    if (ev.lat && ev.lng) {
-                        const marker = new google.maps.Marker({
-                            position: { lat: ev.lat, lng: ev.lng },
-                            map: window.map,
-                            title: ev.name,
-                            icon: {
-                                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-                            }
-                        });
-                        marker.addListener('click', function() {
-                            new google.maps.InfoWindow({
-                                content: `<b>${ev.name}</b><br>Host: ${ev.host}<br>${ev.date_time}<br>${ev.location}`
-                            }).open(window.map, marker);
-                        });
-                        window.userEventMarkers.push(marker);
-                    }
-                });
-            });
-    };
-
-    // Fetch user events after map is initialized
-    if (window.initGoogleMap) {
-        const origInit = window.initGoogleMap;
-        window.initGoogleMap = function() {
-            origInit();
-            fetchAndRenderUserEvents();
-        };
-    } else {
-        fetchAndRenderUserEvents();
-    }
 });
+
+// --- Render user events on the map ---
+window.fetchAndRenderUserEvents = function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
+    fetch(`${API_BASE}/api/user-events`)
+        .then(res => res.json())
+        .then(events => {
+            if (!window.map) return;
+            if (!window.userEventMarkers) window.userEventMarkers = [];
+            window.userEventMarkers.forEach(m => m.setMap(null));
+            window.userEventMarkers = [];
+
+            events.forEach(ev => {
+                if (ev.lat && ev.lng) {
+                    const marker = new google.maps.Marker({
+                        position: { lat: ev.lat, lng: ev.lng },
+                        map: window.map,
+                        title: ev.name,
+                        icon: {
+                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                        }
+                    });
+                    marker.addListener('click', function() {
+                        new google.maps.InfoWindow({
+                            content: `<b>${ev.name}</b><br>Host: ${ev.host}<br>${ev.date_time}<br>${ev.location}`
+                        }).open(window.map, marker);
+                    });
+                    window.userEventMarkers.push(marker);
+                }
+            });
+        });
+};
