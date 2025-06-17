@@ -39,6 +39,7 @@
                     <select id="event-type-filter"></select>
                     <select id="date-time-filter"></select>
                     <button id="clear-filters-btn" type="button">Clear All Filters</button>
+                    <select id="vendor-dropdown"></select>
                 </div>
                 <button id="open-add-event-modal" class="add-event-btn">Add Event</button>
             </div>
@@ -79,7 +80,7 @@
           <input type="text" id="event-location" placeholder="Location" required>
           <input type="hidden" id="event-lat">
           <input type="hidden" id="event-lng">
-          <button type="submit">Add Event</button>
+          <button type="submit" id="add-event-submit-btn">Add Event</button>
         </form>
         <div id="add-event-msg"></div>
       </div>

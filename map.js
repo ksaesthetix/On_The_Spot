@@ -93,47 +93,50 @@ window.initGoogleMap = function() {
     });
 
     // Vendor dropdown
-    document.getElementById('vendor-dropdown').addEventListener('change', function(e) {
-        const hostName = e.target.value;
-        if (hostName && hostEventsMap[hostName]) {
-            const firstEvent = hostEventsMap[hostName][0];
-            map.setCenter({ lat: firstEvent.lat, lng: firstEvent.lng });
-            map.setZoom(17);
+    const vendorDropdown = document.getElementById('vendor-dropdown');
+    if (vendorDropdown) {
+        vendorDropdown.addEventListener('change', function(e) {
+            const hostName = e.target.value;
+            if (hostName && hostEventsMap[hostName]) {
+                const firstEvent = hostEventsMap[hostName][0];
+                map.setCenter({ lat: firstEvent.lat, lng: firstEvent.lng });
+                map.setZoom(17);
 
-            // Build popup with all events for this host
-            const events = hostEventsMap[hostName];
-            let popupContent = `<div style="max-width:350px;text-align:center;">`;
-            if (events[0].logo) {
-                popupContent += `<img src="${events[0].logo}" alt="${hostName}" style="width:150px;height:150px;border-radius:12px;margin-bottom:1px;object-fit:contain;"><br>`;
-            }
-            popupContent += `<h3>${hostName}</h3><ul style="padding-left:1em;text-align:left;">`;
-            events.forEach(ev => {
-                popupContent += `<li style="margin-bottom:1em;">
-                    <b>${ev.event_name}</b><br>
-                    ${ev.type || ''} ${ev.date_time ? `<br>${ev.date_time}` : ''}
-                    ${ev.location ? `<br><i>${ev.location}</i>` : ''}
-                    ${ev.description ? `<br><small>${ev.description}</small>` : ''}
-                    ${ev.url_link ? `<br><a href="${ev.url_link}" target="_blank">Event Link</a>` : ''}
-                    <br><button class="directions-btn" data-lat="${ev.lat}" data-lng="${ev.lng}">Get Directions</button>
-                </li>`;
-            });
-            popupContent += `</ul></div>`;
+                // Build popup with all events for this host
+                const events = hostEventsMap[hostName];
+                let popupContent = `<div style="max-width:350px;text-align:center;">`;
+                if (events[0].logo) {
+                    popupContent += `<img src="${events[0].logo}" alt="${hostName}" style="width:150px;height:150px;border-radius:12px;margin-bottom:1px;object-fit:contain;"><br>`;
+                }
+                popupContent += `<h3>${hostName}</h3><ul style="padding-left:1em;text-align:left;">`;
+                events.forEach(ev => {
+                    popupContent += `<li style="margin-bottom:1em;">
+                        <b>${ev.event_name}</b><br>
+                        ${ev.type || ''} ${ev.date_time ? `<br>${ev.date_time}` : ''}
+                        ${ev.location ? `<br><i>${ev.location}</i>` : ''}
+                        ${ev.description ? `<br><small>${ev.description}</small>` : ''}
+                        ${ev.url_link ? `<br><a href="${ev.url_link}" target="_blank">Event Link</a>` : ''}
+                        <br><button class="directions-btn" data-lat="${ev.lat}" data-lng="${ev.lng}">Get Directions</button>
+                    </li>`;
+                });
+                popupContent += `</ul></div>`;
 
-            infoWindows.forEach(iw => iw.close());
-            const popup = new google.maps.InfoWindow({ content: popupContent });
-            popup.open(map, vendorMarkers[allVendors.findIndex(v => v === firstEvent)]);
+                infoWindows.forEach(iw => iw.close());
+                const popup = new google.maps.InfoWindow({ content: popupContent });
+                popup.open(map, vendorMarkers[allVendors.findIndex(v => v === firstEvent)]);
 
-            google.maps.event.addListenerOnce(popup, 'domready', function() {
-                document.querySelectorAll('.directions-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const lat = parseFloat(this.getAttribute('data-lat'));
-                        const lng = parseFloat(this.getAttribute('data-lng'));
-                        planRoute(lat, lng);
+                google.maps.event.addListenerOnce(popup, 'domready', function() {
+                    document.querySelectorAll('.directions-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const lat = parseFloat(this.getAttribute('data-lat'));
+                            const lng = parseFloat(this.getAttribute('data-lng'));
+                            planRoute(lat, lng);
+                        });
                     });
                 });
-            });
-        }
-    });
+            }
+        });
+    }
 };
 
 function getFilteredVendors() {
