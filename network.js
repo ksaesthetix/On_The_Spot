@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="user-actions">
                             <a href="profile.html?user=${encodeURIComponent(user.email)}" class="user-btn view-profile" title="View Profile">Profile</a>
                             <button class="user-btn chat-btn" data-id="${user._id}" title="Chat">Chat</button>
-                            <button class="user-btn connect-btn" data-id="${user._id}" title="${isConnected ? 'Disconnect' : 'Add Connection'}">
-                                ${isConnected ? 'Disconnect' : 'Connect'}
+                            <button class="user-btn connect-btn" data-id="${user._id}" title="${isConnected ? 'Unfollow' : 'Follow'}">
+                                ${isConnected ? 'Unfollow' : 'Follow'}
                             </button>
                         </div>
                     </li>
@@ -159,9 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="user-tag">${user.type || 'Attendee'}</span>
                         <div class="user-actions">
                             <a href="${profileLink}" class="user-btn view-profile" title="View Profile">Profile</a>
-                            <button class="user-btn chat-btn" data-email="${user.email}" title="Chat">Chat</button>
-                            <button class="user-btn connect-btn" data-email="${user.email}" title="${connections.includes(user.email) ? 'Disconnect' : 'Add Connection'}">
-                                ${connections.includes(user.email) ? 'Disconnect' : 'Connect'}
+                            <button class="user-btn connect-btn" data-email="${user.email}" title="${connections.includes(user.email) ? 'Unfollow' : 'Follow'}">
+                                ${connections.includes(user.email) ? 'Unfollow' : 'Follow'}
                             </button>
                         </div>
                     </li>
@@ -247,4 +246,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return !!user._id;
     }
   })();
+});
+
+// Listen for changes to connections from other tabs/pages
+window.addEventListener('storage', function(e) {
+    if (e.key === 'ots_connections_changed') {
+        // Re-fetch connections and re-render
+        (async () => {
+            if (currentUser && currentUser._id) {
+                attendeeConnections = await fetchConnections(currentUser._id);
+            }
+            renderUserList();
+        })();
+    }
 });

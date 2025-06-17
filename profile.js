@@ -124,11 +124,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const connectionsList = document.querySelector('.connections-list');
         if (connectionsList) {
             const connections = Array.isArray(user.connections) ? user.connections : [];
-            console.log("Connections received:", user.connections);
             if (connections.length > 0) {
                 connectionsList.innerHTML = connections.map(conn => `
                     <li>
                         <span>${conn.name}</span>
+                        <button class="unfollow-btn" data-id="${conn._id}" style="margin-left:1em;">Unfollow</button>
+                        <a href="profile.html?user=${encodeURIComponent(conn.email)}" class="view-profile-btn" style="margin-left:0.5em;">View Profile</a>
                     </li>
                 `).join('');
             } else {
@@ -310,6 +311,39 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(() => {
             alert('An error occurred while updating profile.');
+        });
+    }
+
+    // Handle unfollow button in connections list
+    const connectionsList = document.querySelector('.connections-list');
+    if (connectionsList) {
+        connectionsList.addEventListener('click', async function(e) {
+            if (e.target.classList.contains('unfollow-btn')) {
+                const targetId = e.target.getAttribute('data-id');
+                // Call backend to disconnect
+                const currentUser = JSON.parse(localStorage.getItem('ots_user'));
+                if (currentUser && targetId) {
+                    await fetch(`${API_BASE}/api/disconnect`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ userId: currentUser._id, targetId })
+                    });
+                    // Refresh profile and also update localStorage
+                    fetch(`${API_BASE}/api/profile`, {
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success && data.user) {
+                            localStorage.setItem('ots_user', JSON.stringify(data.user));
+                            renderProfileHeader(data.user);
+                            renderProfile(data.user, [], false);
+                        }
+                    });
+                    // Also update network page if open in another tab
+                    localStorage.setItem('ots_connections_changed', Date.now());
+                }
+            }
         });
     }
 });
