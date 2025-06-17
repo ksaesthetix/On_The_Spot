@@ -8,6 +8,7 @@ let hostEventsMap = {};
 let map, vendorMarkers = [], infoWindows = [];
 let directionsService, directionsRenderer;
 window.userEventMarkers = [];
+window.allUserEvents = []; // Store all user events for filtering
 
 // Google Maps initialization (must be global)
 window.initGoogleMap = function() {
@@ -152,6 +153,16 @@ function getFilteredVendors() {
     );
 }
 
+// --- User Event Filtering ---
+function getFilteredUserEvents() {
+    const hostFilter = document.getElementById('user-event-host-filter')?.value || "";
+    const dateFilter = document.getElementById('user-event-date-filter')?.value || "";
+    return window.allUserEvents.filter(ev =>
+        (!hostFilter || ev.host === hostFilter) &&
+        (!dateFilter || (ev.date_time && ev.date_time.startsWith(dateFilter)))
+    );
+}
+
 function renderVendors() {
     vendorMarkers.forEach(marker => marker.setMap(null));
     vendorMarkers = [];
@@ -245,6 +256,11 @@ function renderVendors() {
             li.classList.toggle('active', li.textContent === hostName);
         });
     };
+
+    // At the end, also render user events (filtered)
+    if (typeof renderFilteredUserEvents === "function") {
+        renderFilteredUserEvents();
+    }
 }
 
 function planRoute(destLat, destLng) {
@@ -388,36 +404,65 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         };
     }
+
+    // --- User Event Filter Controls ---
+    // Populate host filter dropdown after events are loaded
+    function populateUserEventHostFilter() {
+        const select = document.getElementById('user-event-host-filter');
+        if (!select) return;
+        const hosts = [...new Set(window.allUserEvents.map(ev => ev.host))].sort();
+        select.innerHTML = '<option value="">All Hosts</option>' +
+            hosts.map(h => `<option value="${h}">${h}</option>`).join('');
+    }
+
+    // Listen for filter changes
+    const hostFilter = document.getElementById('user-event-host-filter');
+    const dateFilter = document.getElementById('user-event-date-filter');
+    if (hostFilter) hostFilter.addEventListener('change', renderFilteredUserEvents);
+    if (dateFilter) dateFilter.addEventListener('change', renderFilteredUserEvents);
+
+    // Expose for use after fetching events
+    window.populateUserEventHostFilter = populateUserEventHostFilter;
 });
 
-// --- Render user events on the map ---
+// --- Render user events on the map (filtered) ---
+function renderFilteredUserEvents() {
+    if (!window.map) return;
+    if (!window.userEventMarkers) window.userEventMarkers = [];
+    window.userEventMarkers.forEach(m => m.setMap(null));
+    window.userEventMarkers = [];
+
+    const filtered = getFilteredUserEvents();
+    filtered.forEach(ev => {
+        if (ev.lat && ev.lng) {
+            const marker = new google.maps.Marker({
+                position: { lat: ev.lat, lng: ev.lng },
+                map: window.map,
+                title: ev.name,
+                icon: {
+                    url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                }
+            });
+            marker.addListener('click', function() {
+                new google.maps.InfoWindow({
+                    content: `<b>${ev.name}</b><br>Host: ${ev.host}<br>${ev.date_time}<br>${ev.location}`
+                }).open(window.map, marker);
+            });
+            window.userEventMarkers.push(marker);
+        }
+    });
+}
+
+// --- Fetch and store all user events, then render (and update filter dropdown) ---
 window.fetchAndRenderUserEvents = function() {
     const API_BASE = 'https://on-the-spot.onrender.com';
     fetch(`${API_BASE}/api/user-events`)
         .then(res => res.json())
         .then(events => {
-            if (!window.map) return;
-            if (!window.userEventMarkers) window.userEventMarkers = [];
-            window.userEventMarkers.forEach(m => m.setMap(null));
-            window.userEventMarkers = [];
-
-            events.forEach(ev => {
-                if (ev.lat && ev.lng) {
-                    const marker = new google.maps.Marker({
-                        position: { lat: ev.lat, lng: ev.lng },
-                        map: window.map,
-                        title: ev.name,
-                        icon: {
-                            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-                        }
-                    });
-                    marker.addListener('click', function() {
-                        new google.maps.InfoWindow({
-                            content: `<b>${ev.name}</b><br>Host: ${ev.host}<br>${ev.date_time}<br>${ev.location}`
-                        }).open(window.map, marker);
-                    });
-                    window.userEventMarkers.push(marker);
-                }
-            });
+            window.allUserEvents = events;
+            if (typeof window.populateUserEventHostFilter === "function") {
+                window.populateUserEventHostFilter();
+            }
+            renderFilteredUserEvents();
         });
 };

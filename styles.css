@@ -2035,3 +2035,26 @@ main {
     min-height: 1.2em;
     text-align: center;
 }
+
+/* User Event Host Filter Dropdown */
+#user-event-host-filter {
+    display: inline-block;
+    margin: 0 0.5rem 0 0;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border-dark, #b3b3b3);
+    background: #fff;
+    color: var(--text-primary, #1A1A1A);
+    font-size: 1.08rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-soft, 0 2px 8px rgba(255, 94, 91, 0.05));
+    transition: border 0.2s, box-shadow 0.2s;
+    min-width: 160px;
+    max-width: 260px;
+}
+
+#user-event-host-filter:focus {
+    border-color: var(--color-primary, #FF5E5B);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-muted, #FCA5A5);
+}
