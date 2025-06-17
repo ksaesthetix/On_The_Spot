@@ -83,6 +83,9 @@ window.initGoogleMap = function() {
 
             renderVendors();
             syncVendorDropdown();
+
+            // Only fetch user events after map and vendors are ready
+            fetchAndRenderUserEvents();
         });
 
     // Filter events
@@ -91,6 +94,8 @@ window.initGoogleMap = function() {
     document.getElementById('clear-filters-btn').addEventListener('click', function() {
         document.getElementById('event-type-filter').selectedIndex = 0;
         document.getElementById('date-time-filter').selectedIndex = 0;
+        document.getElementById('user-event-host-filter').selectedIndex = 0;
+        document.getElementById('user-event-date-filter').value = "";
         renderVendors();
     });
 
@@ -139,10 +144,10 @@ window.initGoogleMap = function() {
             }
         });
     }
-
-    // --- Render user events on the map (user-added events) ---
-    fetchAndRenderUserEvents();
 };
+
+// --- Render user events on the map (user-added events) ---
+fetchAndRenderUserEvents();
 
 function getFilteredVendors() {
     const selectedType = document.getElementById('event-type-filter').value;
