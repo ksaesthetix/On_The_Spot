@@ -9,22 +9,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Define fetchConnections first
     async function fetchConnections(userId) {
-        const res = await fetch(`${API_BASE}/api/connections/${userId}`);
+        const token = localStorage.getItem('ots_jwt');
+        const res = await fetch(`${API_BASE}/api/connections/${userId}`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        if (!res.ok) return [];
         return await res.json();
     }
 
     // Define connect/disconnect functions first
     async function connect(userId, targetId) {
+        const token = localStorage.getItem('ots_jwt');
         await fetch(`${API_BASE}/api/connect`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
             body: JSON.stringify({ userId, targetId })
         });
     }
     async function disconnect(userId, targetId) {
+        const token = localStorage.getItem('ots_jwt');
         await fetch(`${API_BASE}/api/disconnect`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
             body: JSON.stringify({ userId, targetId })
         });
     }
@@ -59,15 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Convert hosts.json to user-like objects with unique emails
     let vendors = [];
     try {
-        // Synchronously load hosts.json (works if served locally or via server)
-        // If using a bundler or module system, adjust as needed
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'cannesfringeeventdata_with_coords.json', false); // synchronous
         xhr.send(null);
         if (xhr.status === 200) {
             const hosts = JSON.parse(xhr.responseText);
             vendors = hosts.map(v => {
-                // Determine type: use v.event_type if present, else "vendor"
                 let type = (v.event_type && v.event_type.toLowerCase() === "event") ? "Event" : "Host";
                 return {
                     ...v,
@@ -126,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         userList.innerHTML = displayedUsers.map(user => {
-            // Show only first name for attendees, full name for vendors/hosts/events
             const displayName = isAttendee(user) ? getFirstName(user.name) : user.name;
             if (isAttendee(user)) {
                 const isConnected = attendeeConnections.some(conn => conn._id === user._id);
@@ -169,7 +171,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }).join('');
     }
 
-    renderUserList();
+    // Always fetch connections from backend before rendering
+    async function refreshConnectionsAndRender() {
+        if (currentUser && currentUser._id) {
+            attendeeConnections = await fetchConnections(currentUser._id);
+        }
+        renderUserList();
+    }
+
+    // Initial render
+    await refreshConnectionsAndRender();
 
     // Handle connect/disconnect button
     userList.addEventListener('click', async function(e) {
@@ -182,8 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 await connect(currentUser._id, targetId);
             }
-            attendeeConnections = await fetchConnections(currentUser._id);
-            renderUserList();
+            await refreshConnectionsAndRender();
         }
         // Vendor connect/disconnect (local)
         if (e.target.classList.contains('connect-btn') && e.target.hasAttribute('data-email')) {
@@ -207,12 +217,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = e.target.getAttribute('data-email');
             const user = allPeople.find(u => u.email === email);
             if (user) {
-                // Store chat target for chat.js to use
                 localStorage.setItem('ots_chat_target', JSON.stringify(user));
                 document.getElementById('chat-user').textContent = `Chat with ${user.name}`;
                 document.getElementById('chat-popup').style.display = 'flex';
                 document.getElementById('chat-input').focus();
-                // Optionally, load chat history for this user
             }
         }
     });
@@ -240,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     // Helper: is this a real attendee (from backend)?
     function isAttendee(user) {
         return !!user._id;
@@ -252,11 +259,21 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('storage', function(e) {
     if (e.key === 'ots_connections_changed') {
         // Re-fetch connections and re-render
-        (async () => {
-            if (currentUser && currentUser._id) {
-                attendeeConnections = await fetchConnections(currentUser._id);
-            }
-            renderUserList();
-        })();
+        const currentUser = JSON.parse(localStorage.getItem('ots_user'));
+        if (currentUser && currentUser._id) {
+            (async () => {
+                const API_BASE = 'https://on-the-spot.onrender.com';
+                async function fetchConnections(userId) {
+                    const token = localStorage.getItem('ots_jwt');
+                    const res = await fetch(`${API_BASE}/api/connections/${userId}`, {
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                    if (!res.ok) return [];
+                    return await res.json();
+                }
+                let attendeeConnections = await fetchConnections(currentUser._id);
+                location.reload();
+            })();
+        }
     }
 });
