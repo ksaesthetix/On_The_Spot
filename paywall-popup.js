@@ -47,8 +47,9 @@
 
         popup.innerHTML = `
             <img src="images/On_The_Spot_logo3.png" alt="Logo" style="width:80px;margin-bottom:1em;">
-            <h2>Trial Ended</h2>
-            <p>Your free trial has expired.<br><strong>To continue using On The Spot, please complete your payment.</strong></p>
+            <h2>Free Trial has Ended</h2>
+            </br>
+            <p>✨ Help us make OnTheSppt even better — unlock it with a one-time payment of just £1.99! 🙌💖</strong></p>
             <button id="paywall-pay-btn" style="padding:0.7em 2em;font-size:1.1em;background:#FF5E5B;color:#fff;border:none;border-radius:8px;cursor:pointer;margin-top:1em;">Pay Now</button>
         `;
 
