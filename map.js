@@ -1,11 +1,14 @@
+// Redirect to login if not authenticated
 if (!localStorage.getItem('ots_jwt')) {
     window.location.href = 'login.html';
 }
+
 let allVendors = [];
-let hostEventsMap = {}; // { hostName: [event, event, ...] }
+let hostEventsMap = {};
 let map, vendorMarkers = [], infoWindows = [];
 let directionsService, directionsRenderer;
 
+// Google Maps initialization (must be global)
 window.initGoogleMap = function() {
     map = new google.maps.Map(document.getElementById('google-map'), {
         center: { lat: 43.5539, lng: 7.0200 },
@@ -18,15 +21,14 @@ window.initGoogleMap = function() {
         panel: document.getElementById('directions-panel')
     });
 
-    let userLocationMarker = null;
-
+    // Show user location marker
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             const userLatLng = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            userLocationMarker = new google.maps.Marker({
+            new google.maps.Marker({
                 position: userLatLng,
                 map: map,
                 title: "Your Location",
@@ -35,11 +37,10 @@ window.initGoogleMap = function() {
                     scaledSize: new google.maps.Size(40, 40)
                 }
             });
-        }, function(error) {
-            console.warn("Geolocation error:", error);
         });
     }
 
+    // Load vendor data
     fetch('cannesfringeeventdata_with_coords.json')
         .then(res => res.json())
         .then(data => {
@@ -61,16 +62,16 @@ window.initGoogleMap = function() {
                     logo: e.logo || ''
                 }));
 
-            // Group events by host name
+            // Group by host
             hostEventsMap = {};
             allVendors.forEach(ev => {
                 if (!hostEventsMap[ev.host]) hostEventsMap[ev.host] = [];
                 hostEventsMap[ev.host].push(ev);
             });
 
-            // Populate filter dropdowns (still sorted)
-            const eventTypes = [...new Set(allVendors.map(e => e.type).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-            const dateTimes = [...new Set(allVendors.map(e => e.date_time).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+            // Populate filters
+            const eventTypes = [...new Set(allVendors.map(e => e.type).filter(Boolean))].sort();
+            const dateTimes = [...new Set(allVendors.map(e => e.date_time).filter(Boolean))].sort();
             document.getElementById('event-type-filter').innerHTML =
                 '<option value="">All Types</option>' +
                 eventTypes.map(type => `<option value="${type}">${type}</option>`).join('');
@@ -82,6 +83,7 @@ window.initGoogleMap = function() {
             syncVendorDropdown();
         });
 
+    // Filter events
     document.getElementById('event-type-filter').addEventListener('change', renderVendors);
     document.getElementById('date-time-filter').addEventListener('change', renderVendors);
     document.getElementById('clear-filters-btn').addEventListener('click', function() {
@@ -89,15 +91,16 @@ window.initGoogleMap = function() {
         document.getElementById('date-time-filter').selectedIndex = 0;
         renderVendors();
     });
+
+    // Vendor dropdown
     document.getElementById('vendor-dropdown').addEventListener('change', function(e) {
         const hostName = e.target.value;
         if (hostName && hostEventsMap[hostName]) {
-            // Center map on first event for this host
             const firstEvent = hostEventsMap[hostName][0];
             map.setCenter({ lat: firstEvent.lat, lng: firstEvent.lng });
             map.setZoom(17);
 
-            // Build popup content with all events for this host, including logo if available
+            // Build popup with all events for this host
             const events = hostEventsMap[hostName];
             let popupContent = `<div style="max-width:350px;text-align:center;">`;
             if (events[0].logo) {
@@ -116,16 +119,10 @@ window.initGoogleMap = function() {
             });
             popupContent += `</ul></div>`;
 
-            // Close any open info windows
             infoWindows.forEach(iw => iw.close());
-
-            // Open a single popup at the first event's marker
-            const popup = new google.maps.InfoWindow({
-                content: popupContent
-            });
+            const popup = new google.maps.InfoWindow({ content: popupContent });
             popup.open(map, vendorMarkers[allVendors.findIndex(v => v === firstEvent)]);
 
-            // Handle directions buttons in the popup
             google.maps.event.addListenerOnce(popup, 'domready', function() {
                 document.querySelectorAll('.directions-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
@@ -154,19 +151,13 @@ function renderVendors() {
     infoWindows = [];
 
     const vendors = getFilteredVendors();
-
     const vendorListPanel = document.getElementById('vendor-list-panel');
     vendorListPanel.innerHTML = `<ul id="vendor-list"></ul>`;
     const vendorList = document.getElementById('vendor-list');
 
     vendors.forEach((v, idx) => {
-        // Use logo as marker if available, otherwise use SVG
-        // For marker icon (make logo marker bigger)
         const markerIcon = v.logo
-            ? {
-                url: v.logo,
-                scaledSize: new google.maps.Size(64, 64) // Increased from 40x40 to 64x64
-            }
+            ? { url: v.logo, scaledSize: new google.maps.Size(64, 64) }
             : {
                 url: "data:image/svg+xml;utf-8," + encodeURIComponent(`
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +175,6 @@ function renderVendors() {
             icon: markerIcon
         });
 
-        // For popup content (make logo image bigger)
         const infoWindow = new google.maps.InfoWindow({
             content: `
                 <div style="text-align:center;">
@@ -215,7 +205,6 @@ function renderVendors() {
         vendorMarkers.push(marker);
         infoWindows.push(infoWindow);
 
-        // Only show the host name in the list
         const li = document.createElement('li');
         li.textContent = v.host;
         li.addEventListener('click', () => {
@@ -251,7 +240,6 @@ function renderVendors() {
     };
 }
 
-// Expose planRoute globally
 function planRoute(destLat, destLng) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -284,16 +272,14 @@ function planRoute(destLat, destLng) {
 }
 window.planRoute = planRoute;
 
-// Only unique host names in dropdown, sorted
 function syncVendorDropdown() {
     const vendorDropdown = document.getElementById('vendor-dropdown');
     vendorDropdown.innerHTML = '<option value="">Select a vendor...</option>';
-    // Only unique host names, sorted
-    const hostNames = Object.keys(hostEventsMap).sort((a, b) => a.localeCompare(b));
+    const hostNames = Object.keys(hostEventsMap).sort();
     hostNames.forEach(name => {
         const option = document.createElement('option');
         option.value = name;
-        option.textContent = name; // Only show the host name
+        option.textContent = name;
         vendorDropdown.appendChild(option);
     });
 }
@@ -304,24 +290,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('ots_jwt');
     const form = document.getElementById('add-event-form');
     const msgDiv = document.getElementById('add-event-msg');
-    const getLocBtn = document.getElementById('get-location-btn');
+    const locationInput = document.getElementById('event-location');
     const latInput = document.getElementById('event-lat');
     const lngInput = document.getElementById('event-lng');
+    const submitBtn = document.getElementById('add-event-submit-btn');
+    const openBtn = document.getElementById('open-add-event-modal');
+    const modal = document.getElementById('add-event-modal');
+    const closeBtn = document.getElementById('close-add-event-modal');
 
-    if (getLocBtn) {
-        getLocBtn.onclick = function(e) {
-            e.preventDefault();
+    function setLocationFields(lat, lng) {
+        latInput.value = lat;
+        lngInput.value = lng;
+        locationInput.value = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
+        submitBtn.disabled = false;
+        msgDiv.textContent = "";
+    }
+
+    if (openBtn && modal && closeBtn) {
+        openBtn.onclick = () => {
+            modal.style.display = 'block';
+            locationInput.value = "Detecting your location...";
+            submitBtn.disabled = true;
+            latInput.value = "";
+            lngInput.value = "";
+            msgDiv.textContent = "";
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(pos) {
-                    latInput.value = pos.coords.latitude;
-                    lngInput.value = pos.coords.longitude;
-                    msgDiv.textContent = "Location set!";
-                    msgDiv.style.color = "green";
+                    setLocationFields(pos.coords.latitude, pos.coords.longitude);
                 }, function() {
-                    msgDiv.textContent = "Could not get your location.";
-                    msgDiv.style.color = "red";
+                    locationInput.value = "Could not get your location.";
+                    msgDiv.textContent = "Location permission is required to add an event.";
+                    submitBtn.disabled = true;
                 });
+            } else {
+                locationInput.value = "Geolocation not supported.";
+                msgDiv.textContent = "Geolocation is not supported by your browser.";
+                submitBtn.disabled = true;
             }
+        };
+        closeBtn.onclick = () => { modal.style.display = 'none'; };
+        window.onclick = function(event) {
+            if (event.target === modal) modal.style.display = 'none';
         };
     }
 
@@ -377,7 +387,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(res => res.json())
             .then(events => {
                 if (!window.map) return;
-                // Remove old user event markers if needed
                 if (!window.userEventMarkers) window.userEventMarkers = [];
                 window.userEventMarkers.forEach(m => m.setMap(null));
                 window.userEventMarkers = [];
@@ -412,54 +421,5 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     } else {
         fetchAndRenderUserEvents();
-    }
-
-    // Modal logic for Add Event
-    const openBtn = document.getElementById('open-add-event-modal');
-    const modal = document.getElementById('add-event-modal');
-    const closeBtn = document.getElementById('close-add-event-modal');
-    const locationInput = document.getElementById('event-location');
-    const latInput = document.getElementById('event-lat');
-    const lngInput = document.getElementById('event-lng');
-    const submitBtn = document.getElementById('add-event-submit-btn');
-    const msgDiv = document.getElementById('add-event-msg');
-
-    function setLocationFields(lat, lng) {
-        latInput.value = lat;
-        lngInput.value = lng;
-        // Optionally, use reverse geocoding to get a human-readable address
-        // For now, just show coordinates
-        locationInput.value = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
-        submitBtn.disabled = false;
-        msgDiv.textContent = "";
-    }
-
-    if (openBtn && modal && closeBtn) {
-        openBtn.onclick = () => {
-            modal.style.display = 'block';
-            locationInput.value = "Detecting your location...";
-            submitBtn.disabled = true;
-            latInput.value = "";
-            lngInput.value = "";
-            msgDiv.textContent = "";
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(pos) {
-                    setLocationFields(pos.coords.latitude, pos.coords.longitude);
-                }, function() {
-                    locationInput.value = "Could not get your location.";
-                    msgDiv.textContent = "Location permission is required to add an event.";
-                    submitBtn.disabled = true;
-                });
-            } else {
-                locationInput.value = "Geolocation not supported.";
-                msgDiv.textContent = "Geolocation is not supported by your browser.";
-                submitBtn.disabled = true;
-            }
-        };
-        closeBtn.onclick = () => { modal.style.display = 'none'; };
-        window.onclick = function(event) {
-            if (event.target === modal) modal.style.display = 'none';
-        };
     }
 });
