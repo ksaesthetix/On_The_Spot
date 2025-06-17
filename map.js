@@ -418,9 +418,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const openBtn = document.getElementById('open-add-event-modal');
     const modal = document.getElementById('add-event-modal');
     const closeBtn = document.getElementById('close-add-event-modal');
+    const locationInput = document.getElementById('event-location');
+    const latInput = document.getElementById('event-lat');
+    const lngInput = document.getElementById('event-lng');
+    const submitBtn = document.getElementById('add-event-submit-btn');
+    const msgDiv = document.getElementById('add-event-msg');
+
+    function setLocationFields(lat, lng) {
+        latInput.value = lat;
+        lngInput.value = lng;
+        // Optionally, use reverse geocoding to get a human-readable address
+        // For now, just show coordinates
+        locationInput.value = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
+        submitBtn.disabled = false;
+        msgDiv.textContent = "";
+    }
 
     if (openBtn && modal && closeBtn) {
-        openBtn.onclick = () => { modal.style.display = 'block'; };
+        openBtn.onclick = () => {
+            modal.style.display = 'block';
+            locationInput.value = "Detecting your location...";
+            submitBtn.disabled = true;
+            latInput.value = "";
+            lngInput.value = "";
+            msgDiv.textContent = "";
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    setLocationFields(pos.coords.latitude, pos.coords.longitude);
+                }, function() {
+                    locationInput.value = "Could not get your location.";
+                    msgDiv.textContent = "Location permission is required to add an event.";
+                    submitBtn.disabled = true;
+                });
+            } else {
+                locationInput.value = "Geolocation not supported.";
+                msgDiv.textContent = "Geolocation is not supported by your browser.";
+                submitBtn.disabled = true;
+            }
+        };
         closeBtn.onclick = () => { modal.style.display = 'none'; };
         window.onclick = function(event) {
             if (event.target === modal) modal.style.display = 'none';
