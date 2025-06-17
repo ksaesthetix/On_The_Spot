@@ -33,40 +33,25 @@
         <div id="trial-timer" style="margin:1rem 0; color:var(--color-primary); font-weight:bold;"></div>
     </header>
     <main>
-        <div id="filter-bar">
-            <select id="event-type-filter"></select>
-            <select id="date-time-filter"></select>
-            <button id="clear-filters-btn" type="button">Clear All Filters</button>
-        </div>
-                <!-- Add Event Button -->
-        <button id="open-add-event-modal" class="add-event-btn">Add Event</button>
-
-        <!-- Add Event Modal -->
-        <div id="add-event-modal" class="add-event-modal" style="display:none;">
-          <div class="add-event-modal-content">
-            <span class="add-event-close" id="close-add-event-modal">&times;</span>
-            <h3>Add a "Happening Now" Event</h3>
-            <form id="add-event-form">
-              <input type="text" id="event-name" placeholder="Event Name" required>
-              <input type="text" id="event-host" placeholder="Host" required>
-              <input type="datetime-local" id="event-date-time" required>
-              <input type="text" id="event-location" placeholder="Location" required>
-              <button type="button" id="get-location-btn">Use My Location</button>
-              <input type="hidden" id="event-lat">
-              <input type="hidden" id="event-lng">
-              <button type="submit">Add Event</button>
-            </form>
-            <div id="add-event-msg"></div>
-          </div>
-        </div>
         <section id="map-section">
-            <div id="vendor-list-panel"></div>
-            <div id="map-container">
-                <div id="google-map"></div>
+            <div id="map-controls-section">
+                <div id="filter-bar">
+                    <select id="event-type-filter"></select>
+                    <select id="date-time-filter"></select>
+                    <button id="clear-filters-btn" type="button">Clear All Filters</button>
+                </div>
+                <button id="open-add-event-modal" class="add-event-btn">Add Event</button>
             </div>
-            <div id="directions-panel"></div>
+            <div id="map-directions-wrapper">
+                <div id="vendor-list-panel"></div>
+                <div id="map-container">
+                    <div id="google-map"></div>
+                </div>
+                <div id="directions-panel"></div>
+            </div>
         </section>
-                <!-- Chat Popup -->
+
+        <!-- Chat Popup and Button (unchanged) -->
         <div id="chat-popup" class="chat-popup">
             <div class="chat-header">
                 <span id="chat-user">Chat</span>
@@ -82,6 +67,24 @@
         </div>
         <button id="open-chat" class="open-chat-btn"><i class="fa-solid fa-comment-dots"></i></button>
     </main>
+    <!-- Add Event Modal (leave outside #map-section for accessibility) -->
+    <div id="add-event-modal" class="add-event-modal" style="display:none;">
+      <div class="add-event-modal-content">
+        <span class="add-event-close" id="close-add-event-modal">&times;</span>
+        <h3>Add a "Happening Now" Event</h3>
+        <form id="add-event-form">
+          <input type="text" id="event-name" placeholder="Event Name" required>
+          <input type="text" id="event-host" placeholder="Host" required>
+          <input type="datetime-local" id="event-date-time" required>
+          <input type="text" id="event-location" placeholder="Location" required>
+          <button type="button" id="get-location-btn">Use My Location</button>
+          <input type="hidden" id="event-lat">
+          <input type="hidden" id="event-lng">
+          <button type="submit">Add Event</button>
+        </form>
+        <div id="add-event-msg"></div>
+      </div>
+    </div>
     <footer>
         <p>&copy; 2025 On The Spot. All rights reserved.</p>
     </footer>
