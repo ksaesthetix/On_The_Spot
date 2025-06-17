@@ -137,6 +137,19 @@ const chatMessageSchema = new mongoose.Schema({
 });
 const ChatMessage = mongoose.model('ChatMessage', chatMessageSchema);
 
+// --- User Event Schema ---
+const userEventSchema = new mongoose.Schema({
+    name: String,
+    host: String,
+    date_time: String,
+    location: String,
+    lat: Number,
+    lng: Number,
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    createdAt: { type: Date, default: Date.now }
+});
+const UserEvent = mongoose.model('UserEvent', userEventSchema);
+
 // JWT middleware
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
@@ -425,6 +438,25 @@ app.post('/api/create-checkout-session', async (req, res) => {
         console.error(err);
         res.status(500).json({ error: 'Failed to create checkout session' });
     }
+});
+
+// --- Add User Event Endpoint ---
+app.post('/api/user-events', authenticateToken, async (req, res) => {
+    const { name, host, date_time, location, lat, lng } = req.body;
+    if (!name || !host || !date_time || !location || lat == null || lng == null) {
+        return res.status(400).json({ success: false, message: "All fields required." });
+    }
+    const event = new UserEvent({
+        name, host, date_time, location, lat, lng, createdBy: req.user.id
+    });
+    await event.save();
+    res.json({ success: true, event });
+});
+
+// --- Get All User Events Endpoint ---
+app.get('/api/user-events', async (req, res) => {
+    const events = await UserEvent.find().sort({ createdAt: -1 });
+    res.json(events);
 });
 
 // Socket.io connection

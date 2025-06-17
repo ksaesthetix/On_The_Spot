@@ -297,3 +297,120 @@ function syncVendorDropdown() {
         vendorDropdown.appendChild(option);
     });
 }
+
+// --- User Event Submission and Rendering ---
+document.addEventListener('DOMContentLoaded', function() {
+    const API_BASE = 'https://on-the-spot.onrender.com';
+    const token = localStorage.getItem('ots_jwt');
+    const form = document.getElementById('add-event-form');
+    const msgDiv = document.getElementById('add-event-msg');
+    const getLocBtn = document.getElementById('get-location-btn');
+    const latInput = document.getElementById('event-lat');
+    const lngInput = document.getElementById('event-lng');
+
+    if (getLocBtn) {
+        getLocBtn.onclick = function(e) {
+            e.preventDefault();
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    latInput.value = pos.coords.latitude;
+                    lngInput.value = pos.coords.longitude;
+                    msgDiv.textContent = "Location set!";
+                    msgDiv.style.color = "green";
+                }, function() {
+                    msgDiv.textContent = "Could not get your location.";
+                    msgDiv.style.color = "red";
+                });
+            }
+        };
+    }
+
+    if (form) {
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            if (!token) {
+                msgDiv.textContent = "You must be logged in.";
+                msgDiv.style.color = "red";
+                return;
+            }
+            const name = document.getElementById('event-name').value.trim();
+            const host = document.getElementById('event-host').value.trim();
+            const date_time = document.getElementById('event-date-time').value;
+            const location = document.getElementById('event-location').value.trim();
+            const lat = parseFloat(latInput.value);
+            const lng = parseFloat(lngInput.value);
+
+            if (!name || !host || !date_time || !location || isNaN(lat) || isNaN(lng)) {
+                msgDiv.textContent = "All fields and location are required.";
+                msgDiv.style.color = "red";
+                return;
+            }
+
+            fetch(`${API_BASE}/api/user-events`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ name, host, date_time, location, lat, lng })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    msgDiv.textContent = "Event added!";
+                    msgDiv.style.color = "green";
+                    form.reset();
+                    latInput.value = "";
+                    lngInput.value = "";
+                    fetchAndRenderUserEvents();
+                } else {
+                    msgDiv.textContent = data.message || "Failed to add event.";
+                    msgDiv.style.color = "red";
+                }
+            });
+        };
+    }
+
+    // --- Render user events on the map ---
+    window.fetchAndRenderUserEvents = function() {
+        fetch(`${API_BASE}/api/user-events`)
+            .then(res => res.json())
+            .then(events => {
+                if (!window.map) return;
+                // Remove old user event markers if needed
+                if (!window.userEventMarkers) window.userEventMarkers = [];
+                window.userEventMarkers.forEach(m => m.setMap(null));
+                window.userEventMarkers = [];
+
+                events.forEach(ev => {
+                    if (ev.lat && ev.lng) {
+                        const marker = new google.maps.Marker({
+                            position: { lat: ev.lat, lng: ev.lng },
+                            map: window.map,
+                            title: ev.name,
+                            icon: {
+                                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                            }
+                        });
+                        marker.addListener('click', function() {
+                            new google.maps.InfoWindow({
+                                content: `<b>${ev.name}</b><br>Host: ${ev.host}<br>${ev.date_time}<br>${ev.location}`
+                            }).open(window.map, marker);
+                        });
+                        window.userEventMarkers.push(marker);
+                    }
+                });
+            });
+    };
+
+    // Fetch user events after map is initialized
+    if (window.initGoogleMap) {
+        const origInit = window.initGoogleMap;
+        window.initGoogleMap = function() {
+            origInit();
+            fetchAndRenderUserEvents();
+        };
+    } else {
+        fetchAndRenderUserEvents();
+    }
+});
