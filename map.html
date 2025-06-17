@@ -38,6 +38,21 @@
             <select id="date-time-filter"></select>
             <button id="clear-filters-btn" type="button">Clear All Filters</button>
         </div>
+                <!-- Add Event Section -->
+        <section id="add-event-section" style="margin:1em 0;">
+            <h3>Add a "Happening Now" Event</h3>
+            <form id="add-event-form">
+                <input type="text" id="event-name" placeholder="Event Name" required>
+                <input type="text" id="event-host" placeholder="Host" required>
+                <input type="datetime-local" id="event-date-time" required>
+                <input type="text" id="event-location" placeholder="Location" required>
+                <button type="button" id="get-location-btn">Use My Location</button>
+                <input type="hidden" id="event-lat">
+                <input type="hidden" id="event-lng">
+                <button type="submit">Add Event</button>
+            </form>
+            <div id="add-event-msg"></div>
+        </section>
         <section id="map-section">
             <div id="vendor-list-panel"></div>
             <div id="map-container">
